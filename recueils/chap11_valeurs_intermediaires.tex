@@ -1,0 +1,260 @@
+
+\chapter{Autour des valeurs intermédiaires}
+
+
+
+Considérons les deux questions suivantes:
+\begin{itemize}
+\item On remplit d'eau une bouteille vide d'une contenance d'un litre. Montrer qu'il existe un instant où la bouteille contient exactement un demi-litre d'eau.
+\item Un train part de Paris et arrive à Nancy une heure et demie après. Montrer qu'il existe un instant où il se trouve à exactement 100 kilomètres de Nancy.
+\end{itemize}
+
+Ces deux questions ont l'air évidentes, mais elles cachent une hypothèse sur la façon dont on modélise le mouvement du train, et le remplissage de la bouteille. Ces phénomènes sont modélisés par des fonctions mathématiques, et ces fonctions sont implicitement supposées \textbf{continues}. Ceci signifie entre autres que les valeurs ne \og sautent\fg{} pas. Dans le cas du train, cela signifie concrètement que le train n'a pas la capacité de se téléporter d'un point à un autre : son mouvement doit être \emph{continu}. Si le train pouvait se téléporter une seule fois ne serait-ce que d'un kilomètre, alors il pourrait attendre d'être à 100,5 kilomètres de Nancy, se téléporter un kilomètre plus loin, donc se retrouver brutalement à 99,5 km de Nancy puis continuer son chemin, sans jamais se trouver exactement à 100 km de Nancy. Mais ce comportement est implicitement exclu, et la distance à Nancy doit forcément valoir 100 km à un moment. (Au moins une fois: on peut en effet imaginer que le train fasse  machine arrière pour une raison quelconque, puis reparte.)
+
+C'est la même chose pour la bouteille d'eau : le remplissage est continu, et donc la quantité d'eau doit forcément passer par la valeur 0,5 L.
+
+Ce qui est implicite et assez difficile est qu'une fonction continue vérifie ce qu'on appelle la \emph{propriété des valeurs intermédiaires}. Cette affirmation constitue le \emph{théorème des valeurs intermédiaires}, que voici:
+
+\begin{mdframed}[linewidth=2]
+\begin{theoreme}[des valeurs intermédiaires]
+Soit $f : [a,b] \to \R$ une fonction continue.\\
+Soit $h\in [f(a),f(b)]$. Alors il existe $c\in [a,b]$ tel que $f(c)=h$.
+\end{theoreme}
+\end{mdframed}
+
+Malgré les apparences, ce théorème est très loin d'être évident. Sa démonstration est longue, en général admise au lycée, et nécessite au minimum la définition précise de ce qu'est la continuité (définition non donnée ici) et surtout de ce que sont vraiment les nombres réels. Ici, on \emph{admet} le théorème, l'objectif étant de se familiariser avec son utilisation dans des contextes un peu ludiques.
+
+Il est intéressant d'étudier en détail de quelle façon le théorème est appliqué dans les deux cas précédents.
+\begin{enumerate}
+\item Dans le premier cas, le théorème est appliqué avec $a=t_0$, $b=t_1$ les temps de début et d'arrêt du remplissage, et $f$ la fonction qui mesure la quantité d'eau dans la bouteille au cours du temps. On la suppose \textbf{continue}, pour les raisons expliquées plus haut. On a donc $f(t_0)=0$, et $f(t_1)=1$. Si maintenant on prend $h=0,5$ (on peut car $h$ est bien compris entre $f(a)$ et $f(b)$), le théorème affirme qu'il existe un temps $c\in[t_0,t_1]$ tel que $f(c)=0,5$, autrement dit il existe bien un moment où la bouteille est exactement remplie à la moitié. Noter qu'on aurait pu appliquer le théorème avec une autre valeur de $h$. Par exemple, il existe aussi un moment où la bouteille est remplie aux deux tiers.
+\item Dans le deuxième cas, le théorème est appliqué avec $a=t_0$ et $b=t_1$ les temps de départ et d'arrivée du train, et $f$ la distance du train à Nancy. On  suppose cette fonction \textbf{continue}, pour les raisons expliquées plus haut. La valeur $f(t_0)$ est la distance de Paris à Nancy, donc plus de 300 km : $f(t_0)\geq 300$. D'autre part, $f(t_1) = 0$ (à l'arrivée, le train est à distance $0$ de Nancy). Considérons alors $h=100$. On a bien $100 \in [f(a),f(b)]$, donc on peut appliquer le théorème des valeurs intermédiaires : il existe un temps $c$ tel que $f(c)=h=100$, autrement dit il existe un moment où le train est exactement à 100 km de Nancy.
+\end{enumerate}
+
+\hrulefill
+
+Les trois exercices suivants peuvent sembler tout autant évidents. On demande de traduire leurs énoncés en termes mathématiques, et de proposer une preuve détaillée dans un langage mathématique, en utilisant le théorème des valeurs intermédiaires et en précisant bien la manière dont on l'utilise. Autrement dit, il s'agit de préciser à quelle fonction on applique le théorème, sur quel intervalle, et de justifier un minimum la continuité de la fonction par des arguments de \og bon sens physique\fg.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Paris-Nancy]
+Un train part de Paris et arrive à Nancy une heure et demie après. Montrer qu'il existe un instant où il se trouve à exactement 300 kilomètres de Strasbourg.
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Course de voitures]
+Deux voitures s'élancent sur un circuit, la voiture $A$ étant en \og pole position\fg. Au bout d'une minute, la voiture $B$ est devant $A$.  Montrer que les deux voitures se sont croisées au moins une fois.
+\begin{comment}
+Soient $f$ et $g$ des fonctions continues  de $[0,1]$ dans $\R$. On suppose que $f(0)\leq g(0)$ et que $f(1) \geq g(1)$. Montrer qu'il existe un réel $\alpha \in [0,1]$ tel que $f(\alpha)=g(\alpha)$.
+\end{comment}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Retour à quai]
+Un même train est à quai en gare de Nancy à 8h ainsi qu'à 18h. Entre-temps, on ne sait pas ce qu'a fait le train mais il n'a pu se déplacer que sur la voie ferrée que l'on peut assimiler à une ligne droite. Montrer qu'entre 8h et 18h, il y a deux autres moments où le train était exactement au même endroit (pas forcément la gare).
+\begin{comment}
+Soit $f : [0,1] \to \R$ une fonction continue vérifiant $f(0)=f(1)$. Montrer qu'il existe $a$ et $b$ distincts dans $]0,1[$ tels que $f(a)=f(b)$.
+\end{comment}
+\end{exo}
+
+%\etoile
+
+Les exercices qui suivent demandent d'appliquer le théorème à plusieurs fonctions, ou de manière astucieuse.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Point fixe]
+Soit $f : [0,1] \to [0,1] $ une fonction continue. Montrer qu'elle admet un \textbf{point fixe}, autrement dit montrer qu'il existe un réel $\alpha \in [0,1]$ tel que $f(\alpha)=\alpha$.
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Borsuk-Ulam en dimension un]
+% Maxime Bourrigan, "question du jeudi 57" sur culturemath
+%Un avion survole un circuit parfaitement circulaire, en s'assurant de terminer sa trajectoire exactement là où il l'avait commencée. Autrement dit, sa trajectoire décrit une courbe fermée dans l'espace qui se projette sur un cercle au sol.
+Une voiture  parcourt un circuit parfaitement circulaire. Montrer qu'il existe deux points  diamétralement opposés du circuit qui sont à la même altitude. 
+\begin{sol}
+C'est un cas particulier du théorème de Borsuk-Ulam en dimension un, mais ce théorème est beaucoup plus difficile que le TVI. Montrons le résultat demandé en utilisant uniquement le TVI.
+
+On note $h$ l'altitude de l'avion, en fonction du point au sol (ce n'est pas le temps, c'est l'abscisse curviligne  de la projection au sol de sa trajectoire, en d'autres termes c'est l'angle $\theta$ qui paramètre le cercle.)
+
+On a donc $h(0)=0$ et $h(2\pi)=0$. On peut regarder $g(\theta)=h(\theta)-h(\theta+\pi)$, définie sur $[0,\pi]$. 
+
+On a $g(0)=h(0)-h(\pi)$, et $g(\pi)=h(\pi)-h(\pi-\pi) = -g(0)$.
+
+Donc si $g(0)=0$, cela signifie que $h(0=h(\pi)$. Sinon, la fonction $g$ doit s'annuler entre $0$ et $\pi$, en u certain angle $\theta$. On a donc $g(\theta)=0=h(\theta)-h(\theta+\pi)$, autrement dit $h(\theta)=h(\theta+\pi)$.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Même heure, même endroit]
+Aline part de chez elle à huit heures du matin. Après une longue journée de travail, elle quitte son lieu de travail à huit heures du soir et rentre chez elle par le même chemin qu'à l'aller.
+
+Montrer que sur le chemin du retour, il y aura au moins un moment où sa montre (à aiguilles) indiquera la même heure qu'au même endroit le matin, c'est-à-dire qu'Aline sera exactement au même endroit que douze heures plus tôt.
+
+(Précisions : le trajet peut prendre plus ou moins longtemps à l'aller qu'au retour, et Aline peut même faire des pauses voire même revenir ponctuellement sur ses pas. Il suffit juste qu'elle emprunte le même chemin à l'aller et au retour.)
+\begin{sol}
+
+C'est l'exercice 21 de Deslandes et Deslandes, qui donnent la correction suivante :
+
+\begin{quote}
+On trace un graphe de la distance au domicile d'Aline en fonction du temps, en superposant le graphe pour l'aller et celui pour le retour, en alignant les abscisses sur $8$ heures du matin et du soir.
+
+On voit que les deux graphes doivent forcément se croiser à un moment.
+\end{quote}
+
+Précisons un peu l'argument : on a une fonction $d$ qui est la position d'Aline au cours du temps. On sait juste que $d(8)=0$ et $d(20)=1$ (si le lieu de travail est à 1km), et que la fonction est $24$-périodique.
+
+On peut regarder la fonction $f(t)=d(t)-d(t+12)$. Cette fonction vaut $-1$ en $t=8$, et $1$ en $t=20$ Elle s'annule donc entre $8$ et $20$, à un instant $t_0$. À cet instant, on a donc $0=g(t_0)=d(t_0)-d(t_0+12)$, donc $d(t_0)=d(t_0+12)$ : Aline se trouve exactement au même endroit que $12$h plus tard.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Randonnée]
+Des amis font une randonnée en montagne (ne jamais partir seul(e) en randonnée!).
+%Pour calculer le dénivelé effectué, ils utilisent un altimètre qui enregistre en continu leur altitude.
+La randonnée est une boucle qui dure trois heures.
+Montrer qu'à un certain moment, ils sont exactement à la même altitude qu'une heure auparavant.
+\begin{hint}
+Il s'agit bien d'une heure, et pas d'une heure et demie. Ce n'est donc pas exactement le même exercice que les précédents.
+\end{hint}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Une généralisation]
+%Cet exercice est une généralisation du précédent.
+Soit $h : [0,1]\to \R$ une fonction continue avec $h(0)=h(1)$, et $n\in \N^*$ un entier. Montrer qu'il existe $a$ tel que $h(a)=h(a+1/n)$. L'énoncé plus haut est le cas particulier $n=3$.
+
+\begin{sol}
+On regarde $h(1)$, $h(2)$, $h(3)$. Si toutes les valeurs sont identiques (ou même si deux sont identiques), c'est bon. Sinon, on prend le max ou le min, qui ne soit pas $h(0)=h(3)$.
+
+Ceci correspond à un temps $t$ différent de $0$ et de $3$. Alors, on regarde la fonction $h(t-1)-h(t)$ sur $[t,t+1]$. Cette fonction change de signe, elle s'annule donc.
+
+\begin{remarque}
+On peut se demander si la fraction $1/n$ ne pourrait pas être remplacée par une fraction quelconque. Ce qui suit montre que non.
+
+Soit $h : [0,1] \to \R$ une fonction continue avec $h(0)=h(1)$. Montrer qu'il n'existe pas forcément de réel $a\in [0,1]$ tel que $h(a)=h(a+\frac25)$. (En trouvant un exemple de fonction $h$ qui ne satisfait pas la condition.)
+\end{remarque}
+\end{sol}
+\end{exo}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Même température dans une salle]
+Montrer que dans la salle de conférences de l'IECL il existe à chaque instant deux points distincts où la température est la même. Même question pour une infinité de points.
+\begin{sol}
+Considérons deux points distincts $A$ et $B$. Soit ils sont à la même température et c'est gagné, soit non. Dans ce cas, notons $a$ et $b$ les deux températures, et on suppose que $a<b$. Soit $c\in ]a,b[$. Pour tout chemin continu reliant les points $A$ et $B$, il existe un point sur ce chemin à température $c$. Il suffit de considérer deux chemins entre $A$ et $B$ n'ayant aucun point en commun à part leurs extrémités.
+
+Bien sûr, pour une température donnée il existe en général une infinité de points à cette température (une ligne de niveau de la température)...
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Antipodes]
+% Deslandes 41
+Montrer que sur la Terre il existe à chaque instant deux endroits du globe diamétralement opposés où la température est la même. (En fait, montrer qu'il existe une infinité de tels couples de points.)
+% on utilise l'exo sur une fonction du cercle dans R en fait : sur chaque grand cercle, on peut trouver un tel couple.
+
+
+\begin{sol}
+En fait on peut prouver plus que ce qui est demandé. Rappelons d'abord qu'un grand cercle est un cercle tracé sur le globe, dont le centre est le centre du globe. Par exemple, un méridien est un grand cercle (mais pas un parallèle). L'équateur est aussi un grand cercle.
+
+On peut alors prouver le résultat suivant : tout grand cercle $\mathcal C$ possède deux points diamétralement opposés (et donc diamétralement opposés sur le globe), où la température est la même.
+
+\end{sol}
+% Par contre pour même température ET pression (Borsuk-Ulam), là c'est hors de portée.
+\end{exo}
+
+% pour une fonction d'un cercle, peut-on trouver deux points à un écart quelconque fixé où la température est la même ? deux points sans contraintes ? Trois points ?
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Le Périph']
+
+Le boulevard périphérique de Paris (ou \og Périph'\fg{}) est une voie rapide qui fait le tour de la ville de façon plus ou moins circulaire.
+%On dit que deux points distincts de cette voie sont \og opposés\fg{} si la droite qui les relie passe par la tour Eiffel. (D'autre part, on suppose que toute droite passant par la tour Eiffel coupe la voie en exactement deux points.)
+%Montrer qu'il existe deux points opposés du Périph' qui sont à la même distance de la tour Eiffel.
+Montrer qu'il existe une droite passant par la tour Eiffel et coupant le Périph' en deux points équidistants de la tour Eiffel.
+%On considère $\mathcal C$ une courbe de Jordan, c'est-à-dire une courbe continue, fermée (les points de départ et d'arrivée sont les mêmes), et simple (la courbe ne passe jamais deux fois au même endroit. On suppose de plus que la courbe est telle qu'il existe un point $O$ à l'intérieur vérifiant la condition suivante : toute droite passant par $O$ coupe la courbe en exactement deux points.
+
+%Pour chaque droite contenant $O$, on considère les deux distances aux deux points d'intersection à la courbe. Montrer qu'il existe une droite telle que ces deux distances soient égales.
+
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.48,0.34) rectangle (2.36,3.72);
+\draw [rotate around={3.6592815186608014:(0.02,1.95)},line width=2.pt] (0.02,1.95) ellipse (1.9850721454404934cm and 0.9848915791109801cm);
+\draw [domain=-2.48:2.36] plot(\x,{(--3.8912--2.08*\x)/1.44});
+\draw [domain=-2.48:2.36] plot(\x,{(--0.3196--1.56*\x)/-0.7});
+\draw [domain=-2.48:2.36] plot(\x,{(-1.8576--0.76*\x)/-1.72});
+\draw (-1.954031835725558,1.9434094157857116)-- (-0.86,1.46);
+\draw (-1.402655202657211,1.7981722369526172) -- (-1.4754046953549802,1.6335286482155602);
+\draw (-1.3386271403705776,1.7698807675701511) -- (-1.4113766330683468,1.6052371788330941);
+\draw (-0.86,1.46)-- (0.22836601251291835,0.9790940874942915);
+\draw (-0.3114562785379728,1.316014572806907) -- (-0.3842057712357421,1.1513709840698498);
+\draw (-0.2474282162513394,1.287723103424441) -- (-0.3201777089491087,1.1230795146873838);
+\begin{scriptsize}
+\draw[color=black] (-0.54,3.22) node {$\mathcal C$};
+\draw [fill=qqqqff] (-0.86,1.46) circle (2.5pt);
+\draw[color=qqqqff] (-0.88,1.96) node {$O$};
+\draw [fill=uuuuuu] (-1.954031835725558,1.9434094157857116) circle (1.5pt);
+\draw [fill=uuuuuu] (0.22836601251291835,0.9790940874942915) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\begin{sol}
+Il y a aussi la preuve où on considère la symétrie centrale de centre $O$ et on regarde l'image de la courbe : Les points d'intersection conviennent (mais il faut montrer qu'ils existent...)
+
+Autre formulation de l'exercice  : Soit $f$ une fonction continue du cercle dans $\R$. Montrer qu'il existe deux points du cercle diamétralement opposés ayant la même image.
+
+On peut formuler ça par exemple avec la distance d'un point du cercle à un point du plan donné (mais c'est résoluble directement de façon géométrique, on prend la médiatrice), ou bien une température ou autre chose etc etc.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Table branlante]
+On pose une table à quatre pieds sur un sol cabossé. Montrer qu'il est possible de tourner la table jusqu'à ce que les quatre pieds soient au contact du sol !
+% https://divisbyzero.com/2008/09/11/wobbly-tables-and-the-intermediate-value-theorem/
+% vidéo : https://www.youtube.com/watch?v=OuF-WB7mD6k
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Partage sans envie et équitable]
+Plusieurs convives (au nombre de $n$) doivent se partager une bûche de Noël. Ils ne valorisent pas de la même manière toutes les parties de la bûche (extrémités, décoration, proportion de glaçage, de fruits etc). 
+
+Un partage est dit \textbf{sans envie} si personne n'a envie d'avoir une autre part que la sienne. Un partage est dit \textbf{équitable} si tout le monde est convaincu que toutes les parts distribuées sont équivalentes.
+
+Le but de l'exercice est de présenter des façons d'obtenir des partages sans envie et équitables pour deux personnes, que l'on appellera Anne et Bruno.
+
+
+\begin{enumerate}
+\item Partage sans envie, avec un couteau.
+\begin{enumerate}
+\item  Anne place le couteau à l'extrémité gauche de la bûche et le déplace progressivement vers la droite jusqu'à atteindre l'autre extrémité. Montrer qu'à un moment, elle considère que les deux parts ont la même valeur.
+\item Si Anne coupe la bûche à cet endroit et que  Bruno choisit celle des deux parts qu'il désire, montrer qu'on obtient un partage sans envie, mais qu'il n'est pas forcément équitable.
+\end{enumerate}
+\item Partage équitable, avec deux couteaux.
+\begin{enumerate}
+\item Cette fois, Anne utilise deux couteaux, qu'elle prend chacun dans une main. elle place le couteau droit à l'emplacement où elle juge que le partage est équilibré (toujours d'après ses critères). Elle déplace alors progressivement le couteau droit vers la droite. Montrer qu'à tout moment, elle peut placer le couteau gauche de façon à ce qu'elle considère que la part entre les deux couteaux vaut la moitié du gâteau. On suppose qu'elle arrive à évaluer cette valeur et à positionner instantanément le couteau gauche, de sorte qu'elle bouge simultanément les deux couteaux vers la droite, en étant en permanence persuadée que la part entre les deux couteaux vaut la moitié du gâteau.
+\item Montrer qu'à (au moins) un moment, Bruno pense lui aussi que la part entre les deux couteaux vaut la moitié du gâteau, suivant ses critères à lui. Il dit \og stop\fg{} et prend cette part. Montrer qu'on obtient alors un partage équitable.
+\end{enumerate}
+\item Partage équitable, avec un couteau. Le gâteau peut maintenant être coupé dans n'importe quelle direction. 
+\begin{enumerate}
+\item Pour tout choix de direction, montrer qu'Anne peut couper le gâteau de façon équitable suivant ses critères. (La direction de la coupe est fixée mais on peut \og décaler\fg{} le couteau.)
+\item Anne fait alors tourner le couteau au-dessus du gâteau jusqu'à lui faire faire un demi-tour complet, mais en prenant soin de toujours positionner le couteau de façon juger le partage équitable. Montrer qu'à un moment, Bruno trouve lui aussi que la partage est équitable suivant ses propres critères. On obtient ainsi un partage équitable pour les deux, avec une seule coupe.
+\end{enumerate}
+\item Réfléchir à d'autres procédures pour aboutir à des partages sans envie ou équitables à trois personnes ou plus.
+\end{enumerate}
+% https://en.wikipedia.org/wiki/Moving-knife_procedure
+% https://en.wikipedia.org/wiki/Austin_moving-knife_procedures
+\end{exo}

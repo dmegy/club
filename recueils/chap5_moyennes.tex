@@ -1,0 +1,536 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Moyennes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Vitesse moyenne] Un cycliste roule dix minutes à $5$m$/$s, puis dix autres minutes à $4$m$/$s. Quelle est sa vitesse moyenne, autrement dit quelle est la vitesse $v$ qui permet de parcourir la même distance en autant de temps ?
+
+\begin{hint} % Regine 21/03/18
+On rappelle que $v=d/t$. Essayer d'exprimer la distance totale parcourue de deux manières. 
+\end{hint} 
+
+\begin{sol} % Regine 21/03/18
+Pendant les dix premières minutes, le cycliste parcourt une distance égale à $5t$ (ce qui fait trois kilomètres), et pendant les dix minutes suivantes, il parcourt une distance de $4t$. Au total, il parcourt donc une distance de $(4+5)t$ en un temps $2t$, donc sa vitesse moyenne est de $(4+5)/2$, c'est-à-dire $4,5$ mètres par seconde.
+
+On peut résoudre le problème de façon générale. 
+Notons $d_1$, $t_1$ et $v_1$ la distance, le temps et la vitesse correspondant au premier tronçon, $d_2$, $t_2$ et $v_2$ la distance, le temps et la vitesse correspondant au second tronçon, et $d$, $t$ et $v$ la distance, le temps et la vitesse correspondant au trajet total. On~a 
+\begin{align*}
+d & = d_1 + d_2 = v_1t_1+t_2v_2, \\
+& = vt=v(t_1+t_2);\\
+\text{ donc } v & = \frac{v_1t_1+t_2v_2}{t_1+t_2}.
+\end{align*}
+\end{sol}
+
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Pourcentage moyen]
+Une ville voit sa population augmenter de $40\%$ en un siècle, puis encore augmenter de $60\%$ le siècle suivant. Quel est le pourcentage moyen d'augmentation de la population par siècle ?
+
+\begin{hint} % Regine 21/03/18
+Augmenter de $x\%$ est la même chose qu'être multiplié par $\displaystyle \left( 1+\frac{x}{100} \right)$. \\
+Essayer d'écrire de deux manières la population après deux siècles.
+\end{hint}
+
+\begin{sol} % Regine 21/03/18
+La population est multipliée par $1,4$ puis par $1,6$. On cherche un nombre $p$ tel que multiplier deux fois de suite par $p$ revient à multiplier par $1,4$ puis par $1,6$. Le résultat cherché est donc $p=\sqrt{1,4\times 1,6}$, et en particulier moins de $1,5$ puisque $1,5^2=2,25$.
+
+On peut résoudre le problème de façon générale. 
+Notons $N_0$ la taille de la population initiale, $N_1$ la taille de la population après un siècle, $N_2$ la taille de la population après deux siècles. Notons $r_1=N_1/N_0$ et $r_2=N_2/N_1$: on a
+$$N_2=r_2N_1=r_2r_1N_0.$$
+Si on suppose que l'augmentation est constante $\displaystyle r=\frac{N_1}{N_0}=\frac{N_2}{N_1}$, 
+\begin{align*}
+N_2 &= rN_1=r^2N_0, \\
+\text{ donc } r & =\sqrt{r_1r_2}.
+\end{align*}
+
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Intensité moyenne]
+Quand une résistance est traversée par un courant électrique, elle dissipe de l'énergie: ça chauffe !
+D'après le cours de physique, l'énergie dissipée par une résistance $R$ traversée par un courant d'intensité $I$ pendant un temps $t$ est $E=tRI^2$.
+
+On applique un certain courant d'intensité $I_1$ au bornes d'une résistance $R$ pendant une minute, puis un courant d'intensité $I_2$ pendant une autre minute. 
+
+Quelle est \og l'intensité moyenne \fg{} $I_{moy}$ qui, appliquée aux bornées de la résistance pendant deux minutes, aurait dissiper la même énergie ?
+
+\begin{hint} % Regine 21/03/18
+Essayer d'écrire de deux manières l'énergie totale dissipée.
+\end{hint}
+
+\begin{sol} % Regine 21/03/18
+Notons $t=60$ (secondes). Dans la suite on écrit simplement $I$ au lieu de $I_{moy}$ pour alléger les notations.
+
+Pendant la première minute, la résistance dégage en permanence une puissance de $RI_1^2$ Watts, donc l'énergie totale est $tRI_1^2$. Durant la deuxième minute, c'est $tRI_2^2$.
+Si on applique la même intensité $I$ pendant deux minutes, l'énergie dégagée est $2tRI^2$. En identifiant les deux quantités, on obtient $I = \sqrt{\frac{I_1^2+I_2^2}{2}}$.
+
+On peut résoudre le problème de façon générale. Notons $t_1$ la durée de la première étape, $E_1$ l'énergie dissipée pendant $t_1$, $t_2$ la durée de la deuxième étape, et $E_2$ l'énergie dissipée pendant $t_2$, alors l'énergie totale dissipée $E$ vaut:
+\begin{align*}
+E &= E_1+E_2= t_1 R I_1^2 + t_2 R I_2^2= R (t_1 I_1^2 + t_2 I_2^2), \\
+& = (t_1+t_2)RI^2, \\
+\text{ donc } I & =\sqrt{\frac{t_1I_1^2 + t_2I_2^2}{t_1+t_2}}.
+\end{align*}
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Une autre vitesse moyenne]
+Un cycliste met $15$ minutes à se rendre à un point et à en revenir. Sa vitesse est de $5$m$/$s à l'aller  et de $4$m$/$s au retour. Quelle est sa vitesse moyenne ?
+
+\begin{hint} % Regine 21/03/18
+Essayer d'écrire de deux manières la durée totale du trajet.
+\end{hint}
+
+\begin{sol}
+Notons $d$ la distance entre les deux points. Le cycliste met donc $d/5$ secondes à atteindre le point et $d/4$ à revenir, donc on a 
+\[ \frac{d}{5}+\frac{d}{4}=15\times 60,
+\text{ c'est-à-dire }
+d=\frac{15\times 60}{\frac15+\frac14} = \frac{15\times 60\times 20}{9},
+\]
+c'est-à-dire deux kilomètres.
+
+Pour faire l'aller-retour à la même vitesse et mettre $t=15$ minutes, la vitesse doit donc être $v=\frac{2d}{t}=\frac{2}{\frac15+\frac14} = \frac{40}{9}\sim 4,444...$ mètres par seconde.
+% la vitesse moyenne est la moyenne harmonique. Ici on a fixé que les distances parcourures soient les mêmes.
+
+On peut résoudre le problème de façon générale. Notons $t_1$ la durée de l'aller, $v_1$ la vitesse à l'aller, $t_2$ la durée du retour,  $v_2$ la vitesse au retour, et $v$ la vitesse moyenne alors la durée totale du trajet $t$ vaut:
+\begin{align*}
+t &= t_1+t_2=\frac{d}{v_1}+\frac{d}{v_2}, \\
+& = \frac{2d}{v}, \\
+\text{ donc } \frac1v & =\frac12 \left( \frac1{v_1}+\frac1{v_1} \right).
+\end{align*}
+\end{sol}
+\end{exo}
+
+\begin{definition}
+Soient $x$ et $y$ des réels. 
+\begin{enumerate}
+\item Leur \emph{moyenne arithmétique} est $A = \frac{x+y}{2}$.
+\item S'ils sont positifs, leur \emph{moyenne géométrique} est $G = \sqrt{xy}$.
+\item Leur \emph{moyenne quadratique} est $Q=\sqrt{\frac{x^2+y^2}{2}}$.
+\item S'ils sont strictement positifs, leur \emph{moyenne harmonique} est $H = \frac{2}{\frac1x+\frac1y}$.
+\end{enumerate}
+\end{definition}
+
+\begin{theoreme}
+Soient $x$ et $y$ des nombres strictement positifs, et soient $Q$, $A$, $G$ et $H$ leurs différentes moyennes. Alors on a les inégalités:
+\[ Q\geq A\geq G\geq H,\]
+\underline{avec égalité si et seulement si $x=y$}.
+\end{theoreme}
+
+\begin{proof}Tout est dans le dessin suivant:
+\begin{center}
+\definecolor{ccqqqq}{rgb}{0.8,0.,0.}
+\definecolor{ttqqqq}{rgb}{0.2,0.,0.}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.8cm,y=.8cm]
+\clip(-4.364353057423681,-1.696817859571808) rectangle (9.946353746425773,7.06445151170919);
+\draw[color=ttqqqq,fill=ttqqqq,fill opacity=0.1] (4.316826830589379,1.7826120347501995) -- (4.6187970975430765,1.5155012951777773) -- (4.885907837115498,1.817471562131474) -- (4.583937570161802,2.0845823017038962) -- cycle; 
+\draw[color=ttqqqq,fill=ttqqqq,fill opacity=0.1] (6.572996156161349,4.583168803337549) -- (6.738596701389288,4.215594798898685) -- (7.106170705828153,4.381195344126626) -- (6.940570160600212,4.74876934856549) -- cycle; 
+\draw[color=ttqqqq,fill=ttqqqq,fill opacity=0.1] (2.74,0.40315529181571363) -- (2.3368447081842865,0.4031552918157137) -- (2.3368447081842865,0.) -- (2.74,0.) -- cycle; 
+\draw (-3.6,0.)-- (9.08,0.);
+\draw [dash pattern=on 5pt off 5pt] (6.940570160600212,4.74876934856549)-- (9.08,0.);
+\draw [dash pattern=on 5pt off 5pt] (6.940570160600212,4.74876934856549)-- (-3.6,0.);
+\draw [line width=2.pt,color=qqqqff] (2.74,6.34)-- (6.9405701606002115,0.);
+\draw [dash pattern=on 5pt off 5pt] (2.74,0.)-- (6.940570160600212,4.74876934856549);
+\draw [line width=2.pt,color=qqwuqq] (6.9405701606002115,0.)-- (6.940570160600212,4.74876934856549);
+\draw [line width=2.pt,color=ttqqqq] (2.74,0.)-- (2.74,6.34);
+\draw (4.583937570161802,2.0845823017038962)-- (6.9405701606002115,0.);
+\draw [line width=2.pt,color=ccqqqq] (4.583937570161802,2.0845823017038962)-- (6.940570160600212,4.74876934856549);
+\draw [->,line width=1.2pt] (2.74,-0.6158227822860827) -- (-3.6,-0.6158227822860827);
+\draw [->,line width=1.2pt] (2.74,-0.6158227822860827) -- (6.940570160600212,-0.6158227822860827);
+\draw [->,line width=1.2pt] (8.045647174958546,-0.6158227822860827) -- (6.940570160600211,-0.6158227822860827);
+\draw [->,line width=1.2pt] (8.045647174958546,-0.6158227822860827) -- (9.08,-0.6158227822860827);
+\draw [shift={(2.74,0.)},dash pattern=on 5pt off 5pt]  plot[domain=0.:3.141592653589793,variable=\t]({1.*6.34*cos(\t r)+0.*6.34*sin(\t r)},{0.*6.34*cos(\t r)+1.*6.34*sin(\t r)});
+\begin{scriptsize}
+\draw [fill=uuuuuu] (2.74,0.) circle (1.5pt);
+\draw[color=qqqqff] (4.225872009428846,4.6318214042819275) node {$Q$};
+\draw[color=qqwuqq] (7.2096448755701,2.2752109877117683) node {$G$};
+\draw[color=ttqqqq] (2.2493600471441937,4.5938115588533766) node {$A$};
+\draw[color=ccqqqq] (6.031339667285019,3.3204817369969195) node {$H$};
+\draw[color=black] (1.1090646842876635,-0.8986111055722377) node {$x$};
+\draw[color=black] (7.779792556998365,-0.8415963374294113) node {$y$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+$\bullet$ $A$ est le rayon du cercle de diamètre $x+y$, donc $A=\frac{x+y}2$.
+
+$\bullet$ $Q$ est la longueur de l'hypoténuse d'un triangle rectangle dans les deux autres côtés ont pour longueurs $A$ et $A-y$. Avec le théorème de Pythagore, on obtient:
+\begin{align*}
+Q^2 & = A^2 +(A-y)^2 = \left( \frac{x+y}2\right)^2+\left( \frac{x-y}2\right)^2= \frac{x^2+y^2}2.
+\end{align*}
+
+$\bullet$ $G$ est la longueur d'un côté d'un triangle rectangle, dont l'hypoténuse est de longueur $A$ et l'autre côté de longueur $A-y$. Avec le théorème de Pythagore, on obtient:
+\begin{align*}
+A^2 & = G^2 +(A-y)^2, \\
+\text{ donc } G^2 & = A^2 - (A-y)^2= \left( \frac{x+y}2\right)^2-\left( \frac{x-y}2\right)^2=xy.
+\end{align*}
+
+$\bullet$ Notons $\theta$ \og{}l'angle entre $H$ et $G$\fg{}: cet angle est dans deux triangles rectangles, et on a:
+\begin{align*}
+\cos \theta & =\frac{H}{G}=\frac{G}{A}, \\
+\text{ donc } H & = \frac{G^2}A= \frac{xy}{\frac{x+y}2}=\frac{2}{\frac1x+\frac1y}.
+\end{align*}
+\end{proof}
+
+
+On peut définir des moyennes quadratiques, arithmétiques, géométriques et harmoniques de plus de deux nombres. Par exemple, pour trois nombres, les moyennes sont :
+\[ Q = \sqrt{\frac{x^2+y^2+z^2}{3}},
+\:
+A = \frac{x+y+z}{3},
+\:
+G = \sqrt[3]{xyz},
+\text{ et }
+H = \frac{3}{\frac1x+\frac1y+\frac1z}.\]
+On a les mêmes inégalités entre moyennes: $Q\geq A\geq G\geq H$, avec égalité ssi $x=y=z$. (Ce n'est pas immédiat à montrer. Pour $A\geq G$, appelée inégalité arithmético-géométrique, voir la preuve par \og récurrence de Cauchy\fg{} dans la feuille précédente.)
+
+% - - - - - - - - - - - - - - -
+% REMARQUE : y a-t-il une interprétation géométrique en dimension n ? Avec une sphère par exemple ?
+% - - - - - - - - - - - - - - -
+
+%Autres exos Deslandes avec les trois peintres sur les moyennes.
+\begin{center}
+$\star\quad\star\quad\star\quad$ 
+Les exercices qui suivent utilisent l'inégalité arithmético-géométrique. $\quad\star\quad\star\quad\star$
+\end{center}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Maximisation d'aire] Soit $p$ un nombre réel positif. Déterminer le ou les rectangles de périmètre égal à $p$ dont l'aire est maximale.
+
+\begin{hint}
+Introduire les longueurs $a$ et $b$ des côtés du rectangle. Essayer de traduire l'inégalité arithmético-géométrique en une inégalité faisant intervenir l'aire et le périmètre du rectangle.
+\end{hint}
+
+\begin{sol}
+Soient $a$ et $b$ les mesures des côtés du rectangle. L'aire du rectangle vaut donc: 
+\[ A=ab.\]
+ D'autre part, en  calculant le périmètre en fonction de $a$ et $b$ on obtient la contrainte :
+\[ 2(a+b)=p.\]
+Il s'agit donc de déterminer $a$ et $b$ tels que $a+b=p/2$, de telle façon à maximiser la quantité $ab$. Or, l'inégalité arithmético-géométrique donne
+\[ \sqrt ab \leq \frac{a+b}{2}, \]
+avec égalité si et seulement si $a=b$, autrement dit, en élevant au carré et en écrivant le résultat en fonction de $p$ et de $A$:
+\[ A \leq \frac{p^2}{16},\]
+avec égalité si et si $a=b$.
+
+Ceci montre que l'aire maximale est atteinte lorsque les deux côtés du rectangle sont égaux, c'est-à-dire lorsque le rectangle est un carré. Dans ce cas, le périmètre vaut $4a=4b$ et l'aire vaut $A=p^2/16 = a^2$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme et produit]
+\label{EXO:sp1}
+ %[application directe de'AM>GM]
+On considère deux réels positifs dont le produit vaut $100$. Leur somme a-t-elle une valeur minimale ou maximale et si oui la(les)quelle(s) et dans quel(s) cas?
+
+\begin{hint}
+Essayer de traduire l'inégalité arithmético-géométrique en une inégalité faisant intervenir le produit et la somme des deux nombres.
+\end{hint}
+
+\begin{sol} 
+Notons $a$ et $b$ les nombres de l'énoncé. On a $ab=100$.
+
+On voit assez vite que la somme de $a$ et $b$ peut être aussi grande que l'on veut, par exemple l'on désire avoir une somme supérieure à un million, il suffit de choisir $a=1000000$, puis  $b=\frac{1}{10000}$. Plus généralement, pour avoir une somme supérieure à un nombre arbitraire $M>0$ il suffit de prendre $a=M$ et $b=100/M$.
+
+Essayons donc de voir si la somme a une valeur minimale.
+L'inégalité arithmético-géométrique fournit :
+\[ \frac{a+b}{2}\geq \sqrt{ab}=10\]
+avec égalité si et seulement si $a=b$, donc la somme est supérieure à $20$, avec égalité si et seulement si $a=b=10$.
+\end{sol}  
+\end{exo}
+
+
+\begin{multicols}{2}
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Problème de Didon rectangulaire]
+
+Soit $\Delta$ une droite du plan et $L$ une longueur fixée.
+Parmi tous les rectangles $ABCD$ tels que $A$ et $D$ appartiennent à la droite $\Delta$ et tels que 
+\[ AB+BC+CD=L,\] lesquels sont d'aire maximale ?\footnote{La droite $\Delta$ représente le rivage, et le rectangle $ABCD$ la ville de Carthage. Le but est d'avoir la plus grande ville rectangulaire avec une longueur de remparts fixée à l'avance. Le véritable \og problème de Didon\fg{} n'impose pas à la ville d'être rectangulaire et la solution est différente.}
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{ttttff}{rgb}{0.2,0.2,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.8cm,y=.8cm]
+\clip(-4,.5) rectangle (3,4.5);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (2.,4.) -- (-3.,4.) -- (-3.,1.) -- (2.,1.) -- cycle;
+\draw [line width=2.pt,color=ttttff,domain=-4.14:2.4] plot(\x,{(--12.-0.*\x)/3.});
+\draw [color=zzttqq] (-3.,4.)-- (-3.,1.);
+\draw [color=zzttqq] (-3.,1.)-- (2.,1.);
+\draw [color=zzttqq] (2.,1.)-- (2.,4.);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-3.,4.) circle (2.5pt);
+\draw[color=qqqqff] (-2.86,4.36) node {$A$};
+\draw [fill=qqqqff] (2.,4.) circle (2.5pt);
+\draw[color=qqqqff] (2.14,4.36) node {$D$};
+\draw [fill=uuuuuu] (-3.,1.) circle (2.5pt);
+\draw[color=uuuuuu] (-2.86,1.36) node {$B$};
+\draw [fill=uuuuuu] (2.,1.) circle (2.5pt);
+\draw[color=uuuuuu] (2.14,1.36) node {$C$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\begin{hint}
+Introduire $x$, la longueur commune des côtés $AB$ et $CD$.
+\end{hint}
+
+\begin{sol}
+Appelons $x$ la longueur $AB=CD$. La longueur $BC$ vaut $L-2x$, et l'aire du rectangle $x(L-2x)$. L'inégalité arithmético-géométrique nous dit que
+$$x(L-2x) = \frac12 \times (2x)\times (L-2x) \le \frac12  \left( \frac{2x+(L-2x)}2 \right)^2=\frac{L^2}8,$$
+avec égalité si et seulement si $2x=L-2x$, c'est-à-dire $x=L/4$; dans ce cas, l'aire est maximale et vaut $L^2/8$.
+\end{sol}
+\end{exo}
+\end{multicols}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Maximisation de volume]
+Soit $A$ un nombre réel positif.
+%\begin{itemize}
+%\item
+Déterminer le ou les  parallélépipèdes dont l'aire (c'est-à-dire la somme des aires des six faces) est égale à $A$ et dont le volume est maximal.
+%\item En remplaçant les parallélépipèdes par des pyramides, octaèdres, cylindres ou des sphères, peut-on augmenter ce volume, à surface fixée ?
+%\end{enumerate}
+
+\begin{hint}
+Introduire les longueurs $a$, $b$, $c$ des côtés, exprimer l'aire des faces à l'aide de ces variables et appliquer l'inégalité arithmético-géométrique à cette expression.
+\end{hint}
+
+\begin{sol}
+Notons $a$, $b$ et $c$ les côtés du parallélépidède. Son volume $V$ est égal à $abc$, et son aire est égale à la somme des aires des six faces c'est-à-dire :
+\[ A = 2(ab+bc+ca).\]
+
+Montrons que le volume maximal est atteint lorsque $\mathcal P$ est un cube c'est-à-dire lorsque $a=b=c$. Dans ce cas, l'aire du cube est $A=6a^2$. Il s'agit donc de majorer le volume par une quantité dépendant de $A$ et maximale lorsque $a=b=c$.
+
+L'inégalité arithmético-géométrique appliquée à $a$, $b$ et $c$ ne donne pas immédiatement le résultat, mais appliquée aux trois nombres $ab$, $bc$ et $ca$, elle  donne
+ \[  \frac{ab+bc+ca}{3}  \geq \sqrt[3]{ab\cdot bc\cdot ca}=\sqrt[3]{(abc)^2}
+ \quad \text{ c'est-à-dire } \quad 
+V^{2/3} \leq 6A, \]
+ avec égalité ssi $ab=bc=ca$.
+ 
+En particulier, si $a=b=c$ (cas du cube), il y a égalité. Le volume est donc toujours inférieur ou égal au volume du cube de même aire, et donc les cubes d'aire $A$ sont une des solutions au problème.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme et produit bis]
+ %[application directe de'AM>GM]
+Soit $n>0$ un entier. On considère $n$ réels positifs dont le produit vaut  $1$. Leur somme a-t-elle une valeur minimale et si oui laquelle et dans quel(s) cas?
+
+\begin{hint}
+On a déjà fait quelque chose d'analogue dans l'exercice \ref{EXO:sp1}.
+\end{hint}
+ 
+
+\begin{sol}
+Notons $a_1$, ..., $a_n$ les nombres de l'énoncé. On a 
+\[
+a_1 a_2 \dots a_n =  \prod_{i=1}^n a_i=1.\]
+L'inégalité arithmético-géométrique fournit :
+\[ \frac{\sum_{i=1}^n a_i}{n} = \frac{a_1+..+a_n}{n}\geq \sqrt[n]{\prod_{i=1}^n a_i} = \sqrt[n]{1}=1\]
+avec égalité ssi tous les $a_i$ sont égaux. On en déduit que la somme est supérieure à $n$, avec égalité ssi tous les réels sont égaux (et donc égaux à  $1$).
+\end{sol}  
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Des boîtes]
+ %[application directe d'AM>GM]
+Un magasin vend  du café par lots de trois boîtes. Le premier type de lot est composé de trois boîtes cubiques de côté $a$, $b$ et $c$ respectivement. Le second lot est composé de trois boîtes identiques en forme de parallélépipède de dimensions $a\times b \times c$. Quel lot est-il préférable d'acheter ?
+ 
+\begin{hint}
+Exprimer les deux quantités à comparer en fonction de $a,b,c$ et l'inégalité arithmético-géométrique devrait pointer le bout de son nez...
+\end{hint}
+
+\begin{sol} 
+Il s'agit de savoir laquelle des deux quantités
+\[ 
+a^3+b^3+c^3 \quad 
+\text{ et } \quad 
+3abc
+\]
+est la plus grande.
+Or, en appliquant l'inégalité arithmético-géométrique à $a^3$, $b^3$ et $c^3$, on obtient directement:
+\[
+\frac13\left(  a^3+b^3+c^3\right)
+\geq 
+\sqrt[3]{a^3b^3c^3} = abc.
+\]
+Il est donc préférable d'acheter les trois cubes.
+\end{sol}  
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Mélange]
+ %[application directe]
+Soient $n\in \N$, $a_1$, ... $a_n$ des réels strictement positifs et $b_1$, ... $b_n$ les mêmes $n$ réels mais numérotés dans un ordre différent. Montrer que
+\[
+\frac{a_1}{b_1} + ... + \frac{a_n}{b_n} \geq n.
+\]
+ 
+ \begin{hint}
+ Rien !
+ \end{hint}
+
+\begin{sol} 
+On applique l'inégalité arithmético-géométrique aux réels $\frac{a_i}{b_i}$ ce qui donne
+\[ \frac{a_1}{b_1} + ... + \frac{a_n}{b_n}
+\geq n\sqrt[n]{\frac{a_1}{b_1} \cdot ... \cdot \frac{a_n}{b_n}}
+=n \sqrt[n]{1}=n.
+\]
+\end{sol}  
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Un produit]
+%[séparer les termes]
+Soient $a, b \in \R^*$. Montrer que $(1+a^2)(1+b^2) \geq 4ab$.
+ 
+\begin{hint}
+Appliquer l'inégalité arithmético-géométrique à chacun des facteurs du produit.
+\end{hint}
+
+\begin{sol} 
+On applique l'inégalité arithmético-géométrique à chacun des deux facteurs ce qui donne:
+\[
+(1+a^2)(1+b^2) \geq 
+(2\sqrt{a^2})(2\sqrt{b^2})
+= 4|ab| \geq  4ab.
+\]
+
+Remarque : on aurait également pu développer le membre de gauche et minorer par une seule utilisation de l'inégalité arithmético-géométrique à quatre variables:
+\[
+(1+a^2)(1+b^2) 
+=1+a^2+b^2+a^2b^2
+\geq  
+4\sqrt[4]{a^2b^2a^2b^2} =4\sqrt[4]{a^4b^4}
+= 4|ab| \geq 4ab.
+\]
+\end{sol}  
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Encore un produit]
+ %[application directe d'AM>GM après avoir développé et séparé les termes]
+% question ouverte
+Soient $a$ et $b$ deux réels positifs tels que $a+b=8$. Déterminer la valeur minimale de la quantité 
+$\left(1+\frac1a\right)\left(1+\frac1b\right)$ 
+et préciser pour quelles valeurs de $a$ et de $b$ elle est atteinte.
+ 
+\begin{hint}
+Commencer par développer le produit et l'exprimer en fonction de $ab$.
+\end{hint}
+
+\begin{sol} 
+On peut essayer d'appliquer l'inégalité arithmético-géométrique à chaque facteur. Ceci donne
+\[ 
+\left(1+\frac1a\right)\left(1+\frac1b\right)
+\geq 
+\left(\frac{2}{\sqrt a}\right)\left(\frac{2}{\sqrt b}\right)
+= \frac{4}{\sqrt{ab}},
+\]
+ce qui minore la quantité par $1$ après une deuxième utilisation de l'inégalité arithmético-géométrique sur le dénominateur et utilisation de $a+b=8$, mais cette dernière minoration est évidente vu la forme initiale de l'expression : les deux facteurs sont supérieurs à $1$.
+
+(Remarque : lors de la première utilisation de l'inégalité arithmético-géométrique, il y avait égalité ssi $a=1$ et $b=1$ ce qui est impossible vu l'énoncé. L'inégalité est donc toujours stricte, ce qui indique que la minoration n'est sans doute pas très précise.)
+
+Commençons donc plutôt par développer la quantité à minorer. On a 
+\[ \left(1+\frac1a\right)\left(1+\frac1b\right)
+=
+\frac{1+a+b+ab}{ab} = \frac{9+ab}{ab} = 1+\frac{9}{ab}.\]
+Il s'agit donc de majorer le produit $ab$. L'inégalité arithmético-géométrique donne $\sqrt{ab} \leq \frac{a+b}{2}=4$, donc $ab\leq 16$. On en déduit que $\frac{1}{ab} \geq \frac{1}{16}$ et donc que 
+\[
+\left(1+\frac1a\right)\left(1+\frac1b\right) \geq 1+\frac{9}{16} = \frac{25}{16},
+\]
+avec égalité ssi $a=b=4$.
+
+Remarque : il est préférable d'utiliser les contraintes (ici $a+b=8$) le plus tôt possible dans les majorations ou minorations successives, pour gagner en précision.
+\end{sol}  
+\end{exo}
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Inégalité de Cauchy-Schwarz]
+% application directe d'AM>GM après avoir développé
+Soient $a$, $b$, $c$ et $d$ quatre réels. Montrer que
+\[ (ac+bd)^2 \leq (a^2+b^2)(c^2+d^2),\]
+et préciser le cas d'égalité.
+
+\begin{hint}
+Commencer par tout développer et simplifier.
+\end{hint}
+ 
+
+\begin{sol} 
+En développant, l'inégalité est équivalente à 
+\[
+a^2d^2+b^2c^2 \geq 2abcd.
+\]
+En appliquant l'inégalité arithmético-géométrique à $a^2d^2$ et $b^2c^2$, on obtient:
+\[
+a^2d^2+b^2c^2 \geq 
+2\sqrt{a^2d^2b^2c^2}
+=2|abcd|
+\geq 2abcd,
+\]
+la première inégalité étant une égalité ssi 
+\[ a^2d^2=b^2c^2,\]
+c'est-à-dire ssi $|ad|=|bc|$, et la seconde inégalité étant une égalité ssi $|abcd|=abcd$. Finalement, on a égalité ssi
+\[ 
+|ad|=|bc| \text{ et }  |abcd|=abcd \\
+\Leftrightarrow ad-bc=0,
+\]
+c'est-à-dire ssi les vecteurs de coordonnées $(a,b)$ et $(c,d)$ sont colinéaires
+
+\underline{Deuxième solution.}\\
+En fait, on a l'identité remarquable
+\[ (a^2+b^2)(c^2+d^2)=  (ac+bd)^2 + (ad-bc)^2,\]
+donc on en déduit l'inégalité avec égalité ssi $(ad-bc)^2=0$, c'est-à-dire ssi $ad-bc=0$. Cette identité remarquable est utile à connaître, elle sert parfois en arithmétique, où elle permet de montrer que si deux nombres sont des sommes de deux carrés, alors leur produit aussi.\\
+%preuve sans mots de ce fait ? Mais ce n'est pas homogène... 
+% Ensuite, voir thm des deux carrés de Fermat .
+
+
+\underline{Remarque 1} : majorer chacun des deux facteurs dans le membre de gauche donne juste 
+\[ (a^2+b^2)(c^2+d^2) \geq 4|ab|\cdot|cd|,\]
+ce qui ne permet pas de conclure puisque par ailleurs on a également 
+\[ (ac+bd)^2 \geq 4|acbd|.\]
+
+\underline{Remarque 2} : comme souvent, le cas d'égalité est presque plus important que l'inégalité elle-même.
+
+\end{sol}  
+\end{exo}
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Résolution d'une équation]
+ Résoudre sur $\R$ l'équation $2^x + x^2 = 2-\frac{1}{2^x}$.
+ 
+\begin{hint}
+Il pourrait être intéressant de minorer $2^x+\frac{1}{2^x}$.
+\end{hint}
+
+\begin{sol} 
+L'équation est équivalente à 
+\[ 2^x +\frac{1}{2^x} = 2-x^2.\]
+Or, par inégalité arithmético-géométrique, on a 
+\[ 2^x +\frac{1}{2^x} \geq 2\sqrt{2^x\cdot \frac{1}{2^x}} \geq 2,\]
+avec égalité ssi $2^x = \frac{1}{2^x}$. Or les seuls nombres égaux à leur inverse sont $1$ et $-1$, donc ici la condition revient à $2^x=1$, ce qui équivaut à $x=0$.
+
+D'autre part, $2-x^2\geq 2$ avec égalité ssi $x=0$ là aussi.
+
+On en déduit que l'équation admet bien une solution, unique, égale à $0$.
+\end{sol}  
+\end{exo}
+

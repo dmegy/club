@@ -1,0 +1,457 @@
+
+\chapter{Polynômes de degré deux}
+
+
+\paragraph{Échauffement}
+
+\begin{exo}[Somme et produit]
+Trouver de tête (sans utiliser de trinôme et de discriminant) des nombres entiers relatifs $a$ et $b$ dont:
+\begin{multicols}{2}
+\begin{enumerate}
+\item la somme vaut $5$ et le produit vaut $4$;
+\item la somme vaut $5$ et le produit vaut $6$;
+\item la somme vaut $3$ et le produit vaut $-4$;
+\item la somme vaut $-6$ et le produit vaut $-7$;
+\item la somme vaut $6$ et le produit vaut $8$;
+\item la somme vaut $1$ et le produit vaut $-6$.
+\end{enumerate}
+\end{multicols}
+\begin{sol}
+Pour les nombres dont
+\begin{enumerate}
+\item la somme vaut $5$ et le produit vaut $4$ : on trouve $1$ et $4$;
+\item la somme vaut $5$ et le produit vaut $6$ : on trouve $2$ et $3$;
+\item la somme vaut $3$ et le produit vaut $-4$ : on trouve $4$ et $-1$;
+\item la somme vaut $-6$ et le produit vaut $-7$ : on trouve $-7$ et $1$;
+\item la somme vaut $6$ et le produit vaut $8$ : on trouve $2$ et $4$;
+\item la somme vaut $1$ et le produit vaut $-6$ : on trouve $-2$ et $3$.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+\begin{exo}[Dimensions d'un terrain]
+Trouver les dimensions d'un terrain rectangulaire de périmètre $44$ m et d'aire $120$ m${}^2$.
+\begin{sol}
+Soit $L$ la longueur du terrain et $l$ sa largeur. On a donc 
+\[
+\begin{cases}
+2L+2l &= 44\\
+L\cdot l=120
+\end{cases}
+\]
+C'est-à-dire $L+l=22$ et $L\cdot l=120$. 
+
+On \og voit \fg{} alors la solution $L=12$ et $l=10$.
+
+Si on ne voit pas la solution, on peut aussi supposer que l'exercice n'est pas trop méchant et que les solutions sont des nombres entiers. Ceci revient à chercher $L$ et $l$ parmi les diviseurs de $120$. Or, on peut décomposer $120$ en produit de facteurs premiers:
+\[ 120 = 2\times 2\times 2 \times 3 \times 5,\]
+et utiliser cette décomposition pour déterminer tous les diviseurs de $120$. On peut résoudre cet exercice par un raisonnement général et c'est un très bon exercice, mais si on est paresseux on peut aussi simplement énumérer les diviseurs de $120$, en espérant qu'il n'y en ait pas trop (ceci devient irréalisable pour des nombres plus grands!). Dans un problème d'énumération, il est capital de fixer une règle pour classer de façon cohérente les objets : compter les objets de façon chaotique est le meilleur moyen d'en oublier.
+
+Ici, on peut énumérer les diviseurs en les classant par nombre de facteurs premiers :
+\begin{itemize}
+\item aucun facteur premier : $1$;
+\item un facteur premier : $2$, $3$, $5$;
+\item deux facteur premiers : $4$, $6$, $10$, $15$;
+\item trois facteur premiers : $8$, $12$, $20$, $30$;
+\item quatre facteur premiers : $24$, $40$, $60$;
+\item cinq facteur premiers : $120$. 
+\end{itemize}
+Donc au total $16$ diviseurs dont deux triviaux, donc quatorze choix à tester pour $\alpha$.
+
+Il suffit ensuite de ne garder que les combinaisons vérifiant $L+l=22$, s'il en existe (si les dimensions n'étaient en fait pas des nombres entiers, il n'en existerait pas). 
+
+Cette méthode ne marche que si les dimensions du terrain sont des nombres entiers.
+
+La méthode générale consiste à trouver les racines d'un trinôme, comme on le verra dans les exercices qui suivent.
+\end{sol}
+\end{exo}
+
+
+
+
+
+\begin{exo}[Mise sous forme canonique]
+Factoriser la quantité $4X^2-8X+2$ en la mettant sous forme canonique et en déduire ses racines. 
+\begin{sol}
+On a $4X^2-8X+2=4(X^2-2X+1/2)$.
+\begin{align*}
+X^2-2X+1/2 &= (X-1)^2 -\frac12\\
+&= (X-1-\frac{1}{\sqrt 2})(X-1+\frac{1}{\sqrt 2})
+\end{align*}
+\end{sol}
+\end{exo}
+
+\vspace{1em}
+\emph{Dans les exercices qui suivent, si les racines d'un trinôme ne sont pas calculables de tête, on demande d'utiliser cette méthode et non la formule avec le discriminant, le but étant de se réhabituer à la factorisation directe.}
+
+
+\paragraph{Formules de Viète, fonctions symétriques}\hfill
+
+
+
+Si $X^2+bX+c$ est un polynôme du second degré unitaire (c'est-à-dire que le coefficient dominant vaut $1$) et $\alpha$ et $\beta$ sont ses racines, on peut donc écrire $X^2+bX+c = (X-\alpha)(X-\beta)$. En développant le second membre et en identifiant les coefficients, on obtient \fbox{$\alpha+\beta=-b$ et $\alpha\beta = c$}. Ce sont les formules de Viète pour les équations du second degré. Si le polynôme n'est pas unitaire, on se ramène au cas unitaire en factorisant par le coefficient dominant $a$  et on trouve \fbox{$\alpha+\beta=-b/a$ et $\alpha\beta = c/a$.}
+
+
+L'intérêt de ces formules est multiple. D'une part, il n'est pas toujours possible de trouver de tête deux nombres ayant une somme et un produit fixés.
+ D'une part, il n'est pas immédiat de trouver deux nombres dont la somme vaut $4$ et le produit vaut $2$. Or d'après Viète, ces deux nombres existent (ce sont éventuellement des nombres complexes), ce sont les racines du polynôme $X^2-4X+2$, et on peut les calculer en mettant le trinôme sous forme canonique ou en appliquant la formule avec le discriminant.
+
+D'autre part, ces formules peuvent aussi servir à factoriser de tête des trinômes. Par exemple, pour factoriser $X^2-3X+2$, nul besoin de calculer $\Delta$ : on voit directement que $2+1=3$ et $2\times 1=2$, donc les racines sont $2$ et $1$.
+
+Enfin, ces formules permettent de calculer très rapidement des expressions symétriques en les racines d'un trinôme, sans devoir calculer les racines.
+
+Ces aspects et d'autres sont illustrés dans les exercices qui suivent.
+
+
+\begin{exo}[Factorisation de tête]
+ Factoriser de tête  les expressions suivantes, sans faire de calcul de discriminant:
+\[X^2-3X+2,\quad, X^2-X-2,\quad X^2+5X+6, \quad X^2+5X-6, \quad X^2-X-6,\quad X^2-3X-4.\]
+\begin{sol}
+D'après les formules de Viète, si $S$ et $P$ sont des nombres et que $\alpha$ et $\beta$ sont les racines du trinôme $X^2-SX+P$, alors $\alpha+\beta =S$ et $\alpha.\beta = P$. Donc ici, le but est d'essayer de reconnaitre la somme et le produit. Par exemple, pour le premier, on \og voit\fg{} que $3=1+2$ et $2=1\times 2$. Les deux racines sont $1$ et $2$. On vérifie : $(X-1)(X-2) = X^2-3X+2$.
+
+
+Pour les autres, on trouve:
+\[
+X^2-X-2= (X+2)(X-1)
+\quad;\quad
+X^2+5X+6 = (X+2)(X+3)
+\quad;\quad
+X^2+5X-6 = (X+6)(X-1)
+\]
+\[
+X^2-X-6 = (X-3)(X+2)
+\quad;\quad
+X^2-3X-4 = (X-4)(X+1)
+\]
+
+
+\end{sol}
+\end{exo}
+
+\begin{exo}[Somme et produit, bis]
+Trouver deux nombres dont la somme vaut $S=4$ et le produit vaut $P=2$.
+\begin{sol}
+D'après les formules de Viète, ces deux nombres sont les racines du polynôme $X^2-4X+2$, que l'on met sous forme canonique puis qu'on factorise:
+\[X^2-4X+2 = (X-2)^2 -2 = (X-2+\sqrt 2)(X-2-\sqrt 2) = (X-(2-\sqrt 2))(X-(2+\sqrt 2))\] 
+
+Les racines sont donc  $2- \sqrt 2$ et $2+ \sqrt 2$, et ce sont les deux nombres que l'on cherche. On peut vérifier que leur somme vaut bien $4$ et leur produit, $2$.
+\end{sol}
+\end{exo}
+
+
+
+\begin{exo}[Polynômes symétriques]
+On considère le polynôme $P = X^2+4X-2$, et on note $\alpha$ et $\beta$ ses racines. Les formules de Viète donnent donc $S=\alpha+\beta=-4$ et $P = \alpha\beta=-2$. Cet exercice montre comment calculer certaines expressions de $\alpha$ et $\beta$ sans avoir à calculer ces deux racines.
+
+\begin{enumerate}
+\item En utilisant les formules de Viète, calculer la quantité $\alpha^2+\beta^2$  sans calculer $\alpha$ et $\beta$, en utilisant uniquement les valeurs de $S$ et $P$. 
+\item Même question avec $\alpha^3+\beta^3$ et $\alpha^4+\beta^4$, toujours sans chercher à calculer $\alpha$ et $\beta$.
+\item Calculer finalement les deux racines $\alpha$ et $\beta$  et vérifier les calculs précédents.
+\end{enumerate}
+% Garay p. 65
+\begin{sol}
+\begin{enumerate}
+\item On a 
+\[
+\alpha^2+\beta^2 = (\alpha+\beta)^2-2\alpha\beta = \boxed{S^2-2P} = (-4)^2+4 = 20.
+\]
+\item La même approche donne
+\begin{align*}
+\alpha^3+\beta^3 
+&= (\alpha+\beta)^3-3\alpha^2\beta-3\alpha\beta^2  \\
+&= (\alpha+\beta)^3 -3\alpha\beta(\alpha+\beta)\\
+&= \boxed{S^3-3SP}\\
+& = -64-24=-88.
+\end{align*}
+Et enfin : 
+\begin{align*}
+\alpha^4+\beta^4 
+&= (\alpha+\beta)^4-6\alpha^3\beta-4\alpha^2\beta^2 -6\alpha\beta^3\\
+&= S^4 - 6P(\alpha^2+\beta^2)-4P^2\\
+&= S^4 - 6P(S^2-2P) - 4P^2\\
+&= \boxed{S^4 - 6S^2P + 8P^2}\\
+&= 256+192+8 = 456.
+\end{align*}
+Évidemment, la valeur numérique n'est pas importante, ce qui compte est le calcul de l'expression en fonction de $S$ et $P$. Pour pouvoir l'effectuer, il faut connaître ses coefficients binomiaux ou savoir les calculer rapidement.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+\begin{exo}[\og Vraie \fg{} définition du discriminant]
+
+Soit $P = aX^2+bX+c$ un polynôme du second degré (donc avec $a\neq 0$), dont on note $\alpha$ et $\beta$ les racines. Calculer $(\alpha-\beta)^2$ en fonction de $a$, $b$ et $c$, sans chercher à calculer $\alpha$ et $\beta$. 
+
+\emph{Remarque : à plus haut niveau (disons bac+3), ceci est en fait la véritable définition du discriminant.}
+\begin{sol}
+On a 
+\begin{align*}
+(\alpha-\beta)^2
+&= \alpha^2-2\alpha\beta + \beta^2\\
+&= (\alpha+\beta)^2 - 4\alpha\beta\\
+&= S^2-4P\\
+&= \left(\frac{-b}{a}\right)^2 - 4\frac{c}{a}\\
+&= \frac{b^2-4ac}{a^2}
+\end{align*}
+Ceci ne coïncide pas exactement avec la définition du discriminant donnée au lycée, mais c'est la \og vraie\fg. L'autre n'est donnée que pour simplifier la formule en fonction des coefficients, mais a le désavantage de cacher un peu le sens géométrique du discriminant : c'est le carré de la distance entre les deux racines. Les deux racines sont confondues (racine double) si et seulement si cette distance est nulle.
+\end{sol}
+\end{exo}
+
+\begin{exo}[Fractions rationnelles symétriques]
+Notons $\alpha$ et $\beta$ les deux racines de $P = X^2+5X+3$.
+\begin{enumerate}
+\item Sans chercher à calculer explicitement les racines, montrer que l'expression $\frac{1}{\alpha}+\frac{1}{\beta}$ est bien définie et la calculer.
+\item Même question pour $\frac{1}{\alpha^2}+\frac{1}{\beta^2}$.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item Les racines du polynôme proposé ne sont pas nulles, donc leur inverse est bien défini. On a 
+\[\frac{1}{\alpha}+\frac{1}{\beta} 
+= \frac{\beta+\alpha}{\beta\alpha}
+= \frac{S}{P}
+= -\frac{5}{3}\]
+\item On a cette fois 
+\[
+\frac{1}{\alpha^2}+\frac{1}{\beta^2} 
+= \frac{\beta^2+\alpha^2}{\alpha^2\beta^2}
+= \frac{(\alpha+\beta)^2-2\alpha\beta}{\alpha^2\beta^2}
+= \frac{S^2-2P}{P^2}
+= \frac{25-6}{9} = \frac{19}{9} 
+\]
+\end{enumerate}
+
+\end{sol}
+\end{exo}
+
+
+\begin{exo}[Systèmes non linéaires]
+Résoudre les systèmes d'inconnues réelles $x$ et $y$ suivants:
+\[
+\begin{cases}
+x^2+y^2&=10\\
+x+y&=4
+\end{cases}
+\quad\text{et} \quad
+\begin{cases}
+x^3+y^3&=9\\
+x+y&=3
+\end{cases}
+\]
+\begin{sol}
+Pour les deux questions, notons $S=x+y$ et $P=xy$. D'après les exercices précédents, on a 
+\[x^2+y^2=S^2-2P \text{ et } x^3+y^3 = S^3-3SP. \]
+On en déduit que les systèmes sont équivalents à 
+\[
+\begin{cases}
+S^2-2P&=10\\
+S&=4
+\end{cases}
+\quad\text{et}\quad
+\begin{cases}
+S^3-3SP&=9\\
+S&=3
+\end{cases}
+\]
+Sous cette forme, on résout facilement. Dans le premier cas, on troue $S=4$ et $P=3$, ce qui donne, de préférence de tête ou alors en résolvant le trinôme associé, $\{x,y\} = \{1,3\}$, c'est-à-dire 
+\[ (x,y)=(1,3) \text{ ou } (x,y)=(3,1)\]
+
+Pour le deuxième système, on trouve $P=2$ et $S=3$, donc, après résolution, $\{x,y\}=\{1,2\}$.
+\[ (x,y)=(1,2) \text{ ou } (x,y)=(2,1)\]
+
+Chaque système a donc deux (couples de) solutions.
+\end{sol}
+\end{exo}
+
+
+\begin{exo}[Systèmes non linéaires, bis]
+Résoudre sur $\R$ le système $\left\{\begin{matrix}
+x+y+xy &=-1\\
+x^2y+xy^2 &=-6
+\end{matrix}\right.$
+\begin{hint}
+Il y a quatre couples de solutions.
+\end{hint}
+\begin{sol}
+Notons $S=x+y$ et $P=xy$. Le système est donc équivalent à $
+\begin{cases}
+S+P &=-1\\
+SP &=-6
+\end{cases}
+$.
+Les nombres $S$ et $P$ peuvent donc être calculés. Si on pense que ce sont des entiers, on peut regarder les diviseurs de $-6=-2\times3$, dans ce cas on voit assez vite que $2$ et $-3$ conviennent pour $S$ et $P$ mais sinon on peut résoudre le trinôme associé. En résumé, on trouve que :
+\[\{S,P\}=\{2,-3\}\]
+Attention, ceci ne dit pas qui est $S$ ou $P$, il y a deux possibilités.\\
+
+\noindent\textbf{Premier cas.} Si $(S,P)=(2,-3)$, alors $x$ et $y$ sont les racines de $X^2-2X-3$, c'est-à-dire $x$ et $y$ sont les deux nombres $3$ et $-1$, ce que l'on peut aussi trouver de tête.\\
+
+\noindent\textbf{Deuxième cas.} Si $(S,P)=(-3,2)$, alors $x$ et $y$ sont les racines de $X^2+3X+2$, c'est-à-dire $x$ et $y$ sont les deux nombres $-1$ et $-2$, ce que l'on peut aussi trouver de tête.\\
+
+\noindent\textbf{Conclusion.} Il y a quatre couples de solutions:
+\[ (-1,3)\quad (3,-1) \quad (-2,-1) \quad (-1,-2)\]
+\end{sol}
+\end{exo}
+
+\begin{exo}[Dimensions d'un terrain, bis]
+Un terrain rectangulaire a une diagonale de 13 mètres et un périmètre de 34 mètres. Déterminer sa longueur et sa largeur. 
+\begin{sol}
+Notons $L$ et $l$ la longueur et la largeur du terrain. L'énoncé équivaut au système $\begin{cases}
+l^2+L^2 = 13^2\\
+2l+2L = 34
+\end{cases}$.
+
+On a alors les équivalences:
+\[
+\begin{cases}
+l^2+L^2 = 13^2\\
+2l+2L = 34
+\end{cases}
+\iff
+\begin{cases}
+l^2+L^2 = 169\\
+l+L = 17
+\end{cases}
+\iff
+\begin{cases}
+(L+l)^2-2L\times l = 169\\
+l+L = 17
+\end{cases}
+\iff
+\begin{cases}
+L\times l = 60\\
+l+L = 17
+\end{cases}
+\]
+Les nombres $l$ et $L$ sont donc racines de $X^2-17X+60$, après calcul on obtient $12$ et $5$.
+\end{sol}
+\end{exo}
+
+
+\paragraph{Un peu d'arithmétique}\hfill
+
+\begin{exo}[Racines entières et rationnelles]
+Soit $P(X) = aX^2+bX+c$ un polynôme  du second degré à coefficients \underline{entiers}.
+\begin{enumerate}
+\item Montrer que si $P$ admet une racine rationnelle, son autre racine est également rationnelle.
+\item Montrer que cette affirmation est fausse pour les racines entières.
+\item Montrer que si $P$ est unitaire, c'est-à-dire que le coefficients dominant $a$ vaut $1$, alors dans ce cas, si une racine est entière, l'autre l'est également.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item Par hypothèse, $P$ est de degré deux donc $a\neq 0$ et on peut diviser par $a$. Écrivons $P(X) = a\left(X^2+\frac{b}{a}X+\frac{c}{a}\right)$. D'après les formules de Viète, la somme des racines vaut $-\frac{b}{a}$, qui est un rationnel. Si l'une des racines $\alpha$ est un rationnel, l'autre aussi, puisqu'elle est égale à $-\frac{b}{a}-\alpha$. (Et la somme de deux rationnels est rationnelle.)
+\item Considérons le polynôme $P(X)=(X-3)(X-\frac23)$. Ses racines son $3$ et $\frac23$ par construction. En développant, on voit que $P(X) = X^2-\frac{11}{3}X+2$. Ce polynôme n'est pas à coefficients entiers, mais en le multipliant par trois, on obtient le polynôme $3X^2-11X+6$  qui est bien à coefficients entiers et dont une des racines est entière et l'autre non.
+\item D'après les formules de Viète, la somme des racines valant cette fois $-\frac{b}{a}=-b$ qui est entier. Donc si une racine est entière, l'autre aussi.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+\begin{exo}[Racines entières et divisibilité]
+\begin{enumerate}
+\item Soit $P(X) = aX^2+bX+c$ un polynôme du second degré à coefficients entiers. Montrer que si $\alpha$ est une racine \underline{entière} de $P$, alors $\alpha$ divise $c$.
+\item (Application) Déterminer les racines entières de $X^2-2X-63$.
+\item (Application) Déterminer les racines entières de $X^2-X-63$.
+\item (Application) Déterminer les racines entières de $2X^2-5X+2$.
+%\item (Application) Déterminer les racines entières de $X^2-2X-1$.% racines $1\pm \sqrt2$
+\item Le cas échéant, déterminer les racines non entières des polynômes précédents.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item Soit $\alpha$ une racine entière. On a donc
+\[a\alpha^2+b\alpha+c=0.\]
+On peut écrire ceci sous la forme:
+\[\alpha(a\alpha+b)=-c.\]
+Comme $\alpha$ est entier, $a\alpha+b$ aussi, et le produit de ces deux nombres entiers vaut $-c$, qui est également entier. On en déduit que $\alpha$ divise $-c$ (et donc $c$).
+
+
+\item On commence par chercher les racines entières. Par ce qui précède, une telle racine divise $63 = 9\times 7$, donc une racine entière ne peut valoir que $\pm 1$, $\pm 7$ ou $\pm 9$. Dans ce cas, l'autre racine est également entière car leur somme vaut $2$ d'après les formules de Viète. On voit alors que $-7$ et $9$ remplissent cette condition, et sont donc les deux racines du polynôme.
+\item Comme à la question précédente, si une racine est entière l'autre aussi, et ces racines doivent valoir $\pm 1$, $\pm 7$ ou $\pm 9$. Par contre, leur somme doit cette fois être égale à $1$, et ceci est impossible (il suffit de tester toutes les possibilités). On en déduit donc que le polynôme n'a pas de racines entières. Après calcul, ses racines sont $\frac12 \pm \frac{\sqrt{253}}{2}$.
+\item Si $\alpha$ est une racine entière de $2X^2-5X+2$, alors $\alpha$ divise le dernier coefficient : $2$. On en déduit qu'une telle racine entière doit appartenir à l'ensemble $\{-2,-1,1,2\}$. En testant toutes les possibilités, on voit qu'effectivement $\alpha=2$ est racine du polynôme. Le polynôme $X^2-5X+2$ s'écrit donc sous la forme $(X-2)(?X+?)$, et on trouve relativement facilement que 
+\[
+X^2-5X+2 = (X-2)(2X-1) = 2(X-2)(X-\frac{1}{2})\]
+L'autre racine est donc $\frac12$. Cet exemple montre qu'un polynôme à coefficients entiers peut parfaitement avoir une racine entière, et une non entière.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+
+\begin{exo}[Racines rationnelles et théorème d'Euler-Gauss]
+\begin{enumerate}
+\item  Soit $P(X)$ un trinôme à coefficients entiers de la forme $P(X) = X^2+aX+b$. Montrer que si $\alpha = \frac{p}{q}$ est une racine rationnelle de $P$, alors $\alpha$ est en fait un entier !
+\item (Application) Le polynôme $X^2-2X-1$ admet-il des racines rationnelles et si oui lesquelles ? 
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item On multiplie par $q^2$, et on trouve que $p^2=q(-ap-bq)$. Donc $q$ divise $p^2$. Comme par hypothèse ils sont premiers entre eux, $q=1$.
+\item Non d'après Euler-Gauss : de telles racines seraient entières, elles seraient donc égales à $\pm 1$, or ces deux nombres ne sont pas des racines. (Les racines réelles sont $1\pm \sqrt 2$.)
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+\begin{comment}
+\begin{exo}
+Déterminer les valeurs de $m\in \N$ pour lesquelles le polynôme $X^2+mX+4$ possède des racines dans rationnelles et déterminer ces racines.
+ \begin{sol}
+ Premièrement, d'après l'exercice précédent (Euler-Gauss), si une racine est rationnelle alors elle est entière. Cherchons donc à quelle condition une racine peut être entière.
+ 
+Si le polynôme a des racines entières, le produit de ces racines vaut $4$, donc en considérant les diviseurs de $4$ on obtient toutes les possibilités : les racines sont $(1,4)$, $(-1,-4)$,  $(2,2)$ ou $(-2,-2)$.
+ D'autre part la somme des racines vaut $-m$, qui doit être un entier \emph{négatif} par hypothèse.  Les possibilités pour $m$ sont donc $4$ ou $5$.
+ 
+En conclusion, si $m\in \N$, alors le polynôme $X^2+mX+4$ a des racines entières si et seulement si $m$ vaut $4$ ou $5$, et dans ce cas les racines sont $-2$ et $-2$, ou alors $-1$ et $-4$.
+\end{sol}
+\end{exo}
+\end{comment}
+
+%Exo avec une contrainte sur la somme en plus.
+
+
+\begin{exo}[Condition sur un paramètre]%Garay p. 79
+
+Pour quels valeurs entières du paramètre $m$ le polynôme $X^2+mX+3$ admet-il des racines rationnelles ? Et si $m$ est un rationnel ?
+\begin{sol}
+Supposons d'abord $m$ entier. Les racines rationnelles sont forcément entières, d'après Euler-Gauss.
+
+Les racines rationnelles possibles sont donc $1$ et $3$, ou bien $-1$ et $-3$. Dans ces cas, on a $m=\pm 4$. Réciproquement, pour ces valeurs de $m$, on a bien des racines entières, donc rationnelles.
+
+Traitons maintenant le cas où $m$ est rationnel.
+
+S'il existe une racine rationnelle, comme la somme des deux racines vaut $-m$ qui est rationnel, on en déduit que les deux racines sont dans $\Q$. D'autre part, aucune des deux racines n'est nulle car leur produit vaut $3$. Si l'une s'écrit $p/q$, alors l'autre vaut $\frac{3q}{p}$. La somme des deux racines vaut alors $-m=\frac{p}{q} + \frac{3q}{p} = \frac{p^2+3q^2}{pq}$.
+
+Réciproquement, si $m$ qui s'écrit sous la forme $\frac{-p^2-3q^2}{pq}$, le trinôme admet pour racines les rationnels $\frac{p}{q}$ et $\frac{3q}{p}$.
+\end{sol}
+\end{exo}
+
+\begin{exo}[Polynômes non unitaires]
+\begin{enumerate}
+\item 
+Soit $P(X)=aX^2+bX+c$ un polynôme à coefficients entiers. Montrer que si $\alpha = \frac{p}{q}$ est une racine rationnelle de $P$, alors $q$ divise le coefficient dominant $a$, et $p$ divise le dernier coefficient $c$.
+\item  (Application) Le polynôme $X^2+\frac{13}{14}X+\frac{3}{14}$ admet-il des racines rationnelles et si oui lesquelles ?
+\item (Application) Plus généralement, déterminer tous les entiers $m$ tels que $X^2+\frac{m}{14}X+\frac{3}{14}$ admette des racines rationnelles.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item 
+Si $\alpha=\frac{p}{q}$ est une fraction irréductible qui annule $P$, on a donc 
+\[ a\frac{p^2}{q^2}+b\frac{p}{q}+c=0. \]
+En multipliant par $q^2$ et en groupant les membres, on obtient
+\[ ap^2=-bpq-cq^2=-q(bp+cq).\]
+Tous les symboles représentant des entiers, on en déduit que  $q$ divise $ap^2$, et comme $p$ et $q$ sont premiers entre eux par hypothèse, $q$ divise $a$. Le même type de raisonnement permet de montrer que $p$ divise $c$.
+\item Si une fraction irréductible $p/q$ est racine de $P$, elle est également racine du trinôme à coefficients entiers $14X^2+13X+3$. On en déduit que $p$ divise $3$ et $q$ divise $14$.
+Finalement on trouve que les racines sont $-1/2$ et $-3/7$.
+\item Si $\alpha = p/q$ est une racine, alors $p$ divise $3$ et $q$ divise $14$. 
+
+Les racines positives possibles sont donc:
+\[
+\begin{array}{ccccccccc}
+\alpha  & 1& 1/2 & 1/7 & 1/14 & 3 & 3/2 & 3/7 & 3/14 \\
+\beta  & 3/14 & 3/7 & 3/2 & 3 & 1/14 & 1/7 & 1/2 & 1\\
+m & -17 & -13 & -23 & -43 & -43 & -23 & -13 & -17
+\end{array}
+\]
+
+Et on peut aussi avoir les deux racines négatives.
+
+
+Si les racines sont rationnelles, le paramètre entier $m$ peut donc prendre les valeurs $\pm 13$, $\pm 17$, $\pm 23$ et $\pm 43$. Le cas $m=13$ correspond à la question précédente.
+
+\end{enumerate}
+\end{sol}
+\end{exo}

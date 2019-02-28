@@ -1,0 +1,1147 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Chasse aux angles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Octogone appuyé sur un segment]
+%exo7
+% angle au centre, inscrit. application directe
+Construire un octogone convexe régulier dont un des côtés est un segment $[AB]$ donné.
+
+\begin{hint}   
+Il y a deux tels octogones. En notant $O$ le centre d'un tel octogone, on doit avoir $\widehat{AOB}=\pm \pi/4$.
+\end{hint}      
+\begin{sol}  
+Construisons un triangle $AIB$ isocèle rectangle en $I$ et le cercle de centre $I$ et de rayon $IA$. Ce cercle intersecte la médiatrice de $[AB]$ en un point $O$ qui vérifie $\widehat{AOB}=\pm \pi/4$, par le théorème de l'angle au centre. C'est donc le centre d'un octogone appuyé sur $[AB]$. En traçant le cercle de centre $O$ et de rayon $OA$, on peut terminer la construction de cet octogone.
+\end{sol}  
+\end{exo}  
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Trapèzes inscriptibles] % exo7
+% angles inscrits, facile, application directe
+Montrer qu'un trapèze est isocèle si et seulement s'il est inscriptible.
+
+
+\begin{sol}
+Commençons par rappeler deux points:
+\begin{enumerate}
+\item dans un trapèze, deux angles non adjacents à une même base sont supplémentaires, puisque les deux bases sont parallèles.
+\item un quadrilatère non croisé est inscriptible ssi les angles opposés sont supplémentaires.
+\end{enumerate}
+
+Un trapèze est isocèle ssi les angles adjacents à une même base sont égaux, donc (par le premier point ci-dessus) ssi les angles opposés sont supplémentaires, donc (par le deuxième point) ssi il est inscriptible.
+
+\begin{center}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.76,-0.56) rectangle (4.66,5.42);
+\draw [shift={(1.94,4.96)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-149.61179814845522:0.6) arc (-149.61179814845522:-47.299703593483734:0.6) -- cycle;
+\draw [shift={(-0.36,0.18)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (30.388201851544782:0.6) arc (30.388201851544782:108.07610729657328:0.6) -- cycle;
+\draw [shift={(-1.3,3.06)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-71.92389270342673:0.6) arc (-71.92389270342673:30.388201851544792:0.6) -- cycle;
+\draw(1.3116327852336915,2.319005145180441) circle (2.71471898725753cm);
+\draw (-1.3,3.06)-- (1.94,4.96);
+\draw (-1.3,3.06)-- (-0.36,0.18);
+\draw (-0.36,0.18)-- (3.9945107601576444,2.7335711247838033);
+\draw (3.9945107601576444,2.7335711247838033)-- (1.94,4.96);
+\draw [shift={(-0.36,0.18)},color=qqwuqq] (30.388201851544782:0.6) arc (30.388201851544782:108.07610729657328:0.6);
+\draw [shift={(-0.36,0.18)},color=qqwuqq] (30.388201851544782:0.5) arc (30.388201851544782:108.07610729657328:0.5);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.36,0.18) circle (2.5pt);
+\draw[color=qqqqff] (-0.74,-0.01) node {$A$};
+\draw [fill=qqqqff] (-1.3,3.06) circle (2.5pt);
+\draw[color=qqqqff] (-1.64,3.33) node {$B$};
+\draw [fill=qqqqff] (1.94,4.96) circle (2.5pt);
+\draw[color=qqqqff] (2.08,5.27) node {$C$};
+\draw [fill=uuuuuu] (3.9945107601576444,2.7335711247838033) circle (1.5pt);
+\draw[color=uuuuuu] (4.28,2.81) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\end{sol}
+\end{exo}  
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Antiparallélogramme]
+%exo7
+% angles inscrits
+Un antiparallélogramme est un quadrilatère croisé dont les cotés opposés sont deux à deux de même longueur. Soit $ABCD$ un antiparallélogramme. Montrer les assertion suivantes.
+
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.76,-0.56) rectangle (4.66,5.42);
+\draw (-0.36,0.18)-- (1.94,4.96);
+\draw (-1.3,3.06)-- (3.9945107601576444,2.7335711247838033);
+\draw (-1.3,3.06)-- (-0.36,0.18);
+\draw (1.94,4.96)-- (3.9945107601576444,2.7335711247838033);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.36,0.18) circle (2.5pt);
+\draw[color=qqqqff] (-0.74,-0.01) node {$A$};
+\draw [fill=qqqqff] (-1.3,3.06) circle (2.5pt);
+\draw[color=qqqqff] (-1.64,3.33) node {$D$};
+\draw [fill=qqqqff] (1.94,4.96) circle (2.5pt);
+\draw[color=qqqqff] (2.08,5.27) node {$B$};
+\draw [fill=uuuuuu] (3.9945107601576444,2.7335711247838033) circle (1.5pt);
+\draw[color=uuuuuu] (4.28,2.81) node {$C$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Les angles opposés ont la même mesure.
+\item Les diagonales $(AC)$ et $(BD)$ sont parallèles.
+\item La médiatrice des diagonales est un axe de symétrie de $ABCD$.
+\item Deux côtés opposés ont leur point d'intersection situé sur cette médiatrice.
+\item Le quadrilatère convexe $ADBC$ formé par les deux côtés non croisés et les diagonales est un trapèze isocèle.
+\item $ABCD$ est inscriptible.
+\end{enumerate}
+
+
+\end{exo}  
+
+%------------------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Théorème de Reim]
+% nom : Th de Reim
+% source :  OFM 2014-2015 envoi 2 (22 pages) exercice 3.7
+% via Budzinski
+% voir aussi http://www.debart.fr/pdf/cercle_seconde.pdf
+Soient $\mathcal C_1$ et $\mathcal C_2$ deux cercles sécants en $A$ et $B$, et $\mathcal D_A$ (respectivement $\mathcal D_B$) une droite passant par $A$  (resp. $B$). On note $C$ et $E$ (resp. $D$ et $F$) l'intersection de $\mathcal D_A$ (resp. $\mathcal D_B$) avec 
+ les deux cercles. Montrer que $(CD) // (EF)$.
+ \begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-6.84,-1.3) rectangle (3.34,5.62);
+%\draw [shift={(-4.54135770173771,2.073391502619976)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-57.19135026317228:0.6) arc (-57.19135026317228:19.883254180671244:0.6) -- cycle;
+%\draw [shift={(-0.9357905924919852,-0.14942814068146326)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (76.27770286686645:0.5) arc (76.27770286686645:179.20309842302296:0.5) -- cycle;
+%\draw [shift={(-1.7679241049654213,3.0764437353898777)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-57.191350263172325:0.6) arc (-57.191350263172325:19.88325418067124:0.6) -- cycle;
+%\draw [shift={(-0.9357905924919852,-0.14942814068146326)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-0.7969015769770713:0.6) arc (-0.7969015769770713:76.27770286686646:0.6) -- cycle;
+\draw(-2.,2.16) circle (2.5428330656966063cm);
+\draw(-0.28,1.74) circle (2.cm);
+\draw [domain=-6.84:3.34] plot(\x,{(--9.256772261245349--0.9009661428453959*\x)/2.4911661511599217});
+\draw [domain=-6.84:3.34] plot(\x,{(-0.5906140983383479-0.05057185931853675*\x)/3.6357905924919853});
+\draw [color=ffqqqq,domain=-6.84:3.34] plot(\x,{(-7.025760591657469-2.192326777340297*\x)/1.4133266677517589});
+\draw [color=ffqqqq,domain=-6.84:3.34] plot(\x,{(-0.6985138943712147--3.2433807595236943*\x)/-2.090909333629991});
+%\draw [dash pattern=on 3pt off 3pt] (-0.9357905924919852,-0.14942814068146326)-- (0.008833848840078207,3.719033857154604);
+\begin{scriptsize}
+\draw [fill=uuuuuu] (0.008833848840078207,3.719033857154604) circle (1.5pt);
+\draw[color=uuuuuu] (0.12,4.12) node {$A$};
+\draw [fill=uuuuuu] (-0.9357905924919852,-0.14942814068146326) circle (1.5pt);
+\draw[color=uuuuuu] (-0.92,-0.4) node {$B$};
+\draw [fill=uuuuuu] (-4.54135770173771,2.073391502619976) circle (1.5pt);
+\draw[color=uuuuuu] (-4.96,2.32) node {$C$};
+\draw [fill=uuuuuu] (-3.1280310339859514,-0.11893527472032112) circle (1.5pt);
+\draw[color=uuuuuu] (-3.24,-0.3) node {$D$};
+\draw [fill=uuuuuu] (-1.7679241049654213,3.0764437353898777) circle (1.5pt);
+\draw[color=uuuuuu] (-1.72,3.56) node {$E$};
+\draw [fill=uuuuuu] (0.32298522866456997,-0.1669370241338166) circle (1.5pt);
+\draw[color=uuuuuu] (0.28,-0.4) node {$F$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\begin{sol}
+Traçons une figure. \emph{On marque dès à présent quelques égalités d'angles obtenues par le théorème de l'angle inscrit:}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-6.84,-1.3) rectangle (3.34,5.62);
+\draw [shift={(-4.54135770173771,2.073391502619976)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-57.19135026317228:0.6) arc (-57.19135026317228:19.883254180671244:0.6) -- cycle;
+\draw [shift={(-0.9357905924919852,-0.14942814068146326)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (76.27770286686645:0.5) arc (76.27770286686645:179.20309842302296:0.5) -- cycle;
+\draw [shift={(-1.7679241049654213,3.0764437353898777)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-57.191350263172325:0.6) arc (-57.191350263172325:19.88325418067124:0.6) -- cycle;
+\draw [shift={(-0.9357905924919852,-0.14942814068146326)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-0.7969015769770713:0.6) arc (-0.7969015769770713:76.27770286686646:0.6) -- cycle;
+\draw(-2.,2.16) circle (2.5428330656966063cm);
+\draw(-0.28,1.74) circle (2.cm);
+\draw [domain=-6.84:3.34] plot(\x,{(--9.256772261245349--0.9009661428453959*\x)/2.4911661511599217});
+\draw [domain=-6.84:3.34] plot(\x,{(-0.5906140983383479-0.05057185931853675*\x)/3.6357905924919853});
+\draw [color=ffqqqq,domain=-6.84:3.34] plot(\x,{(-7.025760591657469-2.192326777340297*\x)/1.4133266677517589});
+\draw [color=ffqqqq,domain=-6.84:3.34] plot(\x,{(-0.6985138943712147--3.2433807595236943*\x)/-2.090909333629991});
+\draw [dash pattern=on 3pt off 3pt] (-0.9357905924919852,-0.14942814068146326)-- (0.008833848840078207,3.719033857154604);
+\begin{scriptsize}
+\draw [fill=uuuuuu] (0.008833848840078207,3.719033857154604) circle (1.5pt);
+\draw[color=uuuuuu] (0.12,4.12) node {$A$};
+\draw [fill=uuuuuu] (-0.9357905924919852,-0.14942814068146326) circle (1.5pt);
+\draw[color=uuuuuu] (-0.92,-0.4) node {$B$};
+\draw [fill=uuuuuu] (-4.54135770173771,2.073391502619976) circle (1.5pt);
+\draw[color=uuuuuu] (-4.96,2.32) node {$C$};
+\draw [fill=uuuuuu] (-3.1280310339859514,-0.11893527472032112) circle (1.5pt);
+\draw[color=uuuuuu] (-3.24,-0.3) node {$D$};
+\draw [fill=uuuuuu] (-1.7679241049654213,3.0764437353898777) circle (1.5pt);
+\draw[color=uuuuuu] (-1.72,3.56) node {$E$};
+\draw [fill=uuuuuu] (0.32298522866456997,-0.1669370241338166) circle (1.5pt);
+\draw[color=uuuuuu] (0.28,-0.4) node {$F$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\emph{Les égalités d'angles repérées sur la figure permettent de voir la solution, au moins dans la configuration particulière dessinée. On voit en effet que les angles $\widehat{ECD}$ et $\widehat{AEF}$ sont égaux. Attention toutefois, les angles géométriques sont trompeurs et les égalités que l'on voit sur une figure peuvent dépendre de la façon de tracer la figure. Sur la figure ci-dessous par exemple, les angles en question ne sont pas égaux mais supplémentaires.}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-6.82,-1.14) rectangle (3.36,5.7);
+\draw [shift={(-3.11,4.35)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-111.67:0.6) arc (-111.67:-15.58:0.6) -- cycle;
+\draw [shift={(-0.76,1.49)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (96.63:0.5) arc (96.63:180.54:0.5) -- cycle;
+\draw [shift={(-0.76,1.49)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (0.54:0.6) arc (0.54:96.63:0.6) -- cycle;
+\draw [shift={(1.53,3.06)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (164.42:0.6) arc (164.42:248.33:0.6) -- cycle;
+\draw(-2.52,2.44) circle (2cm);
+\draw(0.06,2.74) circle (1.5cm);
+\draw [domain=-6.82:3.36] plot(\x,{(--15.16-1.21*\x)/4.35});
+\draw [domain=-6.82:3.36] plot(\x,{(--5.5--0.03*\x)/3.68});
+\draw [color=ffqqqq,domain=-6.82:3.36] plot(\x,{(-14.02-2.9*\x)/-1.15});
+\draw [color=ffqqqq,domain=-6.82:3.36] plot(\x,{(-0.48--1.56*\x)/0.62});
+\draw [dash pattern=on 2pt off 2pt] (-0.76,1.49)-- (-1.03,3.77);
+\begin{scriptsize}
+\draw [fill=uuuuuu] (-1.03,3.77) circle (1.5pt);
+\draw[color=uuuuuu] (-0.88,4.16) node {$A$};
+\draw [fill=uuuuuu] (-0.76,1.49) circle (1.5pt);
+\draw[color=uuuuuu] (-0.74,1.2) node {$B$};
+\draw [fill=uuuuuu] (-3.11,4.35) circle (1.5pt);
+\draw[color=uuuuuu] (-3.38,4.7) node {$C$};
+\draw [fill=uuuuuu] (-4.26,1.45) circle (1.5pt);
+\draw[color=uuuuuu] (-4.56,1.28) node {$D$};
+\draw [fill=uuuuuu] (1.53,3.06) circle (1.5pt);
+\draw[color=uuuuuu] (1.56,3.52) node {$E$};
+\draw [fill=uuuuuu] (0.91,1.5) circle (1.5pt);
+\draw[color=uuuuuu] (1,1.24) node {$F$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\emph{Il ne reste plus qu'à rédiger rigoureusement la solution  avec des angles orientés de droites, en s'appuyant sur l'intuition donnée par la figure.}
+
+Pour montrer que $(CD)$ et $(EF)$ sont parallèles, il suffit par exemple de montrer qu'elles forment le même angle avec la droite $(CA)$. Or on a la suite d'égalités d'angles de droites :
+
+\begin{align*}
+(CD,CA) &= (BD,BA) \text{ car $CDAB$ est inscriptible}\\
+&= (BF,BA) \text{ car $(BD)=(BF)$}\\
+&=(EF,EA) \text{ car $BFAE$ est inscriptible}\\
+&=(EF,CA)  \text{ car $(EA)=(CA)$.}
+\end{align*}
+
+\end{sol} 
+\end{exo}
+
+
+%---------------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Bissectrice et médiatrice]
+% source : exogeo.pdf Grenoble
+% exercice simple sur les angles inscrits
+La bissectrice en $A$ d'un triangle quelconque $ABC$ recoupe le cercle $\Gamma$ circonscrit à ce triangle en un point $I$. Montrer que $I$  appartient à la médiatrice de $[BC]$.
+\begin{hint}
+Montrer que $BIC$ est isocèle en $I$.
+\end{hint}
+
+\begin{sol}
+
+Pour montrer le résultat, il suffit de montrer que $IBC$ et $JBC$ sont isocèles en $I$ et $J$.
+
+On rédige avec des angles de droites, ce qui a l'avantage de démontrer simultanément le résultat pour la bissectrice intérieure et extérieure.
+
+En effet, les angles de droites ne voient pas la différence entre une bissectrice intérieure et extérieure : étant données deux droites $\mathcal D$ et $\mathcal D'$, une droite $\Delta$ est une bissectrice si 
+\[(\mathcal D,\Delta) = (\Delta,\mathcal D').\]
+ Deux droites ont deux bissectrices. On ne peut distinguer les deux bissectrices que si on fixe des vecteurs directeurs des droites.
+
+On prend donc une bissectrice (intérieure sur la figure mais ça ne changera rien), et on marque les angles égaux sur la figure :
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.6235592739369882cm,y=0.6235592739369843cm]
+\clip(1.98,-10.03) rectangle (18.02,6.01);
+\draw [shift={(15.92,-5.44)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (180.39:1.24) arc (180.39:214.67:1.24) -- cycle;
+\draw [shift={(8.29,2.24)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-113.74:1.24) arc (-113.74:-79.46:1.24) -- cycle;
+\draw [shift={(8.29,2.24)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (-79.46:1.24) arc (-79.46:-45.19:1.24) -- cycle;
+\draw [shift={(4.88,-5.51)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (-33.88:1.24) arc (-33.88:0.39:1.24) -- cycle;
+\draw(10.38,-3.31) ellipse (3.7cm and 3.7cm);
+\draw (4.88,-5.51)-- (8.29,2.24);
+\draw (15.92,-5.44)-- (4.88,-5.51);
+\draw (8.29,2.24)-- (15.92,-5.44);
+\draw [domain=1.98:18.02] plot(\x,{(-8.56--0.98*\x)/-0.18});
+\draw [dash pattern=on 7pt off 7pt] (10.42,-9.24)-- (15.92,-5.44);
+\draw [dash pattern=on 7pt off 7pt] (10.42,-9.24)-- (4.88,-5.51);
+\begin{scriptsize}
+\draw [fill=qqqqff] (8.29,2.24) circle (1.5pt);
+\draw[color=qqqqff] (8.62,2.79) node {$A$};
+\draw [fill=qqqqff] (4.88,-5.51) circle (1.5pt);
+\draw[color=qqqqff] (4.21,-5) node {$B$};
+\draw [fill=qqqqff] (15.92,-5.44) circle (1.5pt);
+\draw[color=qqqqff] (16.7,-5.24) node {$C$};
+\draw [fill=uuuuuu] (10.42,-9.24) circle (1.5pt);
+\draw[color=uuuuuu] (10.06,-9.61) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Pour montrer que $BCI$ est isocèle en $I$, il suffit de montrer que $(BC,BI) = (CI,CB)$. Or, on a 
+\begin{align*}
+(BC,BI) &= (AC,AI) \text{ car $ABIC$ est inscriptible}\\
+&= (AI,AB) \text{ car $(AI)$ est une bissectrice de $(AC)$ et $(AB)$}\\
+&= (CI,CB) \text{ car $ABIC$ est inscriptible.}
+\end{align*}
+
+On vérifie que la même preuve marche pour l'autre bissectrice en remplaçant $I$ par $J$, tracée sur la figure ci-dessous :
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.6235592739369882cm,y=0.6235592739369843cm]
+\clip(1.98,-10.03) rectangle (18.02,6.01);
+\draw [shift={(4.88,-5.51)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (0.39:1.24) arc (0.39:56.12:1.24) -- cycle;
+\draw [shift={(8.29,2.24)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-45.19:1.24) arc (-45.19:10.54:1.24) -- cycle;
+\draw [shift={(8.29,2.24)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (-169.46:1.24) arc (-169.46:-113.74:1.24) -- cycle;
+\draw [shift={(15.92,-5.44)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (124.67:1.24) arc (124.67:180.39:1.24) -- cycle;
+\draw(10.38,-3.31) ellipse (3.7cm and 3.7cm);
+\draw (4.88,-5.51)-- (8.29,2.24);
+\draw (15.92,-5.44)-- (4.88,-5.51);
+\draw (8.29,2.24)-- (15.92,-5.44);
+\draw [domain=1.98:18.02] plot(\x,{(--0.69--0.18*\x)/0.98});
+\draw [domain=1.98:18.02] plot(\x,{(-8.56--0.98*\x)/-0.18});
+\draw [dash pattern=on 7pt off 7pt] (4.88,-5.51)-- (10.34,2.62);
+\draw [dash pattern=on 7pt off 7pt] (10.34,2.62)-- (15.92,-5.44);
+\begin{scriptsize}
+\draw [fill=qqqqff] (8.29,2.24) circle (1.5pt);
+\draw[color=qqqqff] (8.62,2.79) node {$A$};
+\draw [fill=qqqqff] (4.88,-5.51) circle (1.5pt);
+\draw[color=qqqqff] (4.21,-5) node {$B$};
+\draw [fill=qqqqff] (15.92,-5.44) circle (1.5pt);
+\draw[color=qqqqff] (16.7,-5.24) node {$C$};
+\draw [fill=uuuuuu] (10.34,2.62) circle (1.5pt);
+\draw[color=uuuuuu] (10.81,3.5) node {$J$};
+\end{scriptsize}
+\end{tikzpicture}
+
+
+
+\emph{Si on rédige avec des angles orientés de vecteurs et non de droites, on doit faire attention aux éventuels facteurs $\pi$ qui apparaissent suivant si on considère la bissectrice intérieure ou extérieure d'un couple de vecteurs.}
+
+\end{sol}
+\end{exo}
+
+
+%----------------------------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Théorème des trois cercles de Miquel]
+% source : divers : partiel 2015, exogeo
+% source : https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Miquel
+% points cocycliques
+Soit $ABC$ un triangle direct, et $P$, $Q$ $R$ trois points situés sur $[BC]$, $[CA]$ et $[AB]$ respectivement. Soient $\mathcal C$ et $\mathcal C'$ les cercles circonscrits à $ARQ$ et $BPR$. 
+Ils se coupent en $R$, et on suppose qu'ils se coupent en un deuxième point $T$. 
+Montrer que $T$ est sur le cercle circonscrit à $PCQ$.
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2,-3) rectangle (14.8,5);
+\fill[fill opacity=0] (1.14,-0.9) -- (4.52,4.14) -- (8.8,-2.26) -- cycle;
+\draw  (1.14,-0.9)-- (4.52,4.14);
+\draw  (4.52,4.14)-- (8.8,-2.26);
+\draw  (8.8,-2.26)-- (1.14,-0.9);
+\draw(5.25,0) circle (4.21cm);
+\draw(3.52,-1.53) circle (2.46cm);
+\draw [dashed] (3.24,2.31) circle (2.24cm);
+\draw(7.88,0.79) circle (3.18cm);
+\begin{scriptsize}
+\draw (1.3,-0.64) node [right] {$A$};
+\draw (4.66,4.4) node {$C$};
+\draw (8.96,-2) node [above] {$B$};
+\draw (2.18,0.68) node [above] {$Q$};
+\draw (5.58,3.06) node {$P$};
+\draw (6.14,-1.5) node {$R$};
+\draw (4.86,0.88) node {$T$};
+\end{scriptsize}
+\end{tikzpicture}
+Montrer le même résultat même si les deux cercles sont tangents en $R$ (autrement dit si $T=R$).
+\end{center}
+\begin{hint}
+Condition de cocyclicité.
+\end{hint}
+\begin{sol}
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2,-3) rectangle (14.8,5);
+\fill[fill opacity=0] (1.14,-0.9) -- (4.52,4.14) -- (8.8,-2.26) -- cycle;
+\draw  (1.14,-0.9)-- (4.52,4.14);
+\draw  (4.52,4.14)-- (8.8,-2.26);
+\draw  (8.8,-2.26)-- (1.14,-0.9);
+\draw(5.25,0) circle (4.21cm);
+\draw(3.52,-1.53) circle (2.46cm);
+\draw [dashed] (3.24,2.31) circle (2.24cm);
+\draw(7.88,0.79) circle (3.18cm);
+\begin{scriptsize}
+\draw (1.3,-0.64) node [right] {$A$};
+\draw (4.66,4.4) node {$C$};
+\draw (8.96,-2) node [above] {$B$};
+\draw (2.18,0.68) node [above] {$Q$};
+\draw (5.58,3.06) node {$P$};
+\draw (6.14,-1.5) node {$R$};
+\draw (4.86,0.88) node {$T$};
+\end{scriptsize}
+\end{tikzpicture}
+
+
+Il suffit de montrer que $T, P, C, Q$ sont cocycliques. Voici plusieurs rédactions possibles.
+
+\underline{Rédaction avec des angles non orientés:}\\
+Il suffit par le cours de montrer que les angles $\widehat{TPC}$ et $\widehat{TQC}$ sont supplémentaires. Or par construction, les couples suivants d'angles sont supplémentaire: \\
+$\widehat{TQC}$ et $\widehat{TQA}$ car $Q\in[AC]$,\\
+$\widehat{TQA}$ et $\widehat{TRA}$ car $TQAR$ est inscriptible dans cet ordre,\\
+$\widehat{TRA}$ et $\widehat{TRB}$ car $R\in[AB]$,\\
+$\widehat{TRB}$ et $\widehat{TPB}$ car $TRBP$ est inscriptible dans cet ordre,\\
+$\widehat{TPB}$ et $\widehat{TPC}$ car $P \in[BC]$.\\
+On en déduit immédiatement que $\widehat{TQC}=\widehat{TRA}=\widehat{TPB}$ et $\widehat{TQA}=\widehat{TRB}=\widehat{TPC}$ sont supplémentaires.
+
+\emph{Une rédaction avec des angles non orientés est difficile à suivre sans figure : il faut bien justifier la cocyclicité dans un ordre précis pour que les angles inscrits soient supplémentaires et non égaux, et cela peut dépendre de la figure. Il faut donc parfois distinguer artificiellement plusieurs cas. La rédaction qui suit élimine ce problème.}
+
+
+\underline{Rédaction avec des angles de droites}:\\
+Par le cours,  il suffit de montrer l'égalité d'angles de droites $(QT,QC)=(PT,PC)$. Or on a :
+\begin{align*}
+(QT,QC)&=(QT,QA) \text{ car $(QC)=(QA)$}\\
+&=(RT,RA) \text{ car $AQTR$ est inscriptible} \\
+&= (RT,RB) \text{ car $(RA)=(RB)$} \\
+&=(PT,PB) \text{ car $PTRB$ est inscriptible} \\
+&=(PT,PC) \text{ car $(PB)=(PC)$.}
+\end{align*}
+\emph{La rédaction avec des angles de droites est sans doute la plus efficace pour ce type d'exercice : elle conserve les avantages des angles orientés de vecteurs (Chasles, calculs faciles à suivre même sans figure), et simplifie la rédaction lorsqu'il y a des angles supplémentaires.}
+\end{sol}
+\end{exo}
+
+%-------------------------------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Pentagramme]
+% nom : "pentagramme" ?
+% tags : chasse aux angles
+% source :  OFM 2014-2015 envoi 2 (22 pages) exercice 3.9
+% via Budzinski
+
+Soit $\mathcal C$ un cercle, $[BC]$ une corde, et $A \in \mathcal C$ tels que les arcs $AB$ et $AC$ soient égaux. Soient $[AD]$ et $[AE]$ deux autres cordes d'extrémités $A$, qui coupent $[BC]$ en $F$ et en $G$, respectivement. Montrer que $DEFG$ est inscriptible.
+\begin{sol}
+Traçons une figure :
+\begin{center}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.6049844578223686cm,y=0.6099433468209144cm]
+\clip(-3.752802476086023,-3.2338432364622567) rectangle (6.164807674754709,6.603135937542343);
+\draw [shift={(-1.22,5.12)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-28.790811275069014:0.8063097683610351) arc (-28.790811275069014:3.373433258452694:0.8063097683610351) -- cycle;
+\draw [shift={(5.3029984172619935,1.53531343775139)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (119.04494419140927:0.8063097683610351) arc (119.04494419140927:151.20918872493098:0.8063097683610351) -- cycle;
+\draw [shift={(-0.33735270489567304,-2.0802136358470724)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (64.82456240918293:0.8063097683610351) arc (64.82456240918293:96.98880694270463:0.8063097683610351) -- cycle;
+\draw [shift={(3.1686365489609396,5.378691016947528)},color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-176.62656674154732:0.6719248069675292) arc (-176.62656674154732:-162.60293692157978:0.6719248069675292) -- cycle;
+\draw [shift={(-0.33735270489567304,-2.0802136358470724)},color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (96.98880694270463:0.8063097683610351) arc (96.98880694270463:111.01243676267217:0.8063097683610351) -- cycle;
+\draw [shift={(0.07379462482048285,4.409000562436103)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (-162.60293692157978:0.40315488418051754) arc (-162.60293692157978:-28.790811275069014:0.40315488418051754) -- cycle;
+\draw [shift={(0.07379462482048285,4.409000562436103)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (17.397063078420217:0.40315488418051754) arc (17.397063078420217:151.20918872493095:0.40315488418051754) -- cycle;
+\draw [line width=1.2pt] (1.18,1.76) ellipse (2.4980510820928545cm and 2.518526910634607cm);
+\draw [line width=1.2pt] (-1.22,5.12)-- (5.3029984172619935,1.53531343775139);
+\draw [line width=1.2pt] (3.1686365489609396,5.378691016947528)-- (-2.5180150920511677,3.5969225293848943);
+\draw [line width=1.2pt] (3.1686365489609396,5.378691016947528)-- (-0.33735270489567304,-2.0802136358470724);
+\draw [dash pattern=on 2pt off 2pt] (-2.5180150920511677,3.5969225293848943)-- (-1.22,5.12);
+\draw [dash pattern=on 2pt off 2pt] (-0.33735270489567304,-2.0802136358470724)-- (5.3029984172619935,1.53531343775139);
+\draw [dash pattern=on 2pt off 2pt] (-0.33735270489567304,-2.0802136358470724)-- (-2.5180150920511677,3.5969225293848943);
+\draw [dash pattern=on 2pt off 2pt] (-0.33735270489567304,-2.0802136358470724)-- (-1.22,5.12);
+\draw [dash pattern=on 2pt off 2pt] (-1.22,5.12)-- (3.1686365489609396,5.378691016947528);
+\draw [dash pattern=on 2pt off 2pt] (3.1686365489609396,5.378691016947528)-- (5.3029984172619935,1.53531343775139);
+\draw [dash pattern=on 2pt off 2pt] (5.3029984172619935,1.53531343775139)-- (-2.5180150920511677,3.5969225293848943);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-1.22,5.12) circle (2.5pt);
+\draw[color=qqqqff] (-1.0382262559372046,5.608687223230403) node {$B$};
+\draw [fill=xdxdff] (5.3029984172619935,1.53531343775139) circle (2.5pt);
+\draw[color=xdxdff] (5.49288286778718,2.0071702578844564) node {$C$};
+\draw [fill=uuuuuu] (3.1686365489609396,5.378691016947528) circle (1.5pt);
+\draw[color=uuuuuu] (3.3696004777697866,5.743072184623909) node {$A$};
+\draw [fill=xdxdff] (-2.5180150920511677,3.5969225293848943) circle (2.5pt);
+\draw[color=xdxdff] (-3.0271236845610914,4.103575655623142) node {$D$};
+\draw [fill=xdxdff] (-0.33735270489567304,-2.0802136358470724) circle (2.5pt);
+\draw[color=xdxdff] (-0.7425793408714919,-2.185640537592914) node {$E$};
+\draw [fill=uuuuuu] (0.07379462482048285,4.409000562436103) circle (1.5pt);
+\draw[color=uuuuuu] (0.06373042748954315,3.8348057328361307) node {$F$};
+\draw [fill=uuuuuu] (2.171091873144122,3.256439610832737) circle (1.5pt);
+\draw[color=uuuuuu] (1.4882110182607051,3.270388894983408) node {$G$};
+\end{scriptsize}
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.6049844578223686cm,y=0.6099433468209144cm]
+\clip(-3.752802476086023,-3.2338432364622567) rectangle (6.164807674754709,6.603135937542343);
+\draw [line width=1.2pt] (1.18,1.76) ellipse (2.4980510820928545cm and 2.518526910634607cm);
+\draw [line width=1.2pt] (-1.22,5.12)-- (5.3029984172619935,1.53531343775139);
+\draw [line width=1.2pt] (3.1686365489609396,5.378691016947528)-- (-2.5180150920511677,3.5969225293848943);
+\draw [line width=1.2pt] (3.1686365489609396,5.378691016947528)-- (-0.33735270489567304,-2.0802136358470724);
+\draw [dash pattern=on 2pt off 2pt,color=ffqqqq] (-0.33678647441899345,1.1773824411032867) ellipse (1.9707950261897778cm and 1.9869490837815031cm);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-1.22,5.12) circle (2.5pt);
+\draw[color=qqqqff] (-1.0382262559372046,5.608687223230403) node {$B$};
+\draw [fill=xdxdff] (5.3029984172619935,1.53531343775139) circle (2.5pt);
+\draw[color=xdxdff] (5.49288286778718,2.0071702578844564) node {$C$};
+\draw [fill=uuuuuu] (3.1686365489609396,5.378691016947528) circle (1.5pt);
+\draw[color=uuuuuu] (3.3696004777697866,5.743072184623909) node {$A$};
+\draw [fill=xdxdff] (-2.5180150920511677,3.5969225293848943) circle (2.5pt);
+\draw[color=xdxdff] (-3.0271236845610914,4.103575655623142) node {$D$};
+\draw [fill=xdxdff] (-0.33735270489567304,-2.0802136358470724) circle (2.5pt);
+\draw[color=xdxdff] (-0.7425793408714919,-2.185640537592914) node {$E$};
+\draw [fill=uuuuuu] (0.07379462482048285,4.409000562436103) circle (1.5pt);
+\draw[color=uuuuuu] (0.06373042748954315,3.8348057328361307) node {$F$};
+\draw [fill=uuuuuu] (2.171091873144122,3.256439610832737) circle (1.5pt);
+\draw[color=uuuuuu] (1.4882110182607051,3.270388894983408) node {$G$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\end{center}
+
+\emph{[Sur la figure, on voit que les angles $\widehat{GFD}$ et $\widehat{GED}$ sont supplémentaires, car $\widehat{GFD}=\widehat{BFA}$ et $\widehat{GED}=\widehat{GEB}+\widehat{BED} = \widehat{FBA}+\widehat{BAF}$. Il ne reste plus qu'à rédiger cette preuve un peu plus rigoureusement avec des angles de droites.]}
+
+Montrons que $(FD,FG)=(ED,EG)$, ce qui prouve que $EDFG$ est inscriptible.
+
+Tout d'abord, comme $(FD)=(FA)$ et $(FG)=(FB)$, on a 
+\[(FD,FG)=(FA,FB).\]
+
+Ensuite, la somme des angles du triangle $ABF$ vaut $\pi$, donc en termes d'angles de droites on a la relation 
+$(FA,FB)+(AB,AF)+(BF,BA)=0$, c'est-à-dire:
+\[
+(FA,FB) = (AF,AB)+(BA,BF).
+\]
+Calculons chacun de ces deux angles. D'une part, on a :
+\begin{align*}
+(AF,AB) &= (AD,AB) \text{ car $(AD)=(AF)$}\\
+&=(ED,EB) \text{ car $ABDE$ est inscriptible}.
+\end{align*}
+Et d'autre part :
+\begin{align*}
+(BA,BF) &= (BA,BC) \text{ car $(BF)=(BC)$} \\
+&= (CB,CA) \text{ car $ABC$ est isocèle en $A$}\\
+&= (EB,EA) \text{ car $ABCE$ est inscriptible.}
+\end{align*}
+
+Finalement, on obtient donc:
+\begin{align*}
+(FD,FG)&=(FA,FB) \\
+&= (AF,AB)+(BA,BF) \\
+&= (ED,EB) + (EB,EA)\\
+&= (ED,EA)\\
+&= (ED,EG) \text{ car $(EG)=(EA)$,}
+\end{align*}
+ce qu'il fallait démontrer.
+
+% solution rédigée différemment sur le pdf
+
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Droite coupant deux cercles]
+% source : ofm 2014-2015 envoie 2 cours
+% exo 3.10
+
+Soient $\mathcal C_1$ et $\mathcal C_2$ deux cercles se coupant en $P$ et $Q$, et considérons une droite $\mathcal D$ coupant $\mathcal C_1$ en $A$ et $B$, et coupant $\mathcal C_2$ en  $C$ et $D$. 
+
+Montrer que si $\mathcal D$ coupe le segment $[PQ]$, alors les angles $\widehat{APC}$ et $\widehat{DQB}$ sont égaux  et $A$, $C$, $B$ et $D$ sont alignés dans cet ordre.
+
+Que peut-on dire dans les autres cas ?
+%En général,  $(PA,PC)=(DQ,BQ)$. (angles de droites)
+
+\begin{sol} Traçons une figure. \emph{[Comme d'habitude, le fait de marquer toutes les égalités d'angles disponibles donne le résultat. Sur la figure, on ne marque que celles utilisées dans la rédaction proposée.]}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5.79,-2.53) rectangle (11.17,8.14);
+\draw [shift={(9.02,1.97)},color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-179.31:1.4) arc (-179.31:-166.83:1.4) -- cycle;
+\draw [shift={(1.97,5.91)},color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-105.64:1.4) arc (-105.64:-93.16:1.4) -- cycle;
+\draw [shift={(1.97,5.91)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-146.73:0.84) arc (-146.73:-93.16:0.84) -- cycle;
+\draw [shift={(2.85,1.9)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-179.31:0.84) arc (-179.31:-125.74:0.84) -- cycle;
+\draw(-0.73,3.22) circle (3.81cm);
+\draw(4.92,2.91) circle (4.21cm);
+\draw [domain=-5.79:11.17] plot(\x,{(--9.53--0.06*\x)/5.12});
+\draw (-4.27,1.81)-- (1.97,5.91);
+\draw (1.97,5.91)-- (0.84,1.87);
+\draw (2.85,1.9)-- (1.66,0.25);
+\draw (9.02,1.97)-- (1.66,0.25);
+\draw [dash pattern=on 4pt off 4pt] (1.97,5.91)-- (1.66,0.25);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.97,5.91) circle (1.5pt);
+\draw[color=qqqqff] (1.98,6.44) node {$P$};
+\draw [fill=qqqqff] (1.66,0.25) circle (1.5pt);
+\draw[color=qqqqff] (1.7,-0.16) node {$Q$};
+\draw [fill=qqqqff] (-4.27,1.81) circle (1.5pt);
+\draw[color=qqqqff] (-4.78,2.19) node {$A$};
+\draw [fill=qqqqff] (0.84,1.87) circle (1.5pt);
+\draw[color=qqqqff] (0.44,1.52) node {$C$};
+\draw [fill=uuuuuu] (2.85,1.9) circle (1.5pt);
+\draw[color=uuuuuu] (3.29,1.63) node {$B$};
+\draw [fill=uuuuuu] (9.02,1.97) circle (1.5pt);
+\draw[color=uuuuuu] (9.24,2.33) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Montrons que $(PA,PC)=(DQ,BQ)$. On a:
+\begin{align*}
+(PA,PC)&= (PA,PQ)+(PQ,PC) \\
+&= (BA,BQ)+(DQ,DC) \text{ par cocyclicité dans chaque cercle}\\
+&= (BA,BQ)+(DQ,BA) \text{ car $(DC)=(BA)$}\\
+&= (DQ,BQ).
+\end{align*}
+
+\emph{[Voici une autre configuration possible pour la figure, la preuve reste inchangée :]}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5.79,-2.53) rectangle (11.17,8.14);
+\draw [shift={(2.32,5.21)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (165.17:0.84) arc (165.17:271.19:0.84) -- cycle;
+\draw [shift={(0.36,6.67)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-175.75:0.84) arc (-175.75:-69.74:0.84) -- cycle;
+\draw(-0.78,3.12) circle (3.73cm);
+\draw(6.1,3.26) circle (4.25cm);
+\draw [domain=-5.79:11.17] plot(\x,{(--42.51--0.47*\x)/6.4});
+\draw (-2.43,6.46)-- (2.32,5.21);
+\draw (2.32,5.21)-- (3.96,6.94);
+\draw (0.36,6.67)-- (2.4,1.16);
+\draw (7.66,7.21)-- (2.4,1.16);
+\draw [dash pattern=on 4pt off 4pt] (2.32,5.21)-- (2.4,1.16);
+\begin{scriptsize}
+\draw [fill=qqqqff] (2.32,5.21) circle (1.5pt);
+\draw[color=qqqqff] (2.32,5.74) node {$P$};
+\draw [fill=qqqqff] (2.4,1.16) circle (1.5pt);
+\draw[color=qqqqff] (2.43,0.74) node {$Q$};
+\draw [fill=qqqqff] (-2.43,6.46) circle (1.5pt);
+\draw[color=qqqqff] (-2.94,6.86) node {$A$};
+\draw [fill=qqqqff] (3.96,6.94) circle (1.5pt);
+\draw[color=qqqqff] (3.66,7.39) node {$C$};
+\draw [fill=uuuuuu] (0.36,6.67) circle (1.5pt);
+\draw[color=uuuuuu] (0.78,7.02) node {$B$};
+\draw [fill=uuuuuu] (7.66,7.21) circle (1.5pt);
+\draw[color=uuuuuu] (7.87,7.58) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Carré invisible]  On considère un carré $ABCD$ et on place quatre points $E$, $F$, $G$, et $H$ sur chacun des côtés de ce carré (en-dehors des sommets). Puis, on efface le carré $ABCD$, en conservant juste les points $E$, $F$, $G$ et $H$.
+
+L'objectif est de reconstruire le carré en utilisant le théorème de l'angle inscrit.
+
+Si $A$ est le sommet entre $E$ et $H$, montrer que la diagonale du carré partant de $A$ passe par l'intersection du cercle de diamètre $[EH]$ avec la médiatrice de $[EH]$.
+% angle inscrit, voir aussi exerccie précédent
+En déduire une construction des diagonales du carré, puis du carré.
+\begin{hint}
+Utiliser un des exercices précédents.% celui sur l'intersection d'une bissectrice et d'une médiatrice, par exemple. Mais là c'est un cas particulier.
+\end{hint}
+\begin{sol}
+Le point $A$ appartient au cercle de diamètre $[EH]$. 
+\end{sol}
+\end{exo}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Chasse aux angles, bis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%------------------------------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Angle inscrit, cas limite]
+% n'utilise que des triangles isocèles et rectangles
+Soit $\mathcal C$ un cercle de centre $O$, $[AB]$ une corde et $\mathcal T$ la tangente de $A$. Montrer que l'angle entre $\mathcal T$ et $(AB)$ vaut la moitié de $\widehat{AOB}$.
+
+\begin{center}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(4,-4) rectangle (14,3.8);
+\draw [shift={(11.74187889933037,2.2246542567951373)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (164.80233009357863:0.5881327557490914) arc (164.80233009357863:200.02131119208804:0.5881327557490914) -- cycle;
+\draw [shift={(10.106627303264904,-3.7950390448372655)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (74.80233009357865:0.5881327557490914) arc (74.80233009357865:145:0.5881327557490914) -- cycle;
+
+\draw(10.106627303264904,-3.7950390448372655) circle (6.237848605741619cm);
+\draw [domain=2.5705762947384336:17.960050070172993] plot(\x,{(--32.592662539015095-1.6352515960654657*\x)/6.019693301632403});
+\draw (10.106627303264904,-3.7950390448372655)-- (11.74187889933037,2.2246542567951373);
+\draw (10.106627303264904,-3.7950390448372655)-- (4.9819205933097095,-0.23861719625224892);
+\draw (11.74187889933037,2.2246542567951373)-- (4.9819205933097095,-0.23861719625224892);
+
+\begin{scriptsize}
+\draw [fill=qqqqff] (10.106627303264904,-3.7950390448372655) circle (1.5pt);
+\draw[color=qqqqff] (10.412346371392987,-3.7282048803635246) node {$O$};
+\draw [fill=qqqqff] (4.9819205933097095,-0.23861719625224892) circle (1.5pt);
+\draw[color=qqqqff] (4.413392262752254,-0.042572944335882046) node {$B$};
+\draw [fill=xdxdff] (11.74187889933037,2.2246542567951373) circle (1.5pt);
+\draw[color=xdxdff] (11.80426055999917,2.682442157301577) node {$A$};
+
+
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\begin{hint}
+Triangles isocèles et rectangles
+\end{hint}
+\begin{sol} 
+Traçons la figure, où on a placé $I$ le milieu de $[AB]$, de telle sorte que $\frac12(OA,OB)=(OA,OI)$.
+
+\begin{center}
+
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(4,-4) rectangle (14,3.8);
+\draw [shift={(11.74187889933037,2.2246542567951373)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (164.80233009357863:0.5881327557490914) arc (164.80233009357863:200.02131119208804:0.5881327557490914) -- cycle;
+\draw [shift={(10.106627303264904,-3.7950390448372655)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (74.80233009357865:0.5881327557490914) arc (74.80233009357865:110.02131119208799:0.5881327557490914) -- cycle;
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (8.504281918639839,0.6022789927301224) -- (8.89502145618116,0.744661165049919) -- (8.752639283861363,1.1354007025912407) -- (8.361899746320042,0.993018530271444) -- cycle; 
+\draw [shift={(11.74187889933037,2.2246542567951373)},color=qqwuqq,fill=qqwuqq,pattern=north east lines,pattern color=qqwuqq] (0,0) -- (-159.978688807912:0.6861548817072733) arc (-159.978688807912:-105.19766990642137:0.6861548817072733) -- cycle;
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (11.63285790928615,1.8233258464847182) -- (12.034186319596568,1.7143048564404975) -- (12.14320730964079,2.1156332667509163) -- (11.74187889933037,2.2246542567951373) -- cycle; 
+\draw(10.106627303264904,-3.7950390448372655) circle (6.237848605741619cm);
+\draw [domain=2.5705762947384336:17.960050070172993] plot(\x,{(--32.592662539015095-1.6352515960654657*\x)/6.019693301632403});
+\draw (10.106627303264904,-3.7950390448372655)-- (11.74187889933037,2.2246542567951373);
+\draw (10.106627303264904,-3.7950390448372655)-- (4.9819205933097095,-0.23861719625224892);
+\draw (11.74187889933037,2.2246542567951373)-- (4.9819205933097095,-0.23861719625224892);
+\draw [dash pattern=on 2pt off 2pt,domain=2.5705762947384336:17.960050070172993] plot(\x,{(-58.972167842212926--6.7599583060206605*\x)/-2.463271453047386});
+\begin{scriptsize}
+\draw [fill=qqqqff] (10.106627303264904,-3.7950390448372655) circle (1.5pt);
+\draw[color=qqqqff] (10.412346371392987,-3.7282048803635246) node {$O$};
+\draw [fill=qqqqff] (4.9819205933097095,-0.23861719625224892) circle (1.5pt);
+\draw[color=qqqqff] (4.413392262752254,-0.042572944335882046) node {$B$};
+\draw [fill=xdxdff] (11.74187889933037,2.2246542567951373) circle (1.5pt);
+\draw[color=xdxdff] (11.80426055999917,2.682442157301577) node {$A$};
+\draw [fill=uuuuuu] (8.361899746320042,0.993018530271444) circle (1.5pt);
+\draw[color=uuuuuu] (8.491112702612622,1.2709235435037565) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+
+Les angles $(AO,\mathcal T)$ et $(AI,IO)$ sont droits.
+On a d'une part :
+\[ 0=(\mathcal T,\mathcal T) =  (\mathcal T,AI) +(AI,AO)+ \pi/2, \]
+et d'autre part, dans le triangle $AIO$:
+\[ 0=(AI,AO)+(IO,IA)+(OA,OI)=(AI,AO)+\pi/2+(OA,OI).\]
+Finalement, on a donc:
+\[ (\mathcal T,AB) = (\mathcal T, AI) = -(AI,AO)-\pi/2 = (OA,OI)=\frac{1}{2}(OA,OB),\]
+ce qu'il fallait démontrer.$\qed$
+
+
+\end{sol}  
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Cas limite du théorème de Reim] %exo7
+% application directe
+% angle inscrit et angle au centre, cas limite
+% ou homothéties
+Soient $\mathcal C$ et $\mathcal C'$ deux cercles tangents en un point $T$, et $\mathcal D_1$, $\mathcal D_2$ deux droites sécantes en $T$. On note $A$ et $A'$ (resp. $B$ et $B'$) les points d'intersection de $\mathcal D_1$ (resp. $\mathcal D_2$) avec $\mathcal C$ et $\mathcal C'$. Montrer que les droites $(AB)$ et $(A'B')$ sont parallèles.
+
+
+\begin{center}
+%\includegraphics{images/img007125-1}
+\definecolor{ffqqtt}{rgb}{1.,0.,0.2}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(-4.96,-1.2) rectangle (5.46,4.94);
+\draw(-2.,2.) circle (2.700296280040396cm);
+\draw(2.8,2.1) circle (2.1008569680013913cm);
+\draw [domain=-4.96:5.46] plot(\x,{(-10.801947500913874--1.7981858014869974*\x)/-4.678047764643616});
+\draw [domain=-4.96:5.46] plot(\x,{(-6.195302419327594-2.4671338401188603*\x)/-3.8834784840249004});
+\draw [color=ffqqtt,domain=-4.96:5.46] plot(\x,{(-13.917940734612198-4.265319641605858*\x)/0.7945692806187159});
+\draw [color=ffqqtt,domain=-4.96:5.46] plot(\x,{(--14.73968797588983-3.326646488964469*\x)/0.5724971001338988});
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.,2.) circle (2.5pt);
+\draw[color=qqqqff] (-1.86,2.37) node {$O$};
+\draw [fill=qqqqff] (0.7,2.04) circle (2.5pt);
+\draw[color=qqqqff] (0.84,2.41) node {$T$};
+\draw [fill=qqqqff] (2.8,2.1) circle (2.5pt);
+\draw[color=qqqqff] (3.,2.47) node {$O'$};
+\draw [fill=xdxdff] (-3.978047764643616,3.8381858014869974) circle (2.5pt);
+\draw[color=xdxdff] (-4.6,3.87) node {$A$};
+\draw [fill=xdxdff] (-3.1834784840249,-0.42713384011886024) circle (2.5pt);
+\draw[color=xdxdff] (-3.84,-0.31) node {$B$};
+\draw [fill=uuuuuu] (3.7466344550321073,3.9754954568182947) circle (1.5pt);
+\draw[color=uuuuuu] (3.94,4.47) node {$B'$};
+\draw [fill=uuuuuu] (4.319131555166006,0.6488489678538256) circle (1.5pt);
+\draw[color=uuuuuu] (4.1,0.07) node {$A'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+
+\begin{hint}
+Introduire la tangente commune $\mathcal T$ aux deux cercles. 
+%Utiliser le cas limite du théorème de l'angle au centre.
+\end{hint}
+\begin{sol}
+Soit $\mathcal T$ la tangente commune  aux deux cercles.
+
+\begin{center}
+%\includegraphics{images/img007125-2}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{ffqqtt}{rgb}{1.,0.,0.2}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.96,-1.2) rectangle (5.46,4.94);
+\draw [shift={(-3.978047764643616,3.8381858014869974)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-79.44755493537986:0.6) arc (-79.44755493537986:-21.02616489762143:0.6) -- cycle;
+\draw [shift={(0.7,2.04)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-147.57262576620485:0.6) arc (-147.57262576620485:-88.36342295838327:0.6) -- cycle;
+\draw [shift={(4.319131555166006,0.6488489678538256)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (99.764632294557:0.6) arc (99.764632294557:158.9738351023786:0.6) -- cycle;
+\draw(-2.,2.) circle (2.700296280040396cm);
+\draw(2.8,2.1) circle (2.1008569680013913cm);
+\draw [domain=-4.96:5.46] plot(\x,{(-10.801947500913874--1.7981858014869974*\x)/-4.678047764643616});
+\draw [domain=-4.96:5.46] plot(\x,{(-6.195302419327594-2.4671338401188603*\x)/-3.8834784840249004});
+\draw [color=ffqqtt,domain=-4.96:5.46] plot(\x,{(-13.917940734612198-4.265319641605858*\x)/0.7945692806187159});
+\draw [color=ffqqtt,domain=-4.96:5.46] plot(\x,{(--14.73968797588983-3.326646488964469*\x)/0.5724971001338988});
+\draw [dash pattern=on 5pt off 5pt,domain=-4.96:5.46] plot(\x,{(-1.5924--2.1*\x)/-0.06});
+\begin{scriptsize}
+\draw [fill=qqqqff] (0.7,2.04) circle (2.5pt);
+\draw[color=qqqqff] (0.84,2.41) node {$T$};
+\draw [fill=xdxdff] (-3.978047764643616,3.8381858014869974) circle (2.5pt);
+\draw[color=xdxdff] (-4.6,3.87) node {$A$};
+\draw [fill=xdxdff] (-3.1834784840249,-0.42713384011886024) circle (2.5pt);
+\draw[color=xdxdff] (-3.84,-0.31) node {$B$};
+\draw [fill=uuuuuu] (3.7466344550321073,3.9754954568182947) circle (1.5pt);
+\draw[color=uuuuuu] (3.94,4.47) node {$B'$};
+\draw [fill=uuuuuu] (4.319131555166006,0.6488489678538256) circle (1.5pt);
+\draw[color=uuuuuu] (4.1,0.07) node {$A'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Par le cas limite du théorème des angles inscrits, on a 
+\[ (AB,AT) = (BT,\mathcal T)=(B'T,\mathcal T)=(A'B',A'T)\]
+
+Comme $(AT) = (A'T)$, on en déduit que
+\[ (AB,AT) = (A'B',AT),\]
+et donc que $(AB)//(A'B')$. 
+
+\underline{Autre preuve:} considérer une homothétie de centre $T$ qui envoie un cercle sur l'autre.
+
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Triangle orthique]%exo7
+% joli, points cocycliques
+Soit $ABC$ un triangle non rectangle et $A'$, $B'$, $C'$ les pieds des hauteurs. Montrer que les hauteurs de $ABC$ sont des bissectrices du triangle $A'B'C'$, dit \emph{triangle orthique}. 
+
+\begin{hint}   
+Utiliser les angles droits pour montrer que des points sont cocycliques, puis utiliser le théorème de l'angle inscrit.
+\end{hint}      
+\begin{sol}
+
+Le quadrilatère $ABA'B'$ est inscriptible dans un cercle de diamètre $[AB]$. En effet, les triangles $ABA'$ et $ABB'$ sont par définition rectangles en $A'$ et $B'$, et ont même hypoténuse $[AB]$.
+
+De même, les quadrilatères $BCB'C'$ et $CAC'A'$ sont inscriptibles dans des cercles de diamètre $[BC]$ et $[CA]$.
+
+\begin{center}
+%\includegraphics{images/img007131-1}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(3.6292152550867987,-5.041701368203163) rectangle (16.68576243271663,3.6038501413084876);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (8.268175288872698,-2.7715717860200795) -- (7.852814176986605,-2.750951021600202) -- (7.8321934125667285,-3.1663121334862936) -- (8.24755452445282,-3.186932897906171) -- cycle; 
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (9.561507124932467,0.5418232874040516) -- (9.862989559441017,0.25536489448230715) -- (10.149447952362761,0.5568473289908564) -- (9.847965517854211,0.8433057219126009) -- cycle; 
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (7.790587291843089,-0.4447648275939527) -- (7.964500456074173,-0.06700262660020309) -- (7.586738255080424,0.10691053763088143) -- (7.412825090849339,-0.27085166336286814) -- cycle; 
+\draw (6.1189772544246175,-3.0812588490395227)-- (8.510717127804256,2.113913826744122);
+\draw (8.510717127804256,2.113913826744122)-- (14.411649110486806,-3.4929517780638872);
+\draw (14.411649110486806,-3.4929517780638872)-- (6.1189772544246175,-3.0812588490395227);
+\draw (8.510717127804256,2.113913826744122)-- (8.24755452445282,-3.186932897906171);
+\draw (7.412825090849339,-0.27085166336286814)-- (14.411649110486806,-3.4929517780638872);
+\draw (9.847965517854211,0.8433057219126009)-- (6.1189772544246175,-3.0812588490395227);
+\draw [dash pattern=on 5pt off 5pt] (7.314847191114436,-0.4836725111477) circle (2.8596432799006175cm);
+\draw [dash pattern=on 5pt off 5pt] (10.265313182455714,-3.287105313551705) circle (4.151442447515517cm);
+\draw [dash pattern=on 5pt off 5pt] (11.461183119145531,-0.6895189756598837) circle (4.069949022242936cm);
+\begin{scriptsize}
+\draw [fill=qqqqff] (6.1189772544246175,-3.0812588490395227) circle (2.5pt);
+\draw[color=qqqqff] (5.707284325400255,-3.179280974997705) node {$A$};
+\draw [fill=qqqqff] (8.510717127804256,2.113913826744122) circle (2.5pt);
+\draw[color=qqqqff] (8.510717127804257,2.525606755768486) node {$B$};
+\draw [fill=qqqqff] (14.411649110486806,-3.4929517780638872) circle (2.5pt);
+\draw[color=qqqqff] (14.7841331891279,-3.5909739040220696) node {$C$};
+\draw [fill=uuuuuu] (9.847965517854211,0.8433057219126009) circle (1.5pt);
+\draw[color=uuuuuu] (10.137884418710078,1.2709235435037565) node {$A'$};
+\draw [fill=uuuuuu] (7.412825090849339,-0.27085166336286814) circle (1.5pt);
+\draw[color=uuuuuu] (7.099198514006438,-0.022968519144245664) node {$C'$};
+\draw [fill=uuuuuu] (8.24755452445282,-3.186932897906171) circle (1.5pt);
+\draw[color=uuuuuu] (8.216650749929713,-3.5321606284471603) node {$B'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Montrons que la hauteur $(BB')$ est une bissectrice des droites $(B'C')$ et $(B'A')$. Pour cela, on montre que $(B'C',B'B)=(B'B,B'A')$.
+
+On a :
+\begin{align*}
+(B'C',B'B)
+&= (CC',CB) \text{ (car $BCB'C'$ est inscriptible)}\\
+&= (CC',CA') \text{ (mêmes droites)}\\
+&= (AC'AA') \text{ (car $ACA'C'$ est inscriptible)}\\
+&= (AB,AA') \text{ (mêmes droites)}\\
+&= (B'B,B'A') \text{ (car $ABA'B'$ est inscriptible)}\\
+\end{align*}
+
+\end{sol}  
+\end{exo}  
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Triangle équilatéral] %exo7
+% source : Deschamps chap 2 ex 8
+Soit $ABC$ un triangle équilatéral et $M$ un point du cercle circonscrit appartenant à l'arc $BC$ ne contenant pas $A$. Montrer que $MA= MB+MC$.
+
+\begin{hint}Sans le théorème de Ptolémée, on peut considérer le point $N \in [AM]$ tel que $\widehat{BNM}=\pi/3$.
+\end{hint}
+\end{exo}  
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Problème \og DPP\fg ] %exo7 
+Soit $\mathcal D$ une droite et $A$ et $B$ deux points situés d'un seul côté de $\mathcal D$. L'objectif est de construire un cercle passant par les deux points et tangent à la droite. On suppose que les droites $(AB)$ et $\mathcal D$ ne sont pas parallèles. (Si elles le sont, le problème est plus facile.)
+
+\begin{enumerate}
+\item (Analyse) Soit $\mathcal C$ un tel cercle et $T$ son point de tangence avec $\mathcal D$. Montrer que $(AB,AT) = (TB,\mathcal D)$. % angle inscrit avec le cas limite.
+\item (Synthèse) Soit $I$ le point d'intersection de $(AB)$ avec $\mathcal D$, $B'$ le symétrique de $B$ par rapport à $I$, et $B''$ le symétrique de $B$ par rapport à $\mathcal D$. Montrer que le cercle circonscrit à $AB'B''$ (de diamètre $[AB']$ dans le cas où $B'=B''$) coupe $\mathcal D$ en deux points qui conviennent pour le choix de $T$.
+\end{enumerate}
+
+\end{exo}  
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Symétrique de l'orthocentre]%exo7
+Soit $ABC$ un triangle, $H$ son orthocentre et $\mathcal C$ son cercle circonscrit. La hauteur issue de $B$ recoupe $\mathcal C$ en $H'$. Montrer que $H'$ est le symétrique de $H$ par rapport à la droite $(AC)$. 
+
+\begin{center}
+%\includegraphics{images/img007139-1}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.98,-2.28) rectangle (5.54,6.18);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.5005332161356,1.0565532511499678) -- (0.08426725780331151,1.1385450308214793) -- (0.0022754781318001793,0.7222790724891908) -- (0.41854143646408865,0.6402872928176794) -- cycle; 
+\draw(1.3353585596582238,1.806435764418676) circle (3.613648251456491cm);
+\draw (-2.22,1.16)-- (1.36,5.42);
+\draw (1.36,5.42)-- (4.38,-0.14);
+\draw (4.38,-0.14)-- (-2.22,1.16);
+\draw [domain=-2.98:5.54] plot(\x,{(--1.93-6.6*\x)/-1.3});
+\draw [domain=-2.98:5.54] plot(\x,{(--13.154--3.02*\x)/5.56});
+\draw [domain=-2.98:5.54] plot(\x,{(-15.084--3.58*\x)/-4.26});
+\draw (-2.22,1.16)-- (-0.01220000775537524,-1.5465538855272907);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.22,1.16) circle (2.5pt);
+\draw[color=qqqqff] (-2.66,1.43) node {$A$};
+\draw [fill=qqqqff] (1.36,5.42) circle (2.5pt);
+\draw[color=qqqqff] (1.7,5.69) node {$B$};
+\draw [fill=qqqqff] (4.38,-0.14) circle (2.5pt);
+\draw[color=qqqqff] (4.42,0.55) node {$C$};
+\draw [fill=uuuuuu] (0.8492828806835522,2.8271284711626494) circle (1.5pt);
+\draw[color=uuuuuu] (0.6,3.37) node {$H$};
+\draw [fill=uuuuuu] (-0.01220000775537524,-1.5465538855272907) circle (1.5pt);
+\draw[color=uuuuuu] (0.38,-1.29) node {$H'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+
+
+\begin{hint}
+Utiliser les différentes caractérisations des triangles isocèles.
+\end{hint}
+
+\begin{sol}
+
+Si $ABC$ est rectangle, l'orthocentre coïncide avec un des sommets et la vérification de l'assertion est relativement facile. Dans la suite on suppose qu'on n'est pas dans ce cas.
+
+Par définition, $H'$ est le symétrique de $H$ par rapport à $(AC)$ si $(AC)$ est la médiatrice de $[HH']$. C'est cela qu'on doit montrer.
+
+
+
+D'autre part, par définition, on a $(AC) \bot (HH')$, donc $(AC)$ est la hauteur de $AHH'$ issue de $A$. 
+
+Donc si $AHH'$ est isocèle en $A$, alors cette hauteur de $AHH'$  est aussi la médiane issue de $A$ et c'est encore la médiatrice du côté opposé à $A$ c'est-à-dire $[HH']$.
+
+Il suffit donc de montrer que $AHH'$ est isocèle en $A$. Pour cela, il suffit de montrer que les angles adjacents à la base sont égaux, autrement dit $\widehat{AHH'} = \widehat{AH'H}$ avec des angles géométriques non orientés, ou plus précisément avec des angles orientés $(H'A,H'H)=(HH',AH)$.
+
+Suivant la méthodologie habituelle, on marque de façon systématique les angles égaux (ou complémentaires, supplémentaires etc) sur la figure. Ceci indique la marche à suivre pour la preuve.
+
+
+\begin{center}
+%\includegraphics{images/img007139-2}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.98,-2.28) rectangle (5.54,6.18);
+\draw [shift={(0.8492828806835522,2.8271284711626494)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-151.49071844697522:0.6) arc (-151.49071844697522:-101.14288985833932:0.6) -- cycle;
+\draw [shift={(4.38,-0.14)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (118.50928155302478:0.6) arc (118.50928155302478:168.8571101416607:0.6) -- cycle;
+\draw [shift={(-0.01220000775537524,-1.5465538855272907)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (78.85711014166068:0.6) arc (78.85711014166068:129.2049387302966:0.6) -- cycle;
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (1.9583437879444565,3.4295320574806225) -- (2.160845501758234,3.056714332710886) -- (2.533663226527971,3.2592160465246636) -- (2.331161512714193,3.6320337712944) -- cycle; 
+\draw [shift={(-2.22,1.16)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-11.14288985833932:0.6) arc (-11.14288985833932:28.509281553024795:0.6) -- cycle;
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.5005332161356,1.0565532511499678) -- (0.08426725780331151,1.1385450308214793) -- (0.0022754781318001793,0.7222790724891908) -- (0.41854143646408865,0.6402872928176794) -- cycle; 
+\draw(1.3353585596582238,1.806435764418676) circle (3.613648251456491cm);
+\draw (-2.22,1.16)-- (1.36,5.42);
+\draw (1.36,5.42)-- (4.38,-0.14);
+\draw (4.38,-0.14)-- (-2.22,1.16);
+\draw [domain=-2.98:5.54] plot(\x,{(--1.93-6.6*\x)/-1.3});
+\draw [domain=-2.98:5.54] plot(\x,{(--13.154--3.02*\x)/5.56});
+\draw [domain=-2.98:5.54] plot(\x,{(-15.084--3.58*\x)/-4.26});
+\draw (-2.22,1.16)-- (-0.01220000775537524,-1.5465538855272907);
+\draw [shift={(-2.22,1.16)},color=qqwuqq] (-11.14288985833932:0.6) arc (-11.14288985833932:28.509281553024795:0.6);
+\draw [shift={(-2.22,1.16)},color=qqwuqq] (-11.14288985833932:0.5) arc (-11.14288985833932:28.509281553024795:0.5);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.22,1.16) circle (2.5pt);
+\draw[color=qqqqff] (-2.66,1.43) node {$A$};
+\draw [fill=qqqqff] (1.36,5.42) circle (2.5pt);
+\draw[color=qqqqff] (1.7,5.69) node {$B$};
+\draw [fill=qqqqff] (4.38,-0.14) circle (2.5pt);
+\draw[color=qqqqff] (4.42,0.55) node {$C$};
+\draw [fill=uuuuuu] (0.8492828806835522,2.8271284711626494) circle (1.5pt);
+\draw[color=uuuuuu] (0.6,3.37) node {$H$};
+\draw [fill=uuuuuu] (-0.01220000775537524,-1.5465538855272907) circle (1.5pt);
+\draw[color=uuuuuu] (0.38,-1.29) node {$H'$};
+\draw [fill=uuuuuu] (2.331161512714193,3.6320337712944) circle (1.5pt);
+\draw[color=uuuuuu] (2.52,4.11) node {$A'$};
+\draw [fill=uuuuuu] (0.41854143646408865,0.6402872928176794) circle (1.5pt);
+\draw[color=uuuuuu] (0.72,0.93) node {$B'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Montrons que $(H'A,H'H)=(HH',AH)$. On a :
+\begin{align*}
+(H'A,H'H) &= (H'A,H'B) \text{ (car $(H'H)=(HB)$}\\
+&= (CA,CB) \text{ (car $ABCH'$ est inscriptible)}\\
+&= (CA,AH)+(AH,CB) \text{ (par Chasles)}\\
+&= (CA,AH)+\pi/2 \text{ (car $(AH)$ est une hauteur de $ABC$)}\\
+&= (CA,AH)+(HH',CA)\\
+&= (HH',AH) \text{ (par Chasles)}
+\end{align*}
+
+
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Un théorème de Brahmagupta]
+Soit $ABCD$ un quadrilatère convexe inscriptible dont les diagonales sont perpendiculaires, et soit $O$ leur point d'intersection. Soit $H$ le projeté orthogonal de $O$ sur $[CD]$, et $I$ l'intersection de $(OH)$ avec $[AB]$. L'objectif est de montrer que $I$ est le milieu de $[AB]$. 
+
+
+\begin{center}
+%\includegraphics{images/img007140-1}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.792877535687454,-2.3551615326821986) rectangle (2.691720510894064,3.369857250187828);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (1.7105370938052675,1.1009027745391715) -- (1.5204547581343522,1.1959113008417703) -- (1.4254462318317533,1.005828965170855) -- (1.6155285675026687,0.9108204388682561) -- cycle; 
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.007538349542379613,1.6093419217725244) -- (0.006521596031381555,1.39684043797394) -- (0.21902307982996597,1.395823684462942) -- (0.2200398333409641,1.6083251682615265) -- cycle; 
+\draw [domain=-2.792877535687454:2.691720510894064] plot(\x,{(--6.7272-0.02*\x)/4.18});
+\draw (0.21234449760765536,-2.3551615326821986) -- (0.21234449760765536,3.369857250187828);
+\draw(-0.13554574879521075,0.4509385018009831) circle (2.389906758000623cm);
+\draw (-2.22,1.62)-- (0.2258055949819146,2.8133693512201816);
+\draw (0.2258055949819146,2.8133693512201816)-- (1.96,1.6);
+\draw (1.96,1.6)-- (0.20318257410959237,-1.9148420110951627);
+\draw (0.20318257410959237,-1.9148420110951627)-- (-2.22,1.62);
+\draw [dash pattern=on 2pt off 2pt,domain=-2.792877535687454:2.691720510894064] plot(\x,{(--6.0395786825107365-1.7568174258904077*\x)/3.514842011095163});
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.22,1.62) circle (2.5pt);
+\draw[color=qqqqff] (-2.402193839218633,1.8897670924117187) node {$A$};
+\draw [fill=qqqqff] (1.96,1.6) circle (2.5pt);
+\draw[color=qqqqff] (2.060616078136739,1.874740796393687) node {$C$};
+\draw [fill=xdxdff] (0.2200398333409641,1.6083251682615265) circle (2.5pt);
+\draw[color=xdxdff] (0.3325920360631098,1.8897670924117187) node {$O$};
+\draw [fill=xdxdff] (0.2258055949819146,2.8133693512201816) circle (2.5pt);
+\draw[color=xdxdff] (0.3325920360631098,3.0918707738542435) node {$B$};
+\draw [fill=uuuuuu] (0.20318257410959237,-1.9148420110951627) circle (1.5pt);
+\draw[color=uuuuuu] (-0.20835462058602616,-1.686491359879794) node {$D$};
+\draw [fill=uuuuuu] (1.6155285675026687,0.9108204388682561) circle (1.5pt);
+\draw[color=uuuuuu] (1.609827197595792,0.6125319308790355) node {$H$};
+\draw [fill=uuuuuu] (-0.9970972025090429,2.2166846756100904) circle (1.5pt);
+\draw[color=uuuuuu] (-0.9296168294515408,2.445740045078886) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+Montrer qu'il est suffisant d'établir que $IO=IA$, puis conclure.
+
+\begin{hint}
+Où se trouve le centre du triangle circonscrit d'un triangle rectangle ?
+\end{hint}
+\begin{sol}
+
+Rappelons la figure :
+
+\begin{center}
+%\includegraphics{images/img007140-1}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.792877535687454,-2.3551615326821986) rectangle (2.691720510894064,3.369857250187828);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (1.7105370938052675,1.1009027745391715) -- (1.5204547581343522,1.1959113008417703) -- (1.4254462318317533,1.005828965170855) -- (1.6155285675026687,0.9108204388682561) -- cycle; 
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.007538349542379613,1.6093419217725244) -- (0.006521596031381555,1.39684043797394) -- (0.21902307982996597,1.395823684462942) -- (0.2200398333409641,1.6083251682615265) -- cycle; 
+\draw [domain=-2.792877535687454:2.691720510894064] plot(\x,{(--6.7272-0.02*\x)/4.18});
+\draw (0.21234449760765536,-2.3551615326821986) -- (0.21234449760765536,3.369857250187828);
+\draw(-0.13554574879521075,0.4509385018009831) circle (2.389906758000623cm);
+\draw (-2.22,1.62)-- (0.2258055949819146,2.8133693512201816);
+\draw (0.2258055949819146,2.8133693512201816)-- (1.96,1.6);
+\draw (1.96,1.6)-- (0.20318257410959237,-1.9148420110951627);
+\draw (0.20318257410959237,-1.9148420110951627)-- (-2.22,1.62);
+\draw [dash pattern=on 2pt off 2pt,domain=-2.792877535687454:2.691720510894064] plot(\x,{(--6.0395786825107365-1.7568174258904077*\x)/3.514842011095163});
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.22,1.62) circle (2.5pt);
+\draw[color=qqqqff] (-2.402193839218633,1.8897670924117187) node {$A$};
+\draw [fill=qqqqff] (1.96,1.6) circle (2.5pt);
+\draw[color=qqqqff] (2.060616078136739,1.874740796393687) node {$C$};
+\draw [fill=xdxdff] (0.2200398333409641,1.6083251682615265) circle (2.5pt);
+\draw[color=xdxdff] (0.3325920360631098,1.8897670924117187) node {$O$};
+\draw [fill=xdxdff] (0.2258055949819146,2.8133693512201816) circle (2.5pt);
+\draw[color=xdxdff] (0.3325920360631098,3.0918707738542435) node {$B$};
+\draw [fill=uuuuuu] (0.20318257410959237,-1.9148420110951627) circle (1.5pt);
+\draw[color=uuuuuu] (-0.20835462058602616,-1.686491359879794) node {$D$};
+\draw [fill=uuuuuu] (1.6155285675026687,0.9108204388682561) circle (1.5pt);
+\draw[color=uuuuuu] (1.609827197595792,0.6125319308790355) node {$H$};
+\draw [fill=uuuuuu] (-0.9970972025090429,2.2166846756100904) circle (1.5pt);
+\draw[color=uuuuuu] (-0.9296168294515408,2.445740045078886) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item On rappelle que le milieu de l'hypoténuse d'un triangle rectangle est le centre de son cercle circonscrit (une autre façon de le dire est que l'hypoténuse est un diamètre du cercle circonscrit).
+
+Si $IO=IA$, cela signifie que $I$ est sur la médiatrice de $[OA]$. D'autre part, $AOB$ est rectangle en $O$ et $I$ est par définition sur l'hypoténuse $[AB]$. Donc $I$ est  l'intersection de l'hypoténuse et d'une médiatrice d'un autre côté, c'est donc le milieu de l'hypoténuse par la propriété rappelée plus haut. Il est donc suffisant de montrer que $IO=IA$.
+
+
+\item Pour montrer que $IO=IA$, il suffit de montrer que $IOA$ est isocèle en $I$, c'est-à-dire que $(AI,AO)=(OA,OI)$. Or, on a :
+\begin{align*}
+(AI,AO)& = (AB,AC) \text{ (mêmes droites)}\\
+&= (DB,DC) \text{ (car $ABCD$ est inscriptible}\\
+&= (DO,DH) \text{ (mêmes droites)}\\
+&= (DO,OH)+(OH,DH) \text{ (par Chasles)}\\
+&= (DO,OH)+\pi/2 \text{ (par définition de $H$)}\\
+&= (OB,OI)+\pi/2 \text{ (mêmes droites)}\\
+&= (OB,OI) + (OA,OB) \text{ (car $(OA)\bot (OB)$ d'après l'énoncé)}\\
+&= (OA,OI) \text{ (par Chasles)}
+\end{align*}
+\end{enumerate}
+
+\end{sol}
+\end{exo}
+

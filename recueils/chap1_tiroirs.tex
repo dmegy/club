@@ -1,0 +1,500 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Principe des tiroirs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Considérons pour commencer l'exercice suivant :
+
+\begin{exo}[Les chaussettes]
+Dans son tiroir, Stanislas a des chaussettes bleues, vertes et rouges. Il fait noir. \\
+Combien de chaussettes doit-il prendre dans son tiroir pour être sûr d'en avoir (au moins) deux de la même couleur ?
+\end{exo}
+
+\vspace{1em}
+Cet exercice paraîtra sans doute trop évident au lecteur ou à la lectrice : il y a trois couleurs différentes pour les chaussettes. En prenant quatre chaussettes, on est assuré d'en avoir au moins deux de la même couleur.
+
+Malgré la grande simplicité du raisonnement, de simples variantes peuvent parfois ne pas sembler aussi évidentes. Prenons par exemple la variation suivante.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Anniversaires]
+\begin{enumerate}
+\item
+Le lycée Dirichlet compte $400$ élèves. Montrer qu'il existe (au moins) deux élèves qui fêtent leur anniversaire le même jour.
+
+\item Même avec un peu moins d'élèves, on aurait pu avoir la même conclusion. Quel est le nombre minimal d'élèves à partir duquel on peut obtenir la même conclusion ?
+
+\item À partir de combien d'élèves dans un lycée peut-on affirmer qu'il en existe  (au moins) trois avec la même date d'anniversaire ?
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item
+Comme il y a plus d'élèves que de jours dans l'année, il y a au moins deux élèves qui fêtent leur anniversaire le même jour.
+
+\item À partir de $367$ élèves, on peut conclure de la même manière.
+
+\item S'il y a $2\times 366=732$ élèves, il est possible qu'exactement deux d'entre eux fêtent leur anniversaire chaque jour. À partir de $2\times 366+1=733$ élèves, il y en a forcément trois qui fêtent leur anniversaire le même jour.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+\vspace{1em}
+Cet exercice semble-t-il toujours aussi évident ? Il est vrai qu'on peut le résoudre de tête (la réponse se trouve en base de la page\footnote{La réponse à la dernière question est $733$. (Oublier l'existence des années bissextiles conduit à la réponse $731$.)}), mais il faut savoir qu'il existe des variantes toujours plus astucieuses, qui peuvent donner du fil à retordre !
+
+ Dans la suite, on étudie le principe général  derrière ces deux exercices, le fameux \og principe des tiroirs\fg, et on en propose plusieurs preuves avant de passer en revue les variations les plus courantes. Le chapitre s'achève par une liste d'exercices exploitant ces idées.
+
+
+
+\begin{proposition}[\og Principe des tiroirs\fg, version simple]\label{tiroirs1}
+Soit $n$ un entier naturel non nul. Si on range $n+1$ objets dans $n$ tiroirs, il existe (au moins) un tiroir contenant (au moins) deux objets.
+\end{proposition}
+
+\begin{proof} (en utilisant un raisonnement par l'absurde)
+Supposons au contraire que les tiroirs ne contiennent pas plus d'un objet chacun. Comme il y a $n$ tiroirs, il y a au maximum $n$ objets, ce qui est absurde puisqu'il y a $n+1$ objets d'après l'énoncé. 
+
+Ceci montre qu'il existe donc au moins un tiroir contenant au moins deux objets.
+\end{proof}
+
+\begin{proof} (deuxième preuve, sans raisonnement par l'absurde cette fois)
+
+Notons $c_1$ le nombre d'objets dans le premier tiroir, $c_2$ le nombre d'objets dans le deuxième tiroir etc, jusqu'à $c_n$. Calculons la moyenne des nombres $c_1$, ... $c_n$, c'est-à-dire le nombre moyen d'objets par tiroir.  Comme il y a en tout $n+1$ objets et $n$ tiroirs, il y a en moyenne $\frac{n+1}{n}$ objets par tiroir. Remarquons que cette moyenne est strictement supérieure à $1$.
+
+Or lorsque l'on fait une moyenne de nombres (même réels, pas forcément entiers comme ici), au moins l'un de ces nombres est supérieur ou égal à la moyenne. C'est un principe général  : \textbf{la moyenne est inférieure ou égale au maximum (avec égalité si et seulement si tous les nombres sont identiques)}. \footnote{En effet, avec les mêmes notations, si l'on note $c$ le maximum des nombres $c_1$, $c_2$, ... $c_n$, on a alors par définition les inégalités $c_1\leq c$, $c_2\leq c$, ... $c_n\leq c$ et en sommant tout ceci et en divisant par $n$ on obtient
+\[
+\frac{c_1+c_2+...+c_n}{n} \leq \frac{c+c+...+c}{n} = c.\]}
+Donc ici, il y a un tiroir qui contient plus d'objets que la moyenne (qui est $>1$), donc strictement plus d'un objet, autrement dit au moins deux objets.
+\end{proof}
+
+On peut se demander s'il est utile d'apprendre deux preuves d'un même résultat, surtout lorsque l'une est sensiblement plus courte. En maths, il est toujours utile de comprendre les résultats de plusieurs façons: c'est ce qui permet d'avoir plus d'idées lorsque l'on résout un exercice. Certains théorèmes ont plusieurs dizaines de preuves, qui n'ont parfois rien à voir entre elles et qui éclairent toutes le problème original d'une lumière différente.
+
+\begin{proposition}[Version améliorée]\label{tiroirs2}
+Soient $n$ et $k$ deux entiers naturels non nuls. Si on range $nk+1$ objets dans $n$ tiroirs, il existe (au moins) un tiroir contenant (au moins) $k+1$ objets.
+\end{proposition}
+
+\begin{exo} Rédiger une preuve par l'absurde, et rédiger aussi une preuve en utilisant une moyenne.
+\end{exo}
+
+
+Cette version  du résultat est adaptée à certaines situations, mais pas à toutes: il faut par exemple connaître le nombre de tiroirs à l'avance. Il se trouve qu'il existe deux autres versions du principe des tiroirs, c'est l'objet de ce qui suit.
+
+\paragraph{Les trois grandes variations}
+
+En remplaçant $n$ par $b$ et $k$ par $c-1$ dans le résultat précédent, on obtient l'énoncé équivalent suivant:
+
+\begin{proposition}\label{tiroirs_a}
+Soient $b$ et $c$ deux entiers naturels non nuls. Si on range $b(c-1)+1$ objets dans $b$ tiroirs, il existe (au moins) un tiroir contenant (au moins) $c$ objets.
+\end{proposition}
+
+Plus généralement, on peut considérer le schéma d'énoncé (incomplet) suivant:
+\begin{center}
+\shadowbox{
+\begin{minipage}{12cm}
+
+Si on range $\boxed a$ objets dans $\boxed b$ tiroirs,\\
+ il existe (au moins) un tiroir contenant (au moins) $\boxed c$ objets.
+
+\end{minipage}
+}
+\end{center}
+
+Cet énoncé est incomplet car il comporte des symboles non définis : $a$, $b$ et $c$. Ces symboles désignent a priori des nombres entiers positifs, mais sans plus de précisions sur ces entiers, l'assertion n'est pas forcément vraie.
+
+Le principe des tiroirs classique est un théorème où $b$ et $c$ peuvent être fixés par le lecteur, et le nombre $a$ est déterminé par l'énoncé en fonction de $b$ et $c$ de telle façon que l'assertion soit vraie. Plus précisément, l'assertion est vraie pour $a = b(c-1)+1$, comme vu plus haut.
+
+On peut imaginer deux autres énoncés  : celui où $c$ est déterminé par $a$ et $b$, et enfin celui où $b$ est déterminé par $a$ et $c$. Voici ces deux versions, avec à chaque fois la formule qui rend l'assertion correcte.
+
+\begin{proposition}\label{tiroirs_c}Soient $a\geq 0$ et $b\geq 1$ des entiers.\\
+Si on range $a$ objets dans $b$ tiroirs, il existe (au moins) un tiroir contenant (au moins) $\left\lceil \frac{a}{b} \right\rceil$ objets.
+\end{proposition}
+
+\begin{proof} Calculons la moyenne du nombre d'objets par tiroir : comme il y a $a$ objets et $b$ tiroirs, il y a en moyenne $\frac{a}{b}$ objets par tiroirs. Comme \og la moyenne est inférieure au maximum \fg, le tiroir ayant le plus grand nombre d'objets en a plus que la moyenne, $\frac{a}{b}$, donc contient au moins $\left\lceil \frac{a}{b} \right\rceil$ objets.
+\end{proof}
+
+
+
+
+
+
+\begin{proposition}\label{tiroirs_b}
+Soient $a\geq 1$ et $c\geq 2$ des entiers.\\
+Si on range $a$ objets dans $\left\lceil \frac{a}{c-1} \right\rceil-1$ tiroirs (ou moins), il existe (au moins) un tiroir contenant (au moins) $c$ objets.
+\end{proposition}
+
+Ce qu'il faut comprendre, c'est que $\left\lceil \frac{a}{c-1} \right\rceil-1$ est l'entier immédiatement \textbf{strictement} inférieur à $\frac{a}{c-1}$ (ce n'est pas la partie entière inférieure).
+
+\begin{proof} Supposons que la proposition soit fausse, c'est-à-dire supposons qu'il existe des nombres $a$ et $c$ comme dans l'énoncé, tels que l'on ait $a$ objets dans $\left\lceil \frac{a}{c-1} \right\rceil-1$ tiroirs, mais que tous les tiroirs contiennent au maximum $c-1$ objets.
+
+Notons $b=\left\lceil \frac{a}{c-1} \right\rceil-1$ le nombre de tiroirs : on a donc $b < \frac{a}{c-1}$. Comme les $b$ tiroirs contiennent au maximum $c-1$ objets chacun, le nombre total $a$ d'objets vérifie:
+\[ a\leq  b(c-1) < \frac{a}{c-1}\cdot (c-1)
+\]
+c'est-à-dire  $a < a$ ce qui est absurde.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%
+
+% EXERCICES
+
+%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Nombre d'amis]
+Démontrer que lors d'une séance du Club Mathématique, on peut trouver deux participants qui connaissent exactement le même nombre d'autres participants.
+\begin{hint}
+Pour commencer, utiliser le principe des tiroirs.
+\end{hint}
+\begin{hint2}
+Est-il possible qu'un participant ne connaisse personne et qu'un participant connaisse tout le monde ?
+\end{hint2}
+\begin{sol}
+Notons $n$ le nombre de participants\footnote{Méthode : nommer les objets permet de raisonner ou de faire des calculs dessus plus clairement.}. Pour chaque entier $k$ compris entre $1$ et $n$, notons $a_n$ le nombre personnes que connaît le $n$-ème participant. Alors les $a_i$ sont $n$ entiers entre $0$ et $n-1$ et il s'agit de montrer que deux d'entre eux sont identiques. (Notons que le principe des tiroirs ne permet pas de conclure immédiatement, puisqu'il y a $n$ entiers à distribuer dans $n$ tiroirs.)
+
+Supposons que tous les $a_i$ soient distincts\footnote{Méthode : raisonnement par l'absurde.}. Alors ils valent forcément (dans le désordre) $0$, $1$, $2$, .. $n-1$. Ceci signifie qu'un participant connaît tout le monde, et qu'un autre ne connaît personne, ce qui est absurde. On en déduit que deux des entiers $a_i$ sont égaux.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Développement décimal d'une fraction]
+On considère deux entiers $p$ et $q$ avec $q$ non nul, et on écrit le nombre $\frac{p}{q}$ sous forme de \og développement décimal illimité\fg. Par exemple, le développement décimal illimité de $\frac13$ est $0,3333333...$, celui de  $\frac16$ est $0,16666666....$ etc. Parfois, le développement peut être fini, par exemple $\frac12 = 0,5$, mais a priori il est infini (ou \og illimité\fg).
+\footnote{On reviendra sur les développements décimaux illimités des nombres réels lors d'une prochaine séance. On rappelle juste que $0,9999... = 1$.}
+\begin{enumerate}
+\item Montrer que ce développement décimal est (fini ou) périodique à partir d'un certain rang.
+
+\item Montrer que la période, autrement dit la taille du motif qui se répète, est toujours strictement plus petite que le dénominateur.
+
+\item Réciproquement, montrer qu'un nombre réel dont le développement décimal illimité est périodique à partir d'un certain rang est un nombre rationnel, c'est-à-dire peut s'écrire sous forme de fraction $\frac{p}{q}$ avec $p$ et $q$ entiers, $q$ non nul.
+
+\item Application : \'Ecrire sous forme de fraction les nombres réels suivants:
+\[0,131313...,\quad 0,345345345...,\quad 1,4666666...
+\]
+\end{enumerate}
+\begin{hint}
+\'Etudier des exemples en posant la division à la main. Traiter par exemple le cas de $\frac{13}{7}$.
+\end{hint}
+\begin{sol}
+\begin{enumerate}
+\item On pose la division. Au bout d'un certain temps, on n'abaisse plus que des zéros, et les restes sont tous strictement inférieurs au diviseur (le dénominateur de la fraction). De plus, chaque reste détermine de façon déterministe toute la suite du développement décimal. Donc soit le développement décimal est fini, soit il y a une infinité de chiffres après la virgule, donc une infinité de restes, or les valeurs de ces restes sont en nombre fini. Il existe donc deux restes égaux. Comme ils déterminent la suite du développement, on en déduit que le développement est périodique, et que la période est de longueur inférieure au dénominateur.
+\item Notons $x=a_k...a_1a_0,b_1b_2...b_l\overline{b_{l+1}b_{l+2}...b_{l+m}}$ un développement décimal illimité périodique à partir du rang $l+1$, avec une période égale à $m$. On note enfin $p$ le nombre s'écrivant $b_{l+1}b_{l+2}...b_{l+m}$.  
+
+Alors $10^{l+m}x - 10^lx$ est un entier, noté $p$, d'où $x = \frac{p}{10^{l+m} - 10^l} = \frac{p}{10^l(10^m-1)}$
+\item Pour le nombre $x=0,131313...$, avec les notations plus haut, $l=0$, $m=2$, $p=13$, et le raisonnement plus haut dans ce cas particulier est que $100x-x=13$, et donc que $x=\frac{13}{99}$.
+
+Si $x=0,345345345...$, le raisonnement précédent donne $x=\frac{345}{999}$, et si $x=1,4666666$, on obtient $x=\frac{146-14}{100-10}=\frac{132}{90}$.
+
+Pour finir, si $x=1,234565656...$, on a $(10^5-10^3)x=123456-1234=122222$, d'où on déduit que $x=\frac{122222}{99000}$.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Sommes dans un carré]
+On remplit un tableau $3\times 3$  avec les nombres $-1$, $0$ et $1$, puis on calcule la somme des nombres dans chaque ligne, chaque colonne, et chacune des deux diagonales. Montrer que parmi les sommes obtenues, il y en a deux qui sont égales.
+\begin{sol}
+Comme chaque coefficient est compris entre $-1$ et $1$, la somme de trois coefficients est comprise entre $-3$ et $3$, ce qui fait sept valeurs entières possibles.
+
+D'autre part il y a huit sommes à calculer (les trois lignes, les trois colonnes et les deux diagonales).
+
+Donc par le principe des tiroirs, au moins deux sommes sont identiques.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Points sur un cercle]
+On place quatre points sur un cercle de rayon $1$. Montrer qu'il existe deux points parmi les quatre qui sont à distance $\leq \sqrt{2}$ l'un de l'autre. 
+\begin{hint}
+On a même envie de dire plus, à savoir que l'inégalité est même en générale stricte, et qu'il y a égalité que si les quatre points sont les sommets d'un carré et dans ce cas-là toutes les distances valent $\sqrt2$. Cette remarque fait penser à une inégalité sur la moyenne, comme dans la preuve du principe des tiroirs.
+\end{hint}
+
+\begin{sol}
+
+
+Notons les points $A$, $B$ $C$ et $D$, dans l'ordre d'apparition sur le cercle trigonométrique dans le sens direct. Notons également $\alpha$, $\beta$, $\gamma$ et $\delta$ les quatre angles formés par les points : par exemple $\alpha = \widehat{AOB}$, $\beta = \widehat{BOC}$ etc.
+
+\begin{center}\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.9,-1.58) rectangle (4.12,4.88);
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (26.942256799284916:0.7) arc (26.942256799284916:133.55289331740752:0.7) -- cycle;
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (133.55289331740752:0.6) arc (133.55289331740752:242.70731139090447:0.6) -- cycle;
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-117.29268860909559:0.7) arc (-117.29268860909559:-23.247011961144597:0.7) -- cycle;
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-23.24701196114459:0.6) arc (-23.24701196114459:26.942256799284912:0.6) -- cycle;
+\draw(0.6740732265446223,1.9791533180778031) circle (2.4296300551874013cm);
+\draw (0.6740732265446223,1.9791533180778031)-- (-1.,3.74);
+\draw (0.6740732265446223,1.9791533180778031)-- (-0.44,-0.18);
+\draw (0.6740732265446223,1.9791533180778031)-- (2.906445979301415,1.0201881999327287);
+\draw (0.6740732265446223,1.9791533180778031)-- (2.84,3.08);
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq] (133.55289331740752:0.6) arc (133.55289331740752:242.70731139090447:0.6);
+\draw[color=qqwuqq] (0.13950049996759253,1.902785785709656) -- (0.02070656072825245,1.885815222961179);
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq] (-117.29268860909559:0.7) arc (-117.29268860909559:-23.247011961144597:0.7);
+\draw[color=qqwuqq] (0.8901312263098695,1.376725778254597) -- (0.9306421012658533,1.2637706145377454);
+\draw[color=qqwuqq] (0.8096502473089637,1.3536784013619803) -- (0.8350709387022781,1.2364018544777637);
+\draw[color=qqwuqq] (0.9669153930321975,1.4100808573780572) -- (1.0218232992486171,1.3033797709968553);
+\draw [shift={(0.6740732265446223,1.9791533180778031)},color=qqwuqq] (-23.24701196114459:0.6) arc (-23.24701196114459:26.942256799284912:0.6);
+\draw[color=qqwuqq] (1.2137924845951293,1.996563731324211) -- (1.333730097495242,2.000432712045635);
+\draw[color=qqwuqq] (1.2124628314461892,1.9374803852084292) -- (1.3321049658687591,1.9282197334596796);
+\draw[color=qqwuqq] (1.208657704440154,2.0554385459608104) -- (1.3274542550836053,2.0723908188237004);
+\begin{scriptsize}
+\draw [fill=qqqqff] (2.84,3.08) circle (2.5pt);
+\draw[color=qqqqff] (2.98,3.45) node {$A$};
+\draw [fill=qqqqff] (-1.,3.74) circle (2.5pt);
+\draw[color=qqqqff] (-0.86,4.11) node {$B$};
+\draw [fill=qqqqff] (-0.44,-0.18) circle (2.5pt);
+\draw[color=qqqqff] (-0.64,-0.53) node {$C$};
+\draw [fill=xdxdff] (2.906445979301415,1.0201881999327287) circle (2.5pt);
+\draw[color=xdxdff] (3.26,1.05) node {$D$};
+\draw [fill=uuuuuu] (0.6740732265446223,1.9791533180778031) circle (1.5pt);
+\draw[color=qqwuqq] (1.12,3.09) node {$\alpha$};
+\draw[color=qqwuqq] (-0.04,2.01) node {$\beta$};
+\draw[color=qqwuqq] (1.24,1.05) node {$\gamma$};
+\draw[color=qqwuqq] (1.88,2.07) node {$\delta$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Montrons pour commencer qu'un de ces angles est inférieur à $\pi/2$.
+
+Le plus petit des quatre angles est inférieur ou égal à leur moyenne, et cette moyenne vaut $m=\frac{\alpha+\beta+\gamma+\delta}{4} = \frac{2\pi}{4} =  \frac{\pi}{2}$.
+
+On vérifie alors que la distance entre les deux points formant cet angle est inférieure à $\sqrt2$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\vspace{1em}
+\etoile
+Les exercices qui suivent demandent de réfléchir à la façon d'appliquer le principe des tiroirs, au sens où ni leur nature ni leur nombre n'est précisé dans l'énoncé.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Entiers consécutifs]
+Soit $n$ un naturel non nul. Montrer que tout ensemble de $n+1$ éléments distincts de $\{1,2,...,2n\}$ contient deux éléments consécutifs. 
+
+\begin{hint}
+Ordonner les entiers.
+\end{hint}
+\begin{sol}
+
+On écrit l'ensemble $\{1,2,...,2n\}$ comme la réunion disjointe des $n$ parties suivantes
+\[ \{1,2,...,2n\} = \{1,2 \} \cup \{3,4 \}\cup ... \cup \{2n-1,2n \}.\]
+Si on a $n+1$ entiers, alors il y a un des \og tiroirs\fg{} contient deux entiers, ce qui signifie que deux des entiers sont consécutifs.\\
+
+\emph{Deuxième solution, sans utiliser le principe des tiroirs}: on va considérer les différences entre les entiers. Ce sont des entiers strictement positifs (la différence vaut $1$ ssi les deux entiers sont consécutifs).
+
+La somme de toutes ces différences est aussi la différence entre le premier et le dernier. Elle est donc inférieure à $2n-1$.
+
+D'autre part, il y a $n+1$ entiers, donc $n$ différences. S'il n'y a pas d'entiers consécutifs, alors toutes ces différences valent au moins deux, et comme il y en a $n$, la somme des différences vaut au moins $2n$. Contradiction !
+
+\emph{Exercice d'approfondissement : chercher le nombre de parties de $\{1, ..., n\}$ sans éléments consécutifs.}
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Points dans un carré]
+On place $51$ points dans un carré de côté $1$. Montrer qu'il existe trois points qui se trouvent à une distance inférieure ou égale à $2/7$.
+
+\begin{hint}
+Si on veut appliquer le principe des tiroirs, combien de tiroirs faut-il ?
+\end{hint}
+\begin{sol} La solution qui suit n'est pas rédigée sous forme compacte, au contraire on explique les étapes du raisonnement.
+
+On va appliquer le principe des tiroirs, autrement dit on va partager le carré en un certain nombre de parties, les tiroirs, qui devront vérifier les propriétés suivantes:
+\begin{enumerate}
+\item il y a suffisamment  de tiroirs pour que l'on puisse conclure par le principe des tiroirs qu'il existe trois points dans le même tiroir;
+\item si deux points sont dans le même tiroir, alors la distance entre les points est $\leq 2/7$. 
+\end{enumerate}
+
+Commençons déjà par déterminer le nombre de tiroirs nécessaire pour faire marcher le raisonnement.
+
+Si le nombre $n$ de tiroirs est égal ou supérieur à $51/2$, on aura donc $51 \leq 2n$ donc il sera possible de répartir les points dans les tiroirs de façon à ce qu'un tiroir ne contienne pas plus de deux points. Par contre, si $n$ est strictement inférieur à $51/2$, on aura $51> 2n$, ce qui signifie bien que si l'on met deux points par tiroir, il reste encore au moins un point : il existe donc (au moins) un tiroir qui contient (au moins) trois points.
+
+Comme $\frac{51}{2} = 25,5$ on voit que pour faire le raisonnement, il ne faut pas plus de $25$ tiroirs. 
+
+Ensuite, il faut définir précisément ces tiroirs de telle manière que deux points dans le même tiroir soient toujours à distance $\leq \frac{2}{7}$. Les tiroirs doivent donc être assez petits pour cela, on va donc essayer avec le nombre maximal de tiroirs, c'est-à-dire $25$.
+
+Comment partager un carré en $25$ parties ? Le plus simple est de le partager en $25$ carrés plus petits, en subdivisant les côtés par cinq. Voyons si cette construction fonctionne.
+
+Les $25$ petits carrés ont alors un côté égal à $\frac15$. Deux points dans un tel carré sont distants d'au plus la la diagonale du carré, qui mesure par Pythagore $\sqrt{\left(\frac{1}{5}\right)^2+\left(\frac{1}{5}\right)^2} = \sqrt{\frac{2}{25}} = \frac{\sqrt 2}{5}$. Il reste donc à vérifier que cette quantité est inférieure à $\frac27$, c'est-à-dire à vérifier que $\frac{\sqrt 2}{5} \leq \frac27$.
+
+Or, cette inégalité est équivalente, en multipliant des deux côtés par $5$, à $\sqrt 2 \leq \frac{10}{7}$. Comme les deux membres de cette inégalité sont positifs, elle est équivalente à l'inégalité obtenue en élevant les deux membres au carré, autrement dit $2\leq \frac{100}{49}$. Et effectivement, on a bien $2\times 49 \leq 100$. L'inégalité est donc vraie. En remontant le raisonnement, cela signifie bien que la diagonale d'un carré de côté $\frac15$ est plus petite que $\frac27$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Qui sont les tiroirs?]
+%tiroirs abstraits
+Dans un plan muni d'un repère, on considère cinq points à coordonnées entières  (autrement dit leurs coordonnées sont des nombres entiers). Montrer que parmi ces points, il en existe deux qui sont les extrémités  d'un segment dont le milieu est également un point à coordonnées entières.
+\begin{hint}
+Ici, les tiroirs ne sont pas des parties du plan : ce sont des tiroirs \og abstraits\fg. Pour faire marcher le raisonnement, la propriété d'être dans le même tiroir doit impliquer que le milieu du segment a des coordonnées entières.
+\end{hint}
+\begin{sol}
+Notons $(x_1,y_1)$, ..., $(x_5,y_5)$ les cinq points, repérés par leurs coordonnées qui sont des nombres entiers.
+
+À chaque point, on associe la parité (notée $0$ ou $1$) de chacune de ses deux coordonnées. Il y a donc quatre choix possibles pour les parités de $(x,y)$, à savoir $(0,0)$ (abscisse et ordonnée paires), $(0,1)$ (abscisse paire et ordonnée impaire), $(1,0)$ et $(1,1)$.
+
+Comme il y a cinq points et quatre choix (quatre \og tiroirs\fg), il y a forcément deux points $(x,y)$ et $(x',y')$ dont les abscisses et les ordonnées ont même parité. Leur milieu a pour coordonnées $\left(\frac{x+x'}{2},\: \frac{y+y'}{2}\right)$, et il est donc à coordonnées entières, puisque la somme de deux nombres de même parité est multiple de deux.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Six points dans un rectangle]
+On place six points à l'intérieur d'un rectangle de dimension $4\times 3$. Montrer qu'il existe deux points à distance  inférieure à $\sqrt 5$ l'un de l'autre.
+\begin{hint}
+Combien de tiroirs faut-il ? Quelle propriété doivent-ils vérifier ?
+\end{hint}
+\begin{sol}
+On veut appliquer le principe des tiroirs, la conclusion devant être qu'il existe deux points dans le même tiroir. Pour cela, il faut au plus cinq tiroirs, puisqu'il y a six points.
+
+D'autre part, le diamètre (c'est-à-dire la distance maximale entre deux points) de ces tiroirs doit être inférieur ou égal à $\sqrt 5$. 
+
+(Insérer figure.)% Attention !
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Cinq points dans un triangle]
+On place cinq points dans un triangle équilatéral de côté $2$. Montrer qu'il y en a deux qui sont à distance $\leq 1$.
+\begin{sol}
+Partageons le triangle équilatéral en quatre sous-triangles équilatéraux de côté $1$, obtenus en reliant les milieux des côtés entre eux.
+
+Par le principe des tiroirs, il existe deux points dans le même petit triangle. Deux tels points sont forcément à une distance inférieure à un l'un de l'autre.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Diviseurs]
+Soit $n$ un entier $\geq 1$. On considère $n+1$ entiers (distincts) compris entre $1$ et $2n$. Montrer qu'il y en a au moins un qui en  divise un autre.
+\begin{sol}
+
+Tout nombre s'écrit de manière unique sous la forme $i \cdot 2^k$, avec $i$ un ombre impair.
+
+Il y a $n$ nombres impairs entre $1$ et $2n$. Par le principe des tiroirs, deux des nombres ont une décomposition avec le même nombre impair. L'un s'écrit donc $i\cdot 2^k$, et l'autre, $i\cdot 2^l$, avec le même nombre impair $i$. On en déduit que l'un est multiple de l'autre, par un facteur qui est puissance de deux, ce qui est plus fort que ce qui était demandé.\\
+
+\emph{Cette solution est difficile à trouver : il faut avoir l'idée de la forme, pour associer un entier à un entier. Il existe d'autres solutions plus pédestres, par exemple la suivante.\\
+L'exercice comporte un paramètre : $n$. Méthodologie de base : essayer avec de petites valeurs de $n$ pour voir ce qu'il se passe.  Essayer aussi avec la plus petite valeur possible de $n$.\\
+Le plus petit entier autorisé est $1$. Dans ce cas, il y a deux entiers entre $1$ et $2$, et on a bien $1|2$. Ca marche mais ça n'apprend pas grand chose.\\
+Essayons avec $n=3$ : on a quatre entiers entre $3$ et $6$. On voit effectivement que ça marche.\\
+On suit alors un raisonnement par l'absurde. Supposons qu'une partie $A$ de cardinal $n+1$ ne contienne pas de paire dont un élément divise l'autre.\\
+Comme $A$ contient  $n+1$ entiers, il y en a un entre $1$ et $n$. Notons-le $a_1$. Alors, il en existe un multiple $b_1$ entre $n+1$ et $2n$.\\
+Or il reste $n$ entiers à déterminer dans $A$, et l'entier $b_1$ est exclu. Il y en a donc un autre inférieur ou égal à $n$. Notons-le $a_2$. Il admet lui aussi un multiple $b_2$ entre $n+1$ et $2n$. En itérant ce raisonnement, on finit par montrer que $1\in A$, contradiction.}
+\end{sol}
+\end{exo}
+
+
+
+\etoile
+
+Les exercices qui suivent illustrent l'utilité du principe des tiroirs en arithmétique. Ils sont parfois un peu difficiles.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Nombres aux chiffres identiques]
+Montrer que parmi douze entiers distincts à deux chiffres, il en existe toujours deux dont la différence est un nombre dont les deux chiffres sont identiques.
+\begin{hint}
+En termes de divisibilité, qu'est-ce qu'un nombre composé des deux mêmes chiffres ?
+\end{hint}
+\begin{sol}
+\emph{(Point méthode : si on veut utiliser le principe des tiroirs, il semble qu'il faille au plus onze \og tiroirs\fg, puisqu'il y a douze entiers.)}
+
+
+Les nombres à deux chiffres identiques sont exactement les multiples de onze.
+
+Soit $\phi$ l'application qui à chacun des douze entiers de l'énoncé associe son reste modulo onze, c'est-à-dire le reste dans la division euclidienne par onze. Il y a onze restes possibles, et douze entiers, donc par le principe des tiroirs, deux entiers ont même reste modulo onze.
+
+Ceci signifie exactement que leur différence est divisible par onze.
+
+
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Équilibrage de sommes]
+On considère un ensemble de dix entiers  à deux chiffres. Montrer qu'on peut en tirer deux sous-ensembles d'entiers de telle sorte que les sommes des entiers des deux sous-ensembles soient égales.
+\begin{hint}
+De façon très générale, si un ensemble a $n$ éléments, combien a-t-il de parties ?
+\end{hint}
+\begin{sol}
+Il y a $2^{10}$ sous-ensembles possibles (en comptant l'ensemble au complet et le sous-ensemble vide bien sûr). D'autre part, les entiers sont inférieurs à $99$, donc lorsqu'on choisit certains entiers et qu'on les somme, le résultat est (positif et) inférieur à $990$. Par le principe des tiroirs, il existe deux sous-ensembles différents qui ont la même somme.
+
+Ces sous-ensembles peuvent avoir des entiers en commun, mais on voit alors qu'il suffit d'enlever ces entiers des deux sous-ensembles, et les deux sommes restent égales.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme ou différence]
+% source : http://ipphil.over-blog.com/article-principe-des-tiroirs-ou-de-jolies-surprises-54503121.html
+Montrer que parmi quatre entiers, il en existe deux dont la somme ou la différence est multiple de $5$.
+\begin{sol}
+Procédons par l'absurde. 
+
+Considérons les quatre restes modulo cinq de ces entiers. Ils sont tous différents car si deux restes sont égaux, la différence des entiers en question est divisible par cinq.
+
+Il suffit alors de les restes pour voir qu'au moins une somme est multiple de cinq.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme ou différence, bis]
+Montrer que parmi sept entiers, il en existe deux dont la somme ou la différence est multiple de $10$.
+\begin{sol}
+Les sept restes modulo $10$ sont tous distincts. On voit qu'avec six entiers, les restes pourrait être $0$, $1$, $2$, ... $5$, mais qu'avec sept entiers, il y a au moins deux restes dont la somme est $10$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Divisibilité par douze]
+%http://villemin.gerard.free.fr/Wwwgvmm/Decompos/Divisi12.htm#demo
+Soient $a$, $b$, $c$ et $d$ quatre entiers. Montrer que le produit des six différences $(b-a)(c-a)(d-a)(c-b)(d-b)(d-c)$ est divisible par $12$.
+\begin{sol}
+Montrons d'abord que le produit est divisible par trois.
+On considère les restes modulo trois des six différences, sachant que trois différences déterminent les trois autres. Il y a trois restes possibles : si l'un est nul  c'est bon, sinon par le principe des tiroirs, il y a deux restes égaux. Dans ce cas on montre qu'une des trois autres différences est divisible par trois.
+
+Par la divisibilité par quatre, on montre que deux différences sont paires.
+
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Th\'eor\`eme d'Erd\"os-Szekeres]
+On écrit les entiers de $1$ à $101$ dans un ordre quelconque, ce qui fournit une suite finie d'entiers. Montrer qu'il est toujours possible d'en sélectionner $11$ de sorte qu'ils forment une suite croissante ou bien une suite décroissante.
+\begin{hint}
+On peut constater que $101=\left(11-1\right)\left(11-1\right)+1$.
+\end{hint}
+\begin{hint2}
+On peut commencer par compter le nombre de couples d'entiers $\left(a,b\right)$ tels que $a,b<11$. Dans notre probl\`eme, quel sens peut-on donner \`a de tels couples?
+\end{hint2}
+\begin{sol}
+Notons $n_1, \ldots, n_101$ la suite d'entiers obtenue. Pour chaque indice $i$ compris entre $1$ et $101$, on note $a_i$ la longueur de la plus longue sous-suite croissante qui se termine par $n_i$ et $b_i$ la longueur de la plus longue sous-suite d\'ecroissante qui se termine par $n_i$. Ainsi, on a associ\'e un couple d'entiers \`a chacun des termes de la suite.\newline
+
+D'une part, on voit que tous ces couples sont distincts. En effet, soient $i<j$, on est toujours dans l'un des deux cas suivants:
+\begin{itemize}
+\item soit $n_i<n_j$ auquel cas on a forc\'ement $a_i<a_j$,
+\item soit $n_i>n_j$ et dans ce cas $b_i<b_j$.
+\end{itemize}
+
+D'autre part, il n'y a que $\left(11-1\right)\left(11-1\right)$ couples d'entiers $\left(a,b\right)$ tels que $a,b<11$. Ainsi, parmi les $101$ couples $\left(a_i,b_i\right)$ au moins l'un d'entre eux \`a une coordonn\'ee sup\'erieure ou \'egale \`a $11$. (Th\'eor\`eme d'Erd\"os-Szekeres)
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme d'une sous-collection]
+%http://villemin.gerard.free.fr/aMaths/Denombre/Tiroir/TiroirSo.htm
+Soit $n\geq 2$ un entier, et soient $n$ entiers. Montrer qu'il existe un sous-ensemble de ces $n$ entiers dont la somme est divisible par $n$.
+\begin{sol}
+Notons $a_1$, ... $a_n$ les entiers, et considérons les sommes $S_1 = a_1$, $S_2 = a_1+a_2$, ..., $S_n = a_1+a_2+...+a_n$. Si l'une de ces sommes est divisible par $n$ (autrement dit le reste de la division par $n$ est nul, c'est terminé. Sinon, cela signifie que les restes par division par $n$ sont tous non nuls, donc doivent valoir $1$, ..., $n-1$. Or, il y a $n$ tels restes donc deux des sommes ont le même reste.
+
+Ceci signifie alors que la différence de ces deux sommes est divisible par $n$. Or, la différence de deux des sommes est aussi une somme d'entiers de la collection.
+\end{sol}
+\end{exo}
+

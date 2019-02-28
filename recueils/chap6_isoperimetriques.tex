@@ -1,0 +1,258 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Problèmes isopérimétriques}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Un problème isopérimétrique est un problème de maximisation de l'aire d'une figure, à périmètre fixé (\emph{iso} = même). Dans cette feuille, on s'intéresse aux polygones.
+
+Dans toute la suite, un polygone est dit \textbf{optimal} si de tous les polygones ayant le même périmètre et le même nombre de côtés, il a la plus grande aire. Le fait de savoir s'il existe des polygones optimaux est difficile. Dans cette feuille, on démontre entre autres:
+\begin{enumerate}
+\item Pour les polygones à trois côtés : il existe des $3$-gones (triangles) optimaux : ce sont les triangles équilatéraux.
+\item Pour les polygones à quatre côtés : il existe des $4$-gones (quadrilatères) optimaux : ce sont les carrés.
+\item Pour un nombre $n\geq 5$ de côtés, le problème est plus difficile. On démontre que si un polygone n'est \emph{pas} convexe et régulier, alors il n'est \emph{pas} optimal, autrement dit on peut trouver un autre polygone ayant même nombre de côtés, même périmètre, et aire plus grande. 
+\end{enumerate}
+
+Remarque : le résultat général est que les $n$-gones optimaux existent et sont les $n$-gones réguliers convexes, mais les résultats de cette feuille ne suffisent pas pour établir ce théorème, car ils ne montrent pas l'\emph{existence} d'une solution, mais juste que si elle existe, alors c'est celle-là.
+
+
+Certains exercices utilisent l'inégalité arithmético-géométrique, à deux ou trois variables. Les exercices dépendent parfois les uns des autres (dans l'ordre de la feuille)
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Parallélogrammes optimaux]
+\label{parallelogramme}
+Soit $p$ un nombre réel strictement positif. 
+\begin{enumerate}
+\item Déterminer le ou les rectangles de périmètre égal à $p$ dont l'aire est maximale pour ce périmètre.
+\item Même question avec les parallélogrammes de périmètre $p$.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item 
+Soient $a$ et $b$ les mesures des côtés du rectangle. L'aire du rectangle vaut donc: 
+\[ \mathcal A=ab.\]
+ 
+D'autre part, en  calculant le périmètre $p$  en fonction de $a$ et $b$ on obtient la contrainte :
+\[ 2(a+b)=p.\]
+
+Il s'agit donc de déterminer $a$ et $b$ tels que $a+b=p/2$, de telle façon à maximiser la quantité $ab$. Or, l'inégalité arithmético-géométrique donne justement :
+\[ \sqrt ab \leq \frac{a+b}{2} \]
+avec égalité si et seulement si $a=b$, autrement dit, en élevant au carré et en écrivant le résultat en fonction de $p$ et de $\mathcal A$:
+\[ \mathcal A \leq \frac{p^2}{16},\]
+avec égalité ssi $a=b$.
+
+Ceci montre qu'à périmètre fixé, l'aire est toujours inférieure à $p^2/16$ et que cette aire maximale est atteinte exactement lorsque les deux côtés du rectangle sont égaux, c'est-à-dire lorsque le rectangle est un carré. (La quantité $p^2/16$ est bien l'aire du carré de côté $a=b=p/4$.)
+
+
+
+\item Pour un parallélogramme, on note $x=AB$ et $y=BC$ les longueurs de deux côtés consécutifs, et $\theta = \widehat{ABC}$. Alors l'aire du parallélogramme est $\mathcal A = xy\sin\theta$.  Si $x$ et $y$ sont variables sous la contrainte que $x+y = p/2$ est constant, alors on peut écrire la majoration
+\[\mathcal A = xy\sin\theta \leq xy,\]
+car un sinus est toujours inférieur ou égal à $1$. (Rappelons que c'est une conséquence du théorème de Pythagore : dans un triangle rectangle, l'hypoténuse est plus grande que les deux autres côtés. Ceci entraîne qu'un cosinus et un sinus sont toujours inférieurs ou égaux à $1$.)
+
+Cette inégalité est une égalité si et seulement si le sinus vaut $1$, c'est-à-dire si et seulement si l'angle $\widehat{ABC}$ est droit, autrement dit si et seulement si le parallélogramme est un rectangle.
+
+On en déduit qu'à longueurs des côtés $x$ et $y$ fixées, le parallélogramme ayant la plus grande aire est le rectangle de côtés $x$ et $y$.
+
+On peut alors appliquer la première question : à périmètre $p = 2x+2y$ fixé, le rectangle ayant la plus grande aire est le carré de côté $p/4$.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+
+%\begin{center}
+%$ \star \star \star$ Triangles $\star \star \star$
+%\end{center}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Périmètre minimal à aire fixée]
+Soient $A$ et $B$ deux points, et $\mathcal A$ un réel. Parmi tous les triangles $ABC$ d'aire $\mathcal A$, déterminer celui ou ceux dont le périmètre est minimal.
+\begin{sol}
+Il y a deux triangles vérifiant ces conditions : ce sont les deux triangles isocèles de base $AB$ et d'aire $\mathcal A$. Pour le démontrer, considérons les deux droites parallèles à $(AB)$ et à une distance $h =\frac{\mathcal A}{ AB}$ de la droite $(AB)$. Un triangle $ABC$ a une aire égale à $\mathcal A$ si et seulement si le point $C$ appartient à un de ces deux droites (suivant s'il est direct ou indirect).
+
+Pour simplifier, supposons que l'on cherche uniquement les triangles $ABC$ directs, et appelons $\mathcal D$ la droite formée des points $C$ tels que $ABC$ soit direct et d'aire $\mathcal A$.
+
+Il s'agit donc de trouver un tel point $C$ pour que le périmètre de $ABC$ soit minimal. Comme la distance $AB$ est fixe, il s'agit donc de minimiser $AC+CB$. On peut appliquer le résultat de l'exercice \ref{riviere}, d'après lequel le point $C$ qui convient est l'intersection de $\mathcal D$ et du segment joignant $A$ à l'image de $B$ par symétrie axiale d'axe $\mathcal D$. Ceci produit un triangle isocèle (utilisation d'angles opposés, ou alors alternes-internes).
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Aire maximale à périmètre fixé]
+\label{base_fixee}
+Soient $A$ et $B$ deux points. Parmi tous les triangles de périmètre $p$ fixé, trouver celui ou ceux d'aire maximale.
+\begin{sol}
+
+
+Ce sont les deux triangles isocèles de base $[AB]$. Le problème est dual du précédent.
+
+Rédaction possible : si $ABC$ est un triangle non isocèle en $C$, on peut d'après l'exercice précédent trouver un triangle de même base $[AB]$ et de même aire, qui est isocèle, et de périmètre inférieur. Ensuite, on augmente progressivement la hauteur de ce triangle jusqu'à avoir à nouveau un périmètre égal à $p$, mais ceci a augmenté l'aire. Ceci montre qu'on triangle $ABC$ de périmètre $p$ a une aire toujours inférieure à un triangle isocèle de base $[AB]$ de périmètre $p$.
+
+
+
+Autre solution, de plus haut niveau : fixer le périmètre revient à fixer la longueur $AC+CB$. Le point $C$ décrit donc une ellipse.
+
+D'autre part,  par la formule $\mathcal A = AB \cdot h$ avec $h$ la longueur de la hauteur issue de $C$, le  ou les triangles d'aire maximale sont ceux pour lesquels $C$ est le plus éloigné de la droite $(AB)$.
+
+On voit alors que l'aire maximale est atteinte lorsque $C$ est sur a médiatrice de $[AB]$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Quadrilatères optimaux]
+\label{quadrilateres}
+Soit $ABCD$ un quadrilatère non croisé.
+\begin{enumerate}
+\item Montrer que s'il n'est pas convexe, il existe un quadrilatère convexe de même périmètre et d'aire supérieure. Dans la suite, on supposera le quadrilatère convexe.
+\item Montrer qu'il existe un losange de même périmètre et de plus grande aire.
+\item En déduire que les quadrilatères non croisés de périmètre $p$ et d'aire maximale sont ceux qui sont carrés (donc de coté $p/4$ et d'aire $p^2/16$).
+\end{enumerate}
+\begin{hint}
+Utiliser les exercices précédents.
+\end{hint}
+\begin{sol}
+\begin{enumerate}
+\item On peut supposer que $[AC]$ est à l'extérieur de $ABCD$. Soit $B'$ le symétrique de $B$ par rapport à $(AC)$. Alors $AB'CD$ est convexe, de même périmètre (une symétrie axiale conserve les distances), et d'aire supérieure, car on a ajouté l'aire de $ABCB'$ à l'aire initiale.
+\item Si $ABCD$ n'est pas un losange, il existe forcément deux coté de longueur différente. On peut supposer que c'est $[AB]$ et $[BC]$.
+
+Soit $B'$ le point tel que $AB'C$ soit isocèle en $B'$, du même coté de $[AC]$ que $ABC$, et de même périmètre que $ABC$. Par l'exercice \ref{base_fixee}, l'aire de $AB'C$ est supérieure à celle de $ABC$. De la même façon, on construit un point $D'$ tel que $CD'A$ soit isocèle en $D'$, de même périmètre que $CDA$, et son aire est alors supérieure.
+
+Ceci montre que le quadrilatère $AB'CD'$, qui vérifie $AB'=B'C$ et $CD'=D'A$ et donc est un cerf-volant, a le même périmètre que $ABCD$ mais une aire supérieure.
+
+Si $B'C=CD'$, alors $AB'CD'$ est un losange. Sinon, on répète l'opération en remplaçant $A$ et $C$ par $A'$ et $C'$ vérifiant $B'C'=C'D'$ et $B'A'=A'D'$, le périmètre étant toujours le même.
+
+Finalement, on obtient bien un losange de même périmètre et d'aire supérieure.
+
+\item Par l'exercice \ref{parallelogramme}, on peut alors trouver un carré de même périmètre que le losange et d'aire encore supérieure.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Deux côtés fixés]
+\label{deux_cotes_fixes}
+Soient $a$ et $b$ deux réels strictement positifs. Déterminer les triangles dont deux côtés sont de longueur $a$ et $b$, et qui sont d'aire maximale.
+\begin{sol}
+Ce sont les triangles rectangles. Avec de la trigonométrie on peut écrire l'aire $\frac12 ab\sin(\gamma)$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Loi des cosinus]
+\label{Al_Kashi}
+Soit $ABC$ un triangle, et $a$, $b$ et $c$ les longueurs de ses côtés. Montrer la \og loi des cosinus\footnote{Dans les manuels scolaires français des années 1990, ce résultat est appelé \og formule d'Al Kashi\fg{} (mais il semble ne plus être explicitement au programme).}\fg: 
+\[ a^2=b^2+c^2-2bc\cos(\widehat{BAC}).\]
+
+
+\begin{sol}
+Il existe de très nombreuses preuves. La plus courte est celle utilisant l'outil le plus évolué disponible en géométrie plane au lycée, à savoir le produit scalaire:
+\[ a^2 = BC^2=||\overrightarrow{CB}||^2 = ||\overrightarrow{AB} - \overrightarrow{AC}  ||^2 =||\overrightarrow{AB}||^2-2\langle \overrightarrow{AB},\overrightarrow{AC}\rangle+||\overrightarrow{AC}||^2= b^2+c^2 - 2bc \cos(\alpha).\]
+
+Sans produit scalaire, en prenant une hauteur et en utilisant Pythagore:
+
+\[  a^2 = h^2+c_2^2 = (b^2-c_1^2) + (c-c_1)^2 = b^2-c_1^2+c^2-2cc_1 +c_1^2=b^2+c^2 - 2bc\cos(\alpha).\]
+
+Pour d'autres preuves, voir \url{https://fr.wikipedia.org/wiki/Loi_des_cosinus}
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Formule de Héron]
+\label{formule_Heron}
+Soit $ABC$ un triangle, $a$ $b$ et $c$ les longueurs de ses cotés, $s=(a+b+c)/2$ son demi-périmètre et $\mathcal A$ son aire. Montrer que
+\[\mathcal A = \sqrt{s(s-a)(s-b)(s-c)}.\]
+
+\begin{hint} On peut écrire l'aire à l'aide d'un sinus, puis à l'aide d'un cosinus, puis utiliser le théorème d'Al Kashi.
+\end{hint}
+
+\begin{sol}
+\begin{align*}
+|\sin(\alpha)| &= \sqrt{1-\cos^2(\alpha)} \\
+&= \sqrt{1-\left(\frac{a^2-b^2-c^2}{2bc}\right)^2}
+\end{align*}
+en utilisant la formule d'Al-Kashi.
+
+
+D'où:
+\begin{align*}
+\frac{bc|sin\alpha|}{2} &= \frac{1}{4}\sqrt{(4b^2c^2+a^2-b^2-c^2)(4b^2c^2-a^2-b^2+c^2)} \\
+&= \sqrt{\frac{(a+b+c)(b+c-a)(a-b+c)(a+b-c)}{16}}\\
+&= \sqrt{p(p-a)(p-b)(p-c)}
+\end{align*}
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Triangles optimaux]
+Soit $p$ un réel strictement positif. Montrer que les triangles de périmètre $p$ et d'aire maximale pour ce périmètre sont les triangles équilatéraux de périmètre $p$.
+\begin{hint}
+Utiliser la formule de Héron et l'inégalité arithmético-géométrique.
+\end{hint}
+\begin{sol}
+D'après la formule de Héron, on a 
+\[ \mathcal A = \sqrt{s(s-a)(s-b)(s-c)}.\]
+Essayons donc de majorer l'aire $\mathcal A$ par l'air qu'aurait un triangle équilatéral de périmètre $p=2s$, c'est-à-dire par $\frac12 \cdot \frac{p}{3}\cdot\frac{p}{3}\cdot \frac{\sqrt 3}{2} = \frac{s^2}{3\sqrt 3}$.
+
+Par inégalité arithmético-géométrique à trois variables appliquée à $s-a$, $s-b$ et $s-c$, on a:
+\begin{align*}
+(s-a)(s-b)(s-c)
+&\leq (\frac{3s-a-b-c}{3})^3\\
+&\leq (\frac{3s-2s}{3})^3\\
+&\leq (\frac{s}{3})^3.
+\end{align*}
+avec égalité ssi $a=b=c$.
+
+On a donc
+\begin{align*}
+\sqrt{s(s-a)(s-b)(s-c)} 
+&\leq \sqrt{s^4/27} \\
+&\leq  s^2/\sqrt{27}\\
+&\leq \frac{s^2}{3\sqrt 3}.
+\end{align*}
+
+\end{sol}
+\end{exo}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Non équilatéral $\implies$ non optimal]
+Soit $p>0$ un réel, et $\mathcal P = A_1A_2...A_n$ un polygone à $n$ côtés de périmètre $p$. 
+\begin{enumerate}
+\item S'il n'est pas convexe, montrer qu'il n'est pas optimal.
+\item S'il n'est pas équilatéral, montrer qu'il n'est pas optimal.
+\end{enumerate}
+\begin{sol}
+\begin{enumerate}
+\item S'il y a un creux, une réflexion axiale ou une symétrie centrale permettent de construire un autre polygone.
+\item Si deux cotés $AB$ et $BC$ ne sont pas égaux, on utilise l'exercice \ref{base_fixee} appliqué au triangle $ABC$ pour construire un point $B'$ tel que $AB+BC = AB'+B'C$, et $AB'C$ isocèle.
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Non régulier $\implies$ non optimal]
+Soit $p>0$ un réel et $\mathcal P = A_1A_2...A_{2n}$ un polygone de périmètre $p$, équilatéral et avec un nombre pair $2n$ de côtés. Montrer que si ses sommets ne sont pas tous sur un même cercle, alors il n'est pas optimal.
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%%
+%\begin{exo}[Pour finir] 
+%Trouver deux polygones ayant même aire, même périmètre, mais un nombre de côtés différents. (Si possible, trouver plusieurs exemples.)
+%\end{exo}
+
+
+
+%\chapter*{La véritable inégalité isopérimétrique et des applications}
+
+%Problème de Didon 
+
+%Problème de Didon avec un "cap", saillant ou rentrant.
+

@@ -1,0 +1,443 @@
+
+\chapter{Graphes planaires et formule d'Euler}
+
+
+\begin{definition}
+Soit $G$ un graphe. Une \emph{représentation planaire} de $G$ est un dessin du graphe dans le plan (les arêtes sont des chemins continus reliant les sommets) vérifiant la propriété suivante : les dessins d'arêtes ne s'intersectent pas (dans le plan).
+
+Un graphe peut ne pas avoir de représentation planaire et s'il en a, il en a plusieurs.
+
+
+Un graphe est dit \emph{planaire} s'il possède au moins une représentation planaire.
+\end{definition}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Représentations planaires]
+Trouver des représentations planaires des graphes suivants:
+
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.7,0.7) rectangle (2.3,2.3);
+\draw (1,1)-- (2,1);
+\draw (2,1)-- (2,2);
+\draw (2,2)-- (1,2);
+\draw (1,2)-- (1,1);
+\draw (1,1)-- (2,2);
+\draw (1,2)-- (2,1);
+
+\begin{scriptsize}
+\draw [fill=black] (1,1) circle (1.5pt);
+%\draw[color=black] (0.7,0.7) node {$A$};
+\draw [fill=black] (2,1) circle (1.5pt);
+%\draw[color=black] (2.3,0.7) node {$B$};
+\draw [fill=black] (2,2) circle (1.5pt);
+%\draw[color=black] (2.3,2.3) node {$C$};
+\draw [fill=black] (1,2) circle (1.5pt);
+%\draw[color=black] (0.7,2.3) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+~
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.7,0.7) rectangle (2.7,2.7);
+\draw (1,1)-- (2,1);
+\draw (2,1)-- (2,2);
+\draw (2,2)-- (1,2);
+\draw (1,2)-- (1,1);
+
+\draw (1.3,1.3)-- (2.3,1.3);
+\draw (2.3,1.3)-- (2.3,2.3);
+\draw (2.3,2.3)-- (1.3,2.3);
+\draw (1.3,2.3)-- (1.3,1.3);
+
+\draw (1,1)-- (1.3,1.3);
+\draw (2,1)-- (2.3,1.3);
+\draw (2,2)-- (2.3,2.3);
+\draw (1,2)-- (1.3,2.3);
+
+\draw [fill=black] (1,1) circle (1.5pt);
+\draw [fill=black] (2,1) circle (1.5pt);
+\draw [fill=black] (2,2) circle (1.5pt);
+\draw [fill=black] (1,2) circle (1.5pt);
+\draw [fill=black] (1.3,1.3) circle (1.5pt);
+\draw [fill=black] (2.3,1.3) circle (1.5pt);
+\draw [fill=black] (2.3,2.3) circle (1.5pt);
+\draw [fill=black] (1.3,2.3) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+
+\begin{sol}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.2,0.2) rectangle (3.7,3.7);
+\draw (1,1)-- (2,1);
+\draw (2,1)-- (2,2);
+\draw (2,2)-- (1,2);
+\draw (1,2)-- (1,1);
+\draw (1,1)-- (2,2);
+\draw (2,1) arc (-90:180:1) ;
+
+\begin{scriptsize}
+\draw [fill=black] (1,1) circle (1.5pt);
+%\draw[color=black] (0.7,0.7) node {$A$};
+\draw [fill=black] (2,1) circle (1.5pt);
+%\draw[color=black] (2.3,0.7) node {$B$};
+\draw [fill=black] (2,2) circle (1.5pt);
+%\draw[color=black] (2.3,2.3) node {$C$};
+\draw [fill=black] (1,2) circle (1.5pt);
+%\draw[color=black] (0.7,2.3) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\end{sol}
+
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Un arbre est planaire]
+Montrer qu'un arbre (\emph{i.e.} un graphe sans circuit fermé) est toujours un graphe planaire.
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.5,0.5) rectangle (3.5,2.5);
+\draw (1,1)-- (2,2);
+\draw (2,2)-- (3,1);
+\draw (2,1) arc (-90:90:0.5) ;
+\draw (2,1)-- (1,2);
+\draw [fill=black] (1,1) circle (1.5pt);
+\draw [fill=black] (1,2) circle (1.5pt);
+\draw [fill=black] (2,1) circle (1.5pt);
+\draw [fill=black] (3,1) circle (1.5pt);
+\draw [fill=black] (2,2) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+\begin{hint}
+On pourra procéder par récurrence sur le nombre de sommets du graphe, ou bien construire une représentation planaire explicite en donnant les coordonnées des points et les chemins pour les relier.
+\end{hint}
+\begin{sol}
+Voici la preuve par récurrence sur le nombre $n\geq 1$ de sommets.
+
+\textbf{Initialisation}. si l'arbre possède un seul sommet, alors il est bien sûr planaire : on peu placer le sommet n'importe où dans le plan.
+
+\textbf{Hérédité}. Supposons que tout arbre à  $n$ sommets possède une représentation planaire. Soit $G$ un graphe à $n+1$ sommets. Soit $s_0$ une \og feuille\fg{} de $G$, c'est-à-dire un sommet de degré $1$. (On a déjà montré que cela existe mais revoici la preuve : on considère un chemin de longueur maximale dans l'arbre : les deux extrémités d'un tel chemin sont forcément de degré $1$. ) Considérons alors $G'$ l'arbre déduit de $G$ en enlevant le sommet $s_0$ ainsi que l'arête qui aboutit à ce sommet. On notera $s_1$ le sommet de $G'$ qui était auparavant relié à $s_0$. Le graphe $G'$ possède $n$ sommets et c'est un arbre (le graphe est toujours connexe et on ne peut pas avoir créé de circuits en enlevant une arête). Il possède donc une représentation planaire. Il est alors possible de rajouter un point dans le voisinage de $s_1$ et de le relier à $s_1$ sans intersecter le reste de la représentation planaire de $G'$.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Faces d'une représentation planaire]
+Soit $\mathcal G$ un graphe planaire connexe. On fixe une représentation planaire de ce graphe. Une \emph{face} de cette représentation planaire est une des régions du plan délimitées par le dessin du graphe.
+
+Étant donné une face $F$, son \emph{bord} est le plus court chemin fermé passant par toutes les arêtes qui touchent la face (le bord peut avoir à parcourir certaines arêtes plusieurs fois.)
+
+Le \emph{degré d'une face} est la longueur de son bord. Montrer que la somme des degrés de toutes les faces est égal au double du nombre d'arêtes:
+\[\boxed{\sum_{F\text{ face}}\deg(F) = 2a}\]
+(En particulier, ce nombre ne dépend pas de la représentation planaire choisie !)
+\begin{hint}
+Penser à la somme des degrés des sommets.
+\end{hint}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[La formule d'Euler]
+Soit $G$ un graphe planaire connexe, dont on fixe une représentation planaire. 
+On note $f$ le nombre de faces de $G$, $s$ le nombre de sommets et $a$ le nombre d'arêtes. Montrer la formule d'Euler:
+\[
+\boxed{s-a+f=2}
+\]
+Une autre interprétation de ce résultat est que le nombre $f$ de faces ne varie pas quelque soit la représentation planaire choisie: il vaut toujours $2+a-s$.
+\begin{sol}Première preuve, en utilisant les arbres couvrants.
+
+Commençons par montrer que le résultat est vrai pour les arbres (planaires, mais on a vu plus haut que tout arbre est planaire). Un arbre à $s$ sommets possède $a=s-1$ arêtes.
+
+D'autre part, comme un arbre ne possède pas de circuits, toute représentation planaire n'a qu'une face, la face infinie. En effet, toute autre face serait bordée par un cycle. On a donc $s-a+f = s-(s-1)+1=2$, et la formule d'Euler est vraie pour les arbres.
+
+Revenons au cas d'un graphe planaire général.
+
+Le graphe $\mathcal G$ possède un arbre couvrant, d'après les feuilles d'exercices précédentes. Soit $\mathcal A$ un tel arbre, qui est planaire (si la représentation de $G$ est planaire, alors celle de tout sous-graphe l'est aussi). Cet arbre vérifie la formule d'Euler, c'est-à-dire $s'-a'+f'=2$.
+
+Il reste des arêtes à placer pour obtenir une représentation planaire de $\mathcal G$.
+
+Montrons qu'ajouter une telle arête ne change pas la caractéristique d'Euler : à chaque arête ajoutée, le nombre de faces augmente de un (et le nombre d'arêtes augmente de $1$ aussi). Donc la quantité $s-a+f$ reste constante.
+\end{sol}
+
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Graphe complet $K_5$]
+Est-il possible que dans un pays, il existe cinq villes toutes reliées aux quatre autres par des routes différentes qui ne se croisent pas ?
+
+
+\begin{hint}
+Non, c'est impossible. Le graphe à considérer est $K_5$, le graphe complet sur cinq sommets, donc voici une représentation (non planaire).
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.6cm,y=.6cm]
+\clip(-2.14,-0.98) rectangle (2.7,3.94);
+\draw (-1.46,0.04)-- (-1.6566884575995895,2.457542895306533);
+\draw (-1.6566884575995895,2.457542895306533)-- (0.5817513904090712,3.3916665738667984);
+\draw (0.5817513904090712,3.3916665738667984)-- (2.1618717558501617,1.5514438616065909);
+\draw (0.9,-0.52)-- (2.1618717558501617,1.5514438616065909);
+\draw (0.9,-0.52)-- (-1.46,0.04);
+\draw (-1.46,0.04)-- (0.5817513904090712,3.3916665738667984);
+\draw (-1.46,0.04)-- (2.1618717558501617,1.5514438616065909);
+\draw (0.9,-0.52)-- (-1.6566884575995895,2.457542895306533);
+\draw (2.1618717558501617,1.5514438616065909)-- (-1.6566884575995895,2.457542895306533);
+\draw (0.5817513904090712,3.3916665738667984)-- (0.9,-0.52);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-1.46,0.04) circle (2.5pt);
+%\draw[color=qqqqff] (-1.98,0.41) node {$A$};
+\draw [fill=qqqqff] (0.9,-0.52) circle (2.5pt);
+%\draw[color=qqqqff] (1.4,-0.21) node {$B$};
+\draw [fill=uuuuuu] (2.1618717558501617,1.5514438616065909) circle (2.5pt);
+%\draw[color=uuuuuu] (2.3,1.93) node {$C$};
+\draw [fill=uuuuuu] (0.5817513904090712,3.3916665738667984) circle (2.5pt);
+%\draw[color=uuuuuu] (0.72,3.77) node {$D$};
+\draw [fill=uuuuuu] (-1.6566884575995895,2.457542895306533) circle (2.5pt);
+%\draw[color=uuuuuu] (-1.52,2.83) node {$E$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+Il s'agit de montrer que ce graphe n'est pas planaire.
+\end{hint}
+\begin{sol}
+S'il était planaire, en appliquant la formule d'Euler, on aurait $s-a+f=2$ c'est-à-dire qu'il y aurait $7$ faces, en comptant la face infinie.
+
+Si on somme, pour toutes les faces, le nombre d'arêtes dans le bord de la face, on compte chaque arête deux fois. Comme le bord d'une face possède au moins trois arêtes, on en déduit que s'il y a $7$ faces, il y a au moins $a\geq (3\times 7)\div 2>10$ arêtes. Mais d'autre part, on sait que $K5$ a $10$ arêtes, contradiction.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Énigme des trois maisons et usines]
+Un lotissement de trois maisons doit être équipé d'eau de gaz et d'électricité. Pour cela, chacune des trois maisons doit être directement reliée par une canalisation à trois usines (centrale électrique, usine de production d'eau potable et usine à gaz\footnote{D'après Wikipédia, la dernière usine à gaz française a fermé en 1971 : on exploite maintenant le gaz naturel, au lieu de produire du gaz à partir du charbon.}). 
+
+La règlementation interdit de croiser les canalisations pour des raisons de sécurité. Est-ce possible et si oui comment faut-il faire ?
+\begin{sol}Ce n'est pas possible. Le graphe correspondant est $K_{3,3}$, le graphe complet biparti à  $3+3$ sommets, qui possède six sommets et $9$ arêtes.
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.8cm,y=.8cm]
+\clip(0,0) rectangle (4,3);
+\draw (1,1)-- (1,2);
+\draw (1,1)-- (2,2);
+\draw (1,1)-- (3,2);
+\draw (2,1)-- (1,2);
+\draw (2,1)-- (2,2);
+\draw (2,1)-- (3,2);
+\draw (3,1)-- (1,2);
+\draw (3,1)-- (2,2);
+\draw (3,1)-- (3,2);
+\draw [fill=black] (1,1) circle (1.5pt);
+\draw [fill=black] (2,1) circle (1.5pt);
+\draw [fill=black] (3,1) circle (1.5pt);
+\draw [fill=black] (1,2) circle (1.5pt);
+\draw [fill=black] (2,2) circle (1.5pt);
+\draw [fill=black] (3,2) circle (1.5pt);
+\end{tikzpicture}
+\end{center}
+
+S'il était planaire, il aurait un nombre de faces égal à $f=2+a-s = 5$ en comptant la face extérieure. 
+
+Les faces ne peuvent être de degré trois, autrement il existerait des arêtes entre deux maisons ou entre deux usines. Donc les faces sont de degré au moins $4$, et on a 
+\[ 2a  = \sum_F \operatorname{deg}(F) \geq 4f = 20,\]
+ce qui est absurde puisque $a=9$. 
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Conditions nécessaires pour être planaire]
+%https://en.wikipedia.org/wiki/Planar_graph, voir aussi planaire.pdf
+Soit $G$ un graphe connexe planaire à $s\geq 3$ sommets. Montrer en utilisant la formule d'Euler que:
+\begin{enumerate}
+\item $a \leq 3s - 6$ (et $f \leq 2s - 4$).
+\item Il existe au moins un sommet de degré $\leq 5$. (On ne peut pas remplacer $5$ par $4$ : trouver un exemple de graphe planaire dont tous les sommets sont de degré $5$.)
+\item S'il n'y a pas de cycles de longueur $3$, alors $a \leq 2s - 4$.
+\item Plus généralement, s'il n'y a pas de cycle de longueur $\leq r$, alors:
+\[ a \leq \frac{r}{r-2}(n-2).\]
+\end{enumerate}
+Ceci donne des conditions nécessaires de planéité, mais ne permet pas de montrer la planéité.\\
+
+
+
+\begin{mdframed}
+Ces conditions disent que dans un graphe planaire, le nombre d'arêtes est relativement faible. (Comparer avec un graphe complet où il y a $s(s+1)/2$ arêtes.)
+\end{mdframed}
+
+
+%Pour cela, il y a le théorème de Kuratowski, mais il est difficile à appliquer.
+\begin{sol}
+\begin{enumerate}
+\item Une face est au moins de degré trois, donc $2a =\sum_F \operatorname{deg}(F)\geq 3f = 3(2-s+a) = 6-3s+3a$, d'où:
+\[ a \leq 3s - 6.\]
+En utilisant $s-a+f=2$ et donc $a = s+f-2$, on obtient $s+f-2 \leq 3s-6$ c'est-à-dire:
+\[ f \leq 2s-4.\]
+\item Preuve pour les degrés des sommets: Considérons le degré moyen $\overline{d}$, la moyenne de tous les degrés du graphe. On a  donc $\overline{d} = \frac{2a}{s}$. Par l'exercice précédent, on a 
+\[ \overline{d} = \frac{2a}{s} \leq \frac{6s-12}{s} < 6.\]
+Puisque la moyenne des degrés est $<6$, il existe au moins un sommet de degré $\leq 5$.
+\item 
+\item 
+\end{enumerate}
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Ballon de football]
+Un ballon de football  est fabriqué en cousant ensemble des pièces de cuir. Traditionnellement, il s'agit de pentagones et d'hexagones. Montrer que c'est impossible en n'utilisant que des hexagones (si l'on exclut l'assemblage de deux hexagones identiques l'un sur l'autre). 
+
+% Si lon n'utilise que des pentagones, trouver leur nombre ? -> 12.
+
+\begin{hint}
+Montrer qu'il existe au moins une face de degré $\leq 5$, et qu'il existe au moins un sommet de degré $\geq 3$. 
+\end{hint}
+\begin{sol}
+
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Coloriages de cartes] 
+On considère une carte représentant plusieurs pays. On désire colorier la carte, c'est-à-dire colorier chaque pays de façon à ce que deux pays limitrophes n'aient pas la même couleur.
+\begin{enumerate}
+\item Montrer par récurrence qu'il suffit de six couleurs pour colorier n'importe quelle carte.
+\item En affinant la fin du raisonnement, montrer qu'il suffit en fait de cinq couleurs.
+\end{enumerate}
+
+\begin{hint}
+1)Procéder par récurrence et utiliser un des résultats précédents pour l'hérédité.
+
+2) Procéder par récurrence comme dans la question précédente. Par contre, au moment de rajouter le sommet supplémentaire, il faut modifier le coloriage précédent d'une certaine façon pour justifier que cinq couleurs suffisent toujours.
+\end{hint}
+\begin{sol}
+\begin{enumerate}
+\item Il s'agit de montrer qu'on peut colorier un graphe planaire à l'aide de seulement six couleurs.
+
+On procède par récurrence sur le nombre $n\geq 1$ de sommets. 
+
+Initialisation. Pour un seul sommet c'est clair.
+
+Hérédité. Soit $n\in \N$, supposons que tout graphe planaire à $n$ côtés peut être colorié à l'aide de six couleurs, et soir $G$ un graphe planaire à $n+1$ côtés. D'après l'exercice précédent, il existe au moins un sommet $S$ de degré $\leq 5$. Soit $G'$ le graphe obtenu en enlevant $S$ (ainsi que les arêtes qui y aboutissent). On peut colorier $G'$ à l'aide de moins de six couleurs. Lorsqu'on rajoute le sommet $S$ ainsi que les arêtes enlevées, on voit que $S$ n'a pas plus de cinq voisins, donc on peut colorier $S$ en utilisant la sixième couleur disponible.
+
+\item On procède par récurrence comme précédemment. L'initialisation est claire. Montrons l'hérédité.
+
+Soit $n\geq 1$, et supposons que tout graphe planaire à $n$ sommets peut être colorié à l'aide de moins de cinq couleurs. Soit maintenant $G$ un graphe à $n+1$ sommets.
+
+Comme à l'exercice précédent, il existe un sommet $S$ ayant degré $\leq 5$. Notons $G'$ le graphe obtenu en enlevant $S$. Par hypothèse de récurrence, on peut colorier $G'$ à l'aide de moins de cinq couleurs.
+
+Si les voisins de $S$ sont coloriés avec moins de quatre couleurs c'est terminé, on colorie $S$ avec la cinquième couleur. 
+
+Sinon, il a cinq voisins de cinq couleurs différentes, notons-les $S_1, \dots, S_5$ (l'ordre étant obtenu en choisissant arbitrairement $S_1$ puis en tournant dans le sens positif autour de $S$).
+
+On va montrer qu'on peut soit colorie $S_1$ et $s_3$ de la même couleur, soit $S_2$ et $S_4$.
+
+Soit $G_{13}$ le sous-graphe constitué par les sommets de couleur $1$ et $3$. Si $S_1$ et $S_3$ sont dans deux composantes connexes différentes, on peut permuter les deux couleurs dans la composante de $S_3$.
+Sinon, on considère le sous-graphe $G_{24}$ de couleur $2$ et $4$. Et là, on voit que $S_2$ et $S_4$ sont forcément dans deux composantes connexes différentes, car $G_{13}$ et $G_{24}$ sont disjoints. (argument de topologie de type théorème de Jordan)
+\end{enumerate}
+% https://en.wikipedia.org/wiki/Five_color_theorem
+\end{sol}
+\end{exo}
+
+\begin{mdframed}
+En réalité, il suffit de quatre couleurs, c'est le célèbre \textbf{théorème des quatre couleurs} (\href{https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_des_quatre_couleurs}{lien wikipedia}, \href{https://en.wikipedia.org/wiki/Four_color_theorem}{version anglaise plus complète}).
+Mais la preuve de ce résultat est \emph{très} difficile et se termine par la vérification de plusieurs centaines de cas particuliers (633 dans une des versions récentes de la preuve) à l'aide d'un ordinateur. Il n'y a pas de preuve élégante connue pour l'instant.
+\end{mdframed}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Deux réseaux de communication]
+% culturemaths ? planaire critère euler.pdf
+Dans un pays, on désire réorganiser les voies de communication entre les $11$ plus grandes villes. Elles doivent être reliées deux à deux soit par un canal, soit par une voie de chemin de fer. Or les ingénieurs du pays, s'ils savent parfaitement faire passer une voie ferrée au-dessus d'un canal, ne savent pas faire passer une voie ferrée au-dessus d'une autre, ni un canal au-dessus d'un autre !
+
+Est-il possible de résoudre le problème ? (On peut placer les villes comme on le désire.)
+\begin{hint}
+L'idée est qu'un graphe complet a \og beaucoup\fg{} d'arêtes, alors que des graphes planaires n'ont que \og peu\fg{} d'arêtes.
+\end{hint}
+\begin{sol}
+Le principe de la solution est qu'en prenant l'union de deux graphes planaires, on doit avoir un graphe complet, qui possède donc beaucoup d'arêtes.
+Mais un graphe planaire a \og peu\fg{} d'arêtes.
+
+
+
+Le nombre total de voies est de $\binom{11}{2} = 55$.
+
+On doit séparer ça en deux graphes planaires (non forcément connexes). L'un d'entre eux a forcément au moins $28$ arêtes, et $s\leq 11$, or on devrait avoir $a\leq 3s-6 \leq 33-6 = 27$.
+\end{sol}
+\end{exo}
+
+
+% Théorème de Kuratowski ? SUr la caractérisation des graphes planaires comme ceux qui ne contiennent pas K5 ou K3,3 ?
+
+
+% choses avec les degrés moyens des sommets et les degrés moyens des faces
+
+%Rédiger les résultats précédents avec les degrés moyens  comme dans proofs from the book ?
+
+%\chapter*{Coloriages}
+
+%Ici la propriété (C) de Proof from the book, et les applications, plus les autres exos.
+
+
+
+
+
+
+% attention, revoir la définition. 
+
+%Les \emph{solides de Platon} sont cinq polyèdres bien particuliers : le tétraèdre, le cube, l'octaèdre, le dodécaèdre et l'icosaèdre. Le tableau suivant résume une partie de leurs propriétés.
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Polyèdres combinatoirement réguliers]
+
+Un polyèdre est la donnée d'un ensemble de polygones, les \emph{faces}, et d'une façon de recoller dans l'espace les faces le long de leurs bords.
+
+
+Un polyèdre est \textbf{combinatoirement régulier} si le graphe formé par les sommets et les arêtes est un graphe connexe planaire, dont tous les sommets sont de même degré, et dont toutes les faces sont également de même degré. (Les degrés des sommets peuvent être différents des degrés des faces.) Par exemple, un parallélépipède rectangle, bien que non régulier, est combinatoirement régulier (son graphe est le même que celui d'un cube).
+
+% attention à la définition : ceci ne disqualifie pas les deux tétraèdres collés par un sommet ?
+% Si car un tel recollement a des sommets de degré 3 et d'autres de degré 4
+
+
+
+Montrer qu'un polyèdre convexe combinatoirement régulier dont les sommets sont de degré $\geq 3$ a obligatoirement des  faces de degré $\leq 5$, et qu'il est combinatoirement équivalent à un des solides de Platon. 
+% sommets de degré \geq 3 sinon on pourrait imaginer recoller deux n-gones réguliers pleins le long de leur bord)
+
+\begin{sol}
+
+Notons $d_s\geq 3$ le degré des sommets, et $d_f$ le degré des arêtes. Procédons par l'absurde, c'est-à-dire supposons $d_f\geq 6$ et essayons d'aboutir à une contradiction.
+
+
+Comme le polyèdre est convexe, le graphe des sommets et des arêtes est un graphe planaire. La formule d'Euler est donc vérifiée et on a donc 
+\[s-a+f=2.\]
+Ces quantités sont inconnues, on va donc essayer de les écrire (autant que possible) en fonction de $d_s$ et $d_f$.
+
+Si l'on somme le degré de tous les sommets on obtient le double du nombre d'arêtes, et donc, comme tous les sommets ont même degré, on a :
+\[ s\cdot d_s = 2a.\]
+D'autre part,  un raisonnement similaire montre qu'en sommant tous les degrés de toutes les faces, on obtient également le double du nombre d'arêtes, et comme tous les faces ont même degré, on obtient la relation:
+\[
+f\cdot d_f = 2a.
+\]
+Ces deux relations permettent d'écrire $s$ et $f$ en fonction de $a$ et des degrés : 
+\[ s = \frac{2a}{d_s}\text{ et } f = \frac{2a}{d_f} \]
+
+Comme $d_s\geq 3$ et $d_f\geq 6$, on a les majorations suivantes:
+\[ s = \frac{2a}{d_s}\leq \frac{2a}{3} \text{ et } f = \frac{2a}{d_f} \leq \frac{2a}{6} = \frac{a}{3}. \]
+Donc, en utilisant la formule d'Euler:
+\[ 2=s-a+f  \leq a(\frac{2}{3} - 1 + \frac{1}{3}) = 0,
+\]
+ce qui est absurde. Ceci montre donc bien que $d_f\leq 5$ : les faces d'un polyèdre combinatoirement régulier dont les sommets sont de degré $\geq 3$ sont des polygones à moins de cinq faces.
+
+La condition sur le degré des sommets sert à éliminer le \og polyèdre\fg{} obtenu en recollant deux hexagones l'un sur l'autre, par exemple.
+
+% en fait ça montre qq chose de plus fort : on ne peut pas avoir un polyèdre dont toutes les faces sont de degré \geq 6, régulier ou pas.
+\end{sol}
+\end{exo}
+% autre exos : https://en.wikipedia.org/wiki/Planar_graph
+% https://www.youtube.com/watch?v=wnYtITkWAYA série de vidéos
+
+

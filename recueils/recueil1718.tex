@@ -1,0 +1,101 @@
+\input{../preambule}
+% commenter une des deux lignes suivantes suivantes suivant l'option choisie:
+\input{../macros_answers} % choix 1 : les corrections sont regroupées à la fin du document
+%\input{macros_sans_answers} %  choix 2 : les correction suivent les énoncés
+
+\newcommand*{\etoile}
+{
+\begin{center}
+$\star$\par
+$\star$\hspace*{3ex}$\star$
+\end{center}
+}
+
+%\makeindex
+%\makeindex[name=p,title=Index des mathématiciennes et mathématiciens cités,columns=3]
+% et ne pas oulbier de faire un vrai "makeindex"
+
+%\excludecomment{prerequis} % décommenter pour maxquer les prérequis
+
+\usepackage{fontawesome}
+\begin{document}
+% TODO : notations
+% TODO index
+% TODO : biographies de matheux avec photos ?
+
+% TODO : biblio
+% TODO : notes bibliographiques / thématiques
+
+
+\debut % pour le début des macros answers, si applicable
+
+
+\title{Une année d'exercices au \\ Club Mathématique de Nancy\footnote{\url{depmath-nancy.univ-lorraine.fr/club}}\\ \faCogs}
+\author{Clémence Karmann, Régine Marchand, Damien Mégy, Tom Riblet}
+\date{Version préliminaire, compilée le \today\\ La version la plus à jour de ce document se trouve à l'adresse \url{https://github.com/dmegy/club}}
+\maketitle
+
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Présentation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Document en cours de rédaction. Si vous trouvez une faute, qu'une correction ne vous semble vraiment pas claire (ou qu'elle n'est manifestement pas terminée), ou que vous avez des propositions pour améliorer quoi que ce soit, n'hésitez pas à transmettre vos remarques pendant les séances du club.
+
+
+Les exercices ne correspondent pas forcément exactement à ceux des feuilles distribuées lors des séances : certains exercices ont été supprimés (trop difficiles, ou bien non traités en séance), leur ordre a parfois été modifié, des explications ont été rajoutées etc.
+
+ 
+Cependant la différence avec ce qui a été distribué est minime et les feuilles originales sont accessibles sur le site du club.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Sources}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Les exercices présentés ici sont rarement originaux, ils ont été adaptés à partir de diverses sources : livres, sites internet (pages personnelles, sites institutionnels comme Culturemath ou Images des maths, Wikipedia, bases de données d'exercices comme exo7...).
+
+Voir la bibliographie en fin de recueil, ainsi que les indications bibliographiques données dans les énoncés ou dans les corrections.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Notations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\paragraph{Parties entières inférieures et supérieures}
+%\label{partie-entiere}
+%\index{partie entière!inférieure}\index{partie entière!supérieure}
+
+%Si $x$ est un réel, on note $\lfloor x\rfloor$ sa partie entière inférieure, c'est-à-dire l'entier relatif immédiatement inférieur (ou égal). Par exemple, $\lfloor 3\rfloor=3$, $\lfloor 3,1\rfloor=3$ et $\lfloor -3,1\rfloor=-4$.
+%De même, on note $\lceil x\rceil$ sa partie entière supérieure, c'est-à-dire l'entier relatif immédiatement supérieur (ou égal). Par exemple, $\lceil 3\rceil=3$, $\lceil 3,1\rceil=4$ et $\lceil -3,1\rceil=-3$.
+
+%\paragraph{Partie fractionnaire}
+
+
+\input{chap1_tiroirs}
+\input{chap2_geometrie}
+\input{chap3_recurrence}
+\input{chap4_recurrence_forte}
+\input{chap5_moyennes}
+\input{chap6_isoperimetriques}
+\input{chap7_graphes}
+\input{chap8_chasse_aux_angles}
+\input{chap9_graphes_planaires}
+\input{chap10_combinatoire}
+\input{chap11_valeurs_intermediaires}
+\input{chap12_polynomes_second_degre}
+
+
+
+
+\fin
+
+%\begin{thebibliography}{99}
+%\bibitem[Euler]{Euler} Paf, photo, description
+%vidéos, documents, livres, sites web...
+%\end{thebibliography}
+
+\end{document}

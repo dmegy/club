@@ -1,0 +1,247 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Géométrie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Théorème de Varignon] \label{Varignon}
+Soit $ABCD$ un quadrilatère convexe, et $I$, $J$, $K$, $L$ les milieux de ses côtés. Montrer que $IJKL$ est un parallélogramme. Montrer que l'aire de $ABCD$ est le double de celle de $IJKL$.
+\begin{hint} Méthodologie : de quels théorèmes dispose-t-on ? Lesquels concernent le parallélisme ? Pour l'aire, considérer l'aire du complémentaire de $IJKL$ par exemple, ou bien utiliser les diagonales de $ABCD$.
+\end{hint}
+% couper le quadrilatère en deux triangles et montrer que les côtés sont parallèles à l'aide de Thalès.
+% pour une deuxième preuve de l'aire, voir 
+% http://serge.mehl.free.fr/anx/th_varignon.html
+\begin{sol}
+\begin{enumerate}
+\item 
+Dans le triangle $ABC$, en notant $I$ est le milieu de $[AB]$ et $J$ le milieu de $[BC]$, le théorème de Thalès dit que $(IJ)$ est parall\`ele \`a $(AC)$ et $IJ = \frac{1}{2} AC$. On raisonne pareillement avec le triangle $ACD$, ce qui donne $(KL)$ parall\`ele \`a $AC$ et $KL = \frac{1}{2} AC$. Or, un quadrilat\`ere qui a deux c\^ot\'es parall\`eles et de m\^eme longueur est un parall\'elogramme.
+
+\item La preuve la plus élémentaire utilise uniquement qu'une médiane d'un triangle donné le partage en deux triangles de même aire.
+
+Soit $O$ le point d'intersection des diagonales du quadrilat\`ere $ABCD$. On consid\`ere le triangle $AOB$. Soit $O_1$ le point d'intersection de la diagonale $[AC]$ avec $[IL]$ et soit $O_2$ le point d'intersection de $[IJ]$ avec la diagonale $[BD]$.
+
+% Par construction, le quadrilat\`ere $IO_1OO_2$ est un parall\'elogramme. 
+ 
+Par le théorème de Thalès,  $O_1$ est le milieu de $[AO]$ et $O_2$ le milieu de $[BO]$. Les triangles $IO_1A$ et $IO_1B$ ont même aire, de même que les triangles $I0_2O$ et $IO_2B$.
+
+La somme des aires des triangles $AIO_1$ et $IO_2B$ est donc exactement \'egale \`a l'aire du parall\'elogramme $IO_1OO_2$. 
+ 
+On applique le m\^eme raisonnement aux triangles $BCO$, $CDO$ et $ADO$, ce qui signifie que, dans le quadrilat\`ere $ABCD$, la partie compl\'ementaire de $IJKL$ a une aire qui est exactement \'egale \`a celle de $IJKL$, ce qui permet de conclure. \end{enumerate}
+
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Trapèze rectangle]
+%tags : isocèle, trapèze, symétrie centrale, projection
+Soit $\mathcal D$ une droite, $A$ et $B$ deux points hors de cette droite, et $A'$, $B'$ leurs projetés orthogonaux sur $\mathcal D$, supposés distincts. Soit enfin $I$ le milieu de $[AB]$. Montrer que $A'IB'$ est isocèle en $I$.
+% en utilisant une symétrie centrale, ou bien en utilisant une projection affine.
+\begin{hint} %Sans utiliser le "théorème des milieux", on peut compléter le trapèze rectangle en un rectangle grâce à la symétrie de centre $I$.
+Les diagonales d'un rectangle sont égales et se coupent en leur milieu. % Y a-t-il plus simple ?
+\end{hint}
+\begin{sol}
+\underline{Première solution} : soit $\sigma$ la symétrie centrale de centre $I$ et  $A''$ (respectivement $B''$) l'image de $A'$ (resp. $B'$) par $\sigma$. 
+
+Par construction, $A'B'A''B''$ est un parallélogramme de centre $I$, et par construction également, on a $B=\sigma(A)$.
+
+Montrons que $A'B'A''B''$ est un rectangle. Comme une symétrie centrale envoie une droite sur une droite parallèle, l'image de la droite $(AA')$ lui est parallèle, et doit forcément contenir $\sigma(A)$ c'est-à-dire $B$. C'est donc la droite $(BB')$. Ceci montre que $A''$ est le point d'intersection des droites $(A'I)$ et $(BB')$, et donc que $A'B'A''B''$ est un rectangle.
+
+Comme les diagonales d'un rectangle on même longueur, on a terminé.
+
+\underline{Deuxième solution} : une projection orthogonale sur une droite préserve les milieux : on peut par exemple le prouver en considérant un repère orthonormé et des coordonnées. On voit alors que la  projection orthogonale $I'$ de $I$ sur $(A'B')$ est le milieu de $[A'B']$. Ceci signifie que dans le triangle $A'IB'$, la hauteur issue de $I$ est également la médiane issue de $I$. Le triangle $A'IB'$ est donc isocèle, d'où $A'I = B'I$.
+\end{sol}
+\end{exo}
+
+%----------
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Orthocentre]
+% source : Debart "rotation au collège"
+% tags: collège, rotation
+Sur les côtés $[AB]$ et $[BC]$ d'un carré direct $ABCD$, on place des points $M$ et $N$vérifiant $AM = BN$. Soit $H$ le point d'intersection des droites $(AN)$ et $(CM)$. Montrer que $H$ est l'orthocentre du triangle $DMN$. 
+\begin{sol}
+Pour montrer que $H$ est l'orthocentre du triangle $DMN$, il suffit de montrer que  $(AN)$ et $(CM)$ sont des hauteurs de ce triangle : leur point d'intersection $H$ sera alors l'orthocentre.\\
+
+Soit $\rho$ la rotation de centre $O$ (le centre du carré) et d'angle $\pi/2$. Par définition d'un carré direct, on a $\rho(A)=B$, $\rho(B)=C$, $\rho(C)=D$ et $\rho(D)=A$.
+
+On a de plus \underline{$\rho(M)=N$}. En effet, comme $M \in [AB]$, on a $\rho(M) \in [\rho(A)\rho(B)] = [BC]$, et d'autre part, comme $\rho$ est une isométrie, on a $AM = \rho(A)\rho(M) =  B\rho(M)$. Or il n'y a qu'un point sur $[BC]$ à distance $AM$ de $B$, et d'après l'énoncé c'est $N$.
+
+La rotation $\rho$ envoie donc le triangle $DAM$ sur $ABN$. Comme c'est une rotation d'angle $\pi/2$, on en déduit que $(DM)\bot (AN)$ et donc que $(AN)$ est une hauteur de $DMN$. On procède de même pour la deuxième hauteur.
+
+\emph{Remarque: on peut rédiger la solution sans rotations, juste en utilisant des angles complémentaires, mais c'est plus laborieux et moins éclairant, donc (fortement) déconseillé.}
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Distance aux bords]
+\label{sommeDistances}
+% pris dans Oudompheng 
+Soit $ABC$ un triangle équilatéral. Pour tout point $M$ à l'intérieur du triangle, on note $d = dist(M,[AB]) + dist(M,[BC]) + dist(M,[AC])$ la somme des distances de $M$ aux trois côtés. Montrer que $d$ ne dépend en fait pas du point $M$. 
+\begin{hint} Méthodologie : essayer avec plusieurs points $M$. Que remarque-t-on ?
+ 
+
+% autre solution, voir vieux TD, rotations pour se ramener à un seul côté ?
+\end{hint}
+
+\begin{sol}
+\'Ecrire chacune des distances à l'aide d'aires de triangles. Ou bien dessiner les trois petits triangles, chaque distance est une hauteur d'un petit triangle équilatéral, faire tourner ces hauteurs.
+\end{sol}
+\end{exo} 
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Cercle inscrit]
+% cercle inscrit, somme des angles d'un triangle
+Soit $ABC$ un triangle et $I$ le centre de son cercle inscrit, dont on note $r$ le rayon. Montrer qu'un des sommets du triangle est à distance $\geq 2r$ de $I$, et qu'un autre est à distance $\leq 2r$.
+\begin{hint}   
+\'Ecrire les distances aux sommets en fonction des angles du triangle.
+\end{hint}
+\begin{sol}
+Deuxième indication: un des angles du triangle a une mesure $\geq \pi/3$, et un autre a une mesure $\leq \pi/3$.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Quadrilatère tangentiel]
+% triangles isocèles
+% Source :  
+Montrer que si un cercle est tangent aux quatre côtés d'un quadrilatère $ABCD$, alors $AB+CD = BC+AD$. Réciproque ?
+\begin{hint}
+Triangles isocèles.
+\end{hint}
+\end{exo}
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Un point à rajouter]
+% joli
+% Source : http://irem-fpb.univ-lyon1.fr/feuillesprobleme/feuille10/enonces/truc5.html
+% Tags :  médiane, bissectrice
+Soit $ABC$ un triangle avec $AB = 2 BC$ et $M$ un point de $[AC]$ tel que $AM = 2 MC$. Comparer les angles $\widehat{ABM}$ et $\widehat{MBC}$.
+\begin{hint}
+Où se trouve le point $M$ sur le segment $[AC]$ ?
+\end{hint}
+\begin{sol}
+
+\begin{center}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.6,-1.06) rectangle (4.3,4.2);
+\draw [shift={(1.1,3.42)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-157.7619672844355:0.6) arc (-157.7619672844355:-107.95975501222517:0.6) -- cycle;
+\draw [shift={(1.1,3.42)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-107.95975501222517:0.6) arc (-107.95975501222517:-58.15754274001482:0.6) -- cycle;
+\draw (-2.96,1.76)-- (1.1,3.42);
+\draw (2.257061141239912,1.556935450545904)-- (1.1,3.42);
+\draw (2.257061141239912,1.556935450545904)-- (-2.96,1.76);
+\draw [dash pattern=on 5pt off 5pt] (-0.93,2.59)-- (3.414122282479824,-0.30612909890819173);
+\draw [dash pattern=on 5pt off 5pt] (2.257061141239912,1.556935450545904)-- (3.414122282479824,-0.30612909890819173);
+\draw [dash pattern=on 5pt off 5pt] (3.414122282479824,-0.30612909890819173)-- (-2.96,1.76);
+\draw (1.1,3.42)-- (0.5180407608266075,1.6246236336972695);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-2.96,1.76) circle (2.5pt);
+\draw[color=qqqqff] (-2.82,2.12) node {$A$};
+\draw [fill=qqqqff] (1.1,3.42) circle (2.5pt);
+\draw[color=qqqqff] (1.24,3.78) node {$B$};
+\draw [fill=uuuuuu] (-0.93,2.59) circle (1.5pt);
+\draw[color=uuuuuu] (-1.32,2.92) node {$I$};
+\draw [fill=xdxdff] (2.257061141239912,1.556935450545904) circle (2.5pt);
+\draw[color=xdxdff] (2.4,1.92) node {$C$};
+\draw [fill=qqqqff] (3.414122282479824,-0.30612909890819173) circle (2.5pt);
+\draw[color=qqqqff] (3.56,0.06) node {$D$};
+\draw [fill=uuuuuu] (0.5180407608266075,1.6246236336972695) circle (1.5pt);
+\draw[color=uuuuuu] (0.08,1.3) node {$M$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+Soit $D$ le symétrique de $C$ par rapport à $A$. Alors $[AC]$ est une médiane de $ABD$ et $M$ est son centre de gravité. En notant $I$ le milieu de $[AB]$, on voit que $IBCM$ est un cerf-volant et les angles considérés par l'énoncé sont égaux.
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Cloître]
+% Source : http://debart.pagesperso-orange.fr/college/carre_college.html
+% Tags :  carré
+On se donne un carré, et on cherche à construire un carré de même centre, aux côtés parallèles, et d'aire deux fois plus petite, comme ci-dessous:
+
+\begin{center}
+%
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.76,-0.54) rectangle (2.74,4.08);
+%\draw(0.47,1.75) circle (1.7800280896660026cm);
+\draw [dash pattern=on 5pt off 5pt] (-0.79572113832392,0.49842099729981115)-- (-0.7815790027001891,3.0157211383239195);
+\draw [dash pattern=on 5pt off 5pt] (-0.7815790027001891,3.0157211383239195)-- (1.7357211383239195,3.0015790027001885);
+\draw [dash pattern=on 5pt off 5pt] (1.7357211383239195,3.0015790027001885)-- (1.7215790027001878,0.4842788616760799);
+\draw [dash pattern=on 5pt off 5pt] (1.7215790027001878,0.4842788616760799)-- (-0.79572113832392,0.49842099729981115);
+\draw (-1.32,-0.02)-- (-1.3,3.54);
+\draw (-1.3,3.54)-- (2.26,3.52);
+\draw (2.26,3.52)-- (2.24,-0.04);
+\draw (2.24,-0.04)-- (-1.32,-0.02);
+\end{tikzpicture}
+%
+\end{center}
+
+
+
+\begin{enumerate}
+\item (Question intermédiaire) Soit $\mathcal C$ un cercle. Montrer qu'un carré circonscrit au cercle a une aire deux fois plus grande qu'un carré inscrit dans le cercle.
+\item En déduire une solution au problème initial.
+\end{enumerate}
+\begin{hint}
+Faire tourner le carré circonscrit par rapport au carré inscrit.
+\end{hint}
+\begin{sol}
+
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.94,-0.88) rectangle (5.24,4.22);
+\draw(0.47,1.75) circle (1.7800280896660026cm);
+\draw [dash pattern=on 5pt off 5pt] (-0.79572113832392,0.49842099729981115)-- (-0.7815790027001891,3.0157211383239195);
+\draw [dash pattern=on 5pt off 5pt] (-0.7815790027001891,3.0157211383239195)-- (1.7357211383239195,3.0015790027001885);
+\draw [dash pattern=on 5pt off 5pt] (1.7357211383239195,3.0015790027001885)-- (1.7215790027001878,0.4842788616760799);
+\draw [dash pattern=on 5pt off 5pt] (1.7215790027001878,0.4842788616760799)-- (-0.79572113832392,0.49842099729981115);
+\draw (-1.32,-0.02)-- (-1.3,3.54);
+\draw (-1.3,3.54)-- (2.26,3.52);
+\draw (2.26,3.52)-- (2.24,-0.04);
+\draw (2.24,-0.04)-- (-1.32,-0.02);
+\draw (-1.31,1.76)-- (0.48,3.53);
+\draw (0.48,3.53)-- (2.25,1.74);
+\draw (2.25,1.74)-- (0.46,-0.03);
+\draw (-1.31,1.76)-- (0.46,-0.03);
+\end{tikzpicture}
+\end{center}
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Le tourniquet dans le triangle]
+% source : exogeo.pdf (pdf interactif), chap; geom affine.
+% transformations affines, involutions
+Par un point $D$ du côté $[AB]$ d'un triangle $ABC$, on trace la parallèle à $[BC]$ qui coupe $[AC]$ en $E$.
+Par $E$ on trace la parallèle à $[AB]$ qui coupe $[CB]$ en $F$.
+Par $F$ on trace la parallèle à $[AC]$ qui coupe $[BC]$ en $G$.
+On construit de même $H$, $I$ et $J$. Montrer que $J=D$.
+\begin{hint} Considérer l'application du segment $[AB]$ dans lui-même qui a un point $D$ sur le segment associe $G$ comme construit dans l'énoncé. Que dire si $D$ est une des extrémités du segment ? Que peut-on dire de cette application ? % affine, et involutive car échange deux points; en fait c'est le symétrique sur le segment
+\end{hint}
+
+\begin{sol}
+Soit $\phi$ l'application du segment $[AB]$ dans lui-même qui a un point $D$ sur le segment associe le point $G$ comme construit dans l'énoncé. On veut montrer qu'appliquer deux fois de suite la fonction $\phi$ à un point revient à ne rien faire. 
+
+Pour comprendre l'application $\phi$, calculons les images de quelques points.
+SI $D=A$, on voit on effectuant les trois projections que $\phi(A)=B$. On voit de la même manière que $\phi(B)=A$. L'application $\phi$ échange donc les deux extrémités du segment. D'autre part, on voit en utilisant le théorème des milieux trois fois de suite que l'image du milieu de $[AB]$ par $\phi$ est toujours le milieu de $[AB]$. Ceci porte à croire que l'application $\phi$ est la symétrie du segment par rapport à son milieu, autrement dit que si $D$ est un point de $[AB]$, alors $\phi(D)$ (autrement dit $G$ dans les notations de l'énoncé) est le point qui est à la même distance de $B$ que $D$ de $A$. 
+
+Autrement dit, on veut montrer:
+\[ AD=BG\text{ ou bien, de façon équivalente: } BD =AG.\]
+On prouve cette égalité en appliquant trois fois le théorème de Thalès (une fois pour chaque projection).
+\end{sol}
+\end{exo}
+

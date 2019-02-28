@@ -1,0 +1,403 @@
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Récurrences fortes et exotiques}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Les exercices de ce chapitre utilisent des principes de récurrence différents de la récurrence classique : récurrence double, récurrence forte, etc. 
+
+\begin{mdframed}
+\paragraph{Principe de récurrence double.} Soit $A(n)$ une assertion dépendant d'un paramètre $n\in \N$. Pour prouver que $A(n)$ est vraie pour tout naturel $n$, il suffit de prouver:
+\begin{itemize}
+\item \textbf{Initialisation double:} $A(0)$ et $A(1)$ sont vraies.
+\item \textbf{Hérédité sous hypothèse de récurrence double:} Pour tout $n\in \N$, si $A(n)$ et $A(n+1)$ sont vraies alors $A(n+2)$ est vraie.\\
+\end{itemize}
+\end{mdframed}
+
+Le principe se prouve de la même façon que le principe de récurrence simple. Il existe bien sûr un principe de récurrence triple, quadruple etc que nous laissons au lecteur le soin de formuler :-) !
+
+\begin{mdframed}
+\paragraph{Principe de récurrence forte.} Soit $A(n)$ une assertion dépendant d'un paramètre $n\in \N$. Pour prouver que $A(n)$ est vraie pour tout naturel $n$, il suffit de prouver:
+\begin{itemize}
+\item \textbf{Initialisation:} $A(0)$ est vraie.
+\item \textbf{Hérédité sous hypothèse de récurrence forte:} Pour tout $n\in \N$, si $A(0)$, $A(1)$, ..., $A(n-1)$ et $A(n)$ sont vraies alors $A(n+1)$ est vraie.\\
+\end{itemize}
+\end{mdframed}
+
+Ce principe peut se prouver en notant $B(n)$ l'assertion \og $A(0)$, $A(1)$, ... $A(n)$ sont vraies\fg{} et en montrant que $B(n)$ est vraie pour tout $n$ par récurrence simple sur $n$.
+
+Attention, même si l'on peut être tenté de penser que les récurrences multiples ou fortes ne sont au fond \og que\fg{} des récurrences simples déguisées, elles correspondent (surtout la récurrence forte) à des modes de raisonnement un peu différents auxquels il faut s'habituer. La récurrence forte par exemple est parfois indispensable, mais même lorsqu'elle ne l'est pas, elle donne souvent des preuves plus élégantes et courtes que la récurrence simple.
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Produit d'un impair et d'une puissance de deux]
+% récurrence forte
+Démontrer que tout entier $n\geq 1$ peut s'écrire de façon unique sous la forme $2^p(2q+1)$, avec $p$ et $q$ entiers.\footnote{Sans utiliser la décomposition d'un entier en facteurs premiers. Voir l'exercice suivant.}
+\begin{hint}
+Récurrence forte.
+\end{hint}
+\begin{sol}
+Notons $P(n)$ la propriété à montrer sur l'entier $n\geq 1$. Nous allons montrer que $P(n)$ est vraie pour tout $n\geq 1$ par récurrence forte sur $n$.
+
+\noindent\textbf{Initialisation.} Pour $n=1$ la propriété est vraie, il suffit de choisir $p=0$ et $q=0$, et on a alors bien $1=2^0(2\dot 0+1)$.
+
+\noindent\textbf{Hérédité sous hypothèse de récurrence forte.} 
+Soit $n\geq 1$ tel que pour tout $k\leq n$, $P(n)$ soit vraie. Montrons $P(n+1)$. (L'entier $n+1$ est donc $\geq 2$.) On distingue deux cas.
+\begin{itemize}
+\item Si $n+1$ est pair, alors $\frac{n+1}{2}$ est un entier inférieur ou égal à $n$ et strictement positif. Par l'hypothèse de récurrence forte, il existe donc $p$ et $q$ des entiers tels que $\frac{n+1}{2} = 2^p(2q+1)$. On a alors $\boxed{n = 2\frac{n+1}{2} = 2^{p+1}(2q+1)}$.
+\item Si $n+1$ est impair, il existe $q$ tel que $n+1 = 2q+1$. On pose alors $p=0$, ce qui fait que $n+1=2^p(2q+1)$.
+\end{itemize}
+Finalement, quelque soit la parité de $n+1$ il existe bien deux entiers $p$ et $q$ tels que $n+1=2^p(2q+1)$. Donc $P(n+1)$ est vraie.
+\noindent\textbf{Conclusion.} Par le principe de récurrence forte, l'assertion $P(n)$ est donc vraie pour tout $n\geq 1$. 
+\end{sol}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Décomposition en facteurs premiers]
+Montrer que tout entier supérieur ou égal à $2$ peut s'écrire comme produit de nombres premiers.
+
+\begin{sol}
+Pour tout $n\geq 2$, notons $A(n)$ l'assertion \og $n$ est un produit de nombres premiers.\fg Montrons que pour tout $n\geq 2$, $A(n)$ est vraie, par récurrence forte.
+
+\textbf{Initialisation.} L'assertion $A(2)$ est vraie : $2$ est bien un produit de nombres premiers, à savoir juste lui-même.\\
+\textbf{Hérédité sous hypothèse de récurrence forte.} Soit $n\geq 2$. Supposons que pour tout entier $k$ inférieur ou égal à $n$, $A(k)$ soit vraie, donc que tout entier inférieur ou égal à $n$ soit produit de nombres premiers. (Ceci est l'hypothèse de récurrence forte.) Montrons maintenant $A(n+1)$. Il y a deux cas:
+\begin{itemize}
+\item Si $n+1$ est premier, alors il est produit de nombres premiers.
+\item Si $n+1$ n'est pas premier, alors par définition de ce qu'est un nombre non premier, on peut écrire $n+1 = ab$, avec $a$ et $b$ strictement inférieurs à $n+1$, donc inférieurs ou égaux à $n$. Par hypothèse de récurrence forte appliquée à la fois à $a$ et à $b$, il suit que $a$ et $b$ s'écrivent tous deux comme produit de nombres premiers, d'où on déduit que $ab$, c'est-à-dire $n+1$, aussi. 
+\end{itemize}
+Dans les deux cas, $A(n+1)$ est vraie.\\
+\textbf{Conclusion.} Par le principe de récurrence forte, ceci montre que tout nombre $\geq 2$ s'écrit comme produit de nombres premiers.\\
+
+
+Remarque sur une subtilité: le résultat est tout de même vrai vrai pour $1$, no pas parce que $1$ est premier (ça c'est faux : $1$ n'est justement pas premier), mais parce que $1$ est le produit d'\emph{aucun} nombre premier. Or par définition, un produit d'une famille vide de réels est égal à $1$. Par exemple, la phrase \og le produit de tous les nombres premiers négatifs vaut $1$\fg{} est correcte : comme il n'y a aucun nombre premier négatif, le produit vaut $1$.
+
+De la même façon, la somme d'une famille vide de réels est par définition égale à $0$. 
+
+C'est une subtilité qui peut perturber au premier abord, c'est pourquoi on a énoncé l'exercice pour des entiers supérieurs ou égaux à $2$ pour la contourner.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Somme de puissances de deux]
+Démontrer que tout entier $n\geq 1$ peut s'écrire comme somme de puissances de deux distinctes.
+\begin{hint}
+Faire intervenir la parité des entiers.
+\end{hint}
+\begin{sol}
+Pour tout $n\geq 1$, notons $A(n)$ l'assertion \og $n$ est la somme de puissances de $2$ distinctes.\fg\\
+
+\textbf{Initialisation.} On a $1 = 2^0$, donc $1$ est bien une somme de puissances de deux distinctes (juste une). Donc $A(1)$ est vraie.\\
+
+\textbf{Hérédité sous hypothèse de récurrence forte.} Soit $n\geq 1$, et supposons que pour tout $k\leq n$, $A(k)$ soit vraie, c'est-à-dire que $k$ soit somme de puissances de $2$ distinctes.  Montrons $A(n+1)$. Considérons l'entier $n+1$. Il y a deux cas :
+\begin{itemize}
+\item Si $n+1$ est pair, on peut l'écrire $n+1=2k$, et dans ce cas $k\leq n$. En appliquant l'hypothèse de récurrence forte à $k$, on peut écrire $k$ comme somme de puissances de deux distinctes. En multipliant par deux, on en déduit que $2k$ est également somme de puissances de $2$ distinctes (les exposants sont tous incrémentés de un, donc ils restent distincts).
+\item Si par contre $n+1$ est impair, alors on peut écrire $n+1 = 2k+1 = 2k+2^0$, et $k\leq n$, donc par hypothèse de récurrence forte, $k$ est somme de puissances de $2$ distinctes, donc $2k$ aussi et aucun exposant n'est nul.
+\end{itemize}
+Dans les deux cas, $n+1$ est somme de puissances de $2$ distinctes.\\
+\textbf{Conclusion.} Par le principe de récurrence forte, ceci conclut.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Récurrence de Cauchy et application] 
+% Source :  exo7 7023
+% Voir aussi https://www.artofproblemsolving.com/wiki/index.php?title=Cauchy_Induction
+Soit $A$ une partie de $\N^*$ contenant $1$ et telle que
+\begin{enumerate}
+\item $\forall n\in \N^*,\: n\in A \Rightarrow 2n \in A$;
+\item $\forall n\in \N^*,\: n+1\in A \Rightarrow n \in A$.
+\end{enumerate}
+Montrer que $A = \N^*$.\\
+En déduire l'inégalité arithmético-géométrique : si $a_1, ..., a_n$ sont des réels positifs, alors on a 
+\[ \frac{a_1+...+a_n}{n} \geq \sqrt[n]{a_1 a_2  ...   a_n},\]
+avec égalité si et seulement tous les $a_i$ sont égaux.
+\begin{sol}
+On prouve l'inégalité AM>GM par récurrence de Cauchy. On commence par prouver le cas avec deux variables en remarquant que $(\sqrt a - \sqrt b)^2$ est positif, donc $a+b > 2\sqrt {ab}$. Ensuite, on utilise ce cas pour passer de $n$ à $2n$.
+
+Soit maintenant $n \in \N^*$ et supposons que l'inégalité soit vraie pour $n+1$ variables. 
+
+Soit $(a_i)_{1\leq i\leq n}$ une suite de réels positifs. Définissons alors $a_{n+1} = \frac{a_1+...+a_n}{n}$.
+
+L'inégalité AM>GM pour les $n+1$ variables donne le résultat.
+\end{sol}
+\end{exo}
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Arêtes d'un arbre]
+ Un \emph{graphe (non orienté)} est un objet mathématique composé de sommets et d'arêtes reliant chacune deux sommets, les extrémités de l'arête.
+On dit qu'un graphe est \emph{simple} si les deux conditions suivantes sont vérifiées:
+\begin{enumerate}
+\item (\og pas de \emph{boucles}\fg) les extrémités des arêtes sont deux sommets distincts;
+\item (\og pas d'\emph{arêtes doubles}\fg) entre deux sommets donnés, il n'existe au plus qu'une arête.
+\newcounter{paf}
+\setcounter{paf}{\value{enumi}}
+\end{enumerate}
+On dit qu'un graphe simple est un \emph{arbre} s'il vérifie  les deux conditions supplémentaires suivantes:
+\begin{enumerate}
+\setcounter{enumi}{\value{paf}}
+\item (\og le graphe est \emph{connexe}\fg) deux sommets quelconques peuvent toujours être reliés par une chaîne d'arêtes (distinctes);
+\item (\og pas de \emph{cycles}\fg) cette chaîne est unique.
+\end{enumerate}
+
+
+Montrer qu'un arbre à $n$ sommets possède $n-1$ arêtes.
+\begin{sol}
+Pour $n\in \N$, notons $P(n)$ l'assertion \og Un arbre à $n$ sommets possède $n-1$ arêtes.\fg
+
+Montrons par récurrence forte que pour tout entier naturel $n\geq 1$, $P(n)$ est vraie.
+
+  \textbf{Initialisation.} Un arbre à un seul sommet est un point, il ne possède aucune arête puisque par définition les extrémités d'une arête doivent être distinctes.
+
+  \textbf{Hérédité.} Soit $n\geq 1$ un entier. Supposons $P(1)$, $P(2)$, ..., $P(n)$ soient vraies . Soit $\mathcal A$ un arbre à $n+1$ sommets. Il possède des arêtes d'après le point (3) de la définition. Considérons une telle arête, dont on note $S_1$ et $S_2$ les sommets. Enlevons cette arête. À priori, on obtient juste un graphe, qui est toujours \emph{simple} car ce n'est pas en enlevant une arête qu'on a pu créer une arête double ou bien une boucle, s'il n'y en avait pas.
+  
+Le graphe obtenu n'est plus connexe :  les sommets $S_1$ et $S_2$ ne sont plus reliés par une chaîne d'arêtes, autrement en remettant l'arête $[S_1S_2]$ on obtiendrait un cycle dans l'arbre $\mathcal A$ ce qui est absurde. Par contre, tout sommet du graphe peut être relié soit à $S_1$, soit à $S_2$. Ceci montre que le graphe obtenu en enlevant une arête est l'union de deux graphes simples connexes, notés $\mathcal A_1$ et $\mathcal A_2$. Comme $\mathcal A$ ne possède pas de cycles, $\mathcal A_1$ et $\mathcal A_2$ non plus, a fortiori. Ce sont donc des arbres.
+  
+En conclusion, en enlevant une arête à $\mathcal A$ il reste donc deux arbres $\mathcal A_1$ et $\mathcal A_2$ à $k$ et $l$ sommets, avec $k+l=n+1$, $k\leq n$ et $l\leq n$. Par hypothèse de récurrence forte, ces arbres ont donc respectivement $k-1$ et $l-1$ sommets. Ceci montre que l'arbre $\mathcal A$ possède $(k-1)+(l-1)+1 = k+l-1=n-1$ sommets, autrement dit $P(n+1)$ est vraie.
+
+\end{sol}
+\end{exo}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Triangulation d'un polygone]
+% source : Maxime, wikipedia https://fr.wikipedia.org/wiki/Triangulation_d%27un_polygone
+% puis pour l'existence d'oreilles : http://webcourse.cs.technion.ac.il/236603/Winter2005-2006/ho/WCFiles/meisters75.pdf
+Un \emph{polygone} est une ligne brisée fermée. Il est dit \emph{simple} si deux côtés non consécutifs ne se rencontrent pas et deux côtés consécutifs n'ont en commun que l'un de leurs sommets.\\
+\begin{minipage}{.7\linewidth}
+\emph{Trianguler} un polygone simple signifie l'écrire (lui et son intérieur) comme union de triangles, dont on demande ici que les sommets soient de plus des sommets du polygone.
+
+Montrer que tout polygone simple à $n\geq 3$ côtés est triangulable par $n-2$ triangles.
+\end{minipage}
+\begin{minipage}{.3\linewidth}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.3,3.36) rectangle (0.86,6.3);
+\fill[color=black,fill=black,fill opacity=0.4] (-3.64,4.18) -- (-3.,5.84) -- (-1.28,4.54) -- (-0.38,5.68) -- (0.12,3.88) -- (-2.68,4.6) -- cycle;
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\begin{hint}
+Montrer qu'il existe au moins une \emph{oreille}, c'est-à-dire un triangle avec deux arêtes appartenant à la frontière du polygone, et la troisième située à l'intérieur du polygone.
+
+Plus précisément, montrer qu'il existe toujours deux oreilles  qui ne se chevauchent pas.
+\end{hint}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Nombres de Fibonacci]
+% Source : Vorobiev, via Maxime ex 2045
+ 
+\def\spiral#1{%
+  \pgfmathparse{int(#1)}%
+  \ifnum\pgfmathresult>0
+    \draw [help lines] (0,0) rectangle ++(1,1);
+    \begin{scope}[shift={(1,1)}, rotate=-90, scale=0.6180339887]
+      \spiral{#1-1}
+    \end{scope}
+    \draw [red] (0,0) arc (180:90:1);
+  \fi
+}
+
+
+
+On définit les \emph{nombres de Fibonacci} $(F_n)_{n \geq 1}$ par récurrence de la façon suivante~: $F_1=1$, $F_2=1$ et pour tout $n\geq 1$, $ F_{n+2} = F_{n+1} + F_n$. 
+
+\begin{enumerate}
+\item Calculer les nombres de Fibonacci jusqu'à $n = 10$.
+\item Montrer que pour tout $n \geq 1$, il y a exactement $F_{n+1}$ façons de paver un échiquier de taille $2 \times n$ avec des dominos.
+\item Comparer, lorsque $n\geq 1$, les nombres $F_n^2$ et $F_{n-1}\,F_{n+1}$. Conjecturer une relation entre ces deux quantités puis la démontrer.
+%
+\end{enumerate}
+
+\begin{center}
+\tikz[scale=4]{\spiral{8}}\\
+\emph{Spirale de Fibonacci :  les côtés des carrés\\ vérifient la relation  $F_{n+2} = F_{n+1} + F_n$.}
+\end{center}
+\begin{hint}
+Pour la dernière question, démontrer que pour tout $n\geq 2$, on a :\[F_n^2 = F_{n-1}\,F_{n+1} + (-1)^{n+1}.\]
+\end{hint}
+
+\begin{sol}
+\begin{enumerate}
+\item On calcule les premières valeurs : $1$, $1$, $2$, $3$, $5$, $8$, $13$, $21$, $34$, $55$.
+\item Soit $u_n$ le nombre de façon de paver un échiquier de taille $2 \times n$.
+
+On regarde une extrémité de l'échiquier pavé par des dominos : soit il y a un domino en position verticale, et le reste est un échiquier de taille $2 \times (n-1)$, soit il y a deux dominos en position horizontale l'un sur l'autre, et ensuite il reste un échiquier de taille $2 \times (n-2)$. D'où la relation de récurrence $u_{n} = u_{n-1} + u_{n-2}$ valable pour $n\geq 2$. Enfin, on a $u_1=1$ et $u_2=2$, ce qui montre que la suite $(u_n)$ est la suite de Fibonacci mais décalée d'un cran : $u_n=F_{n+1}$.
+\item Montrons que pour tout $n\geq 2$, on a :\[F_n^2 = F_{n-1}\,F_{n+1} + (-1)^{n+1}.\]
+\textbf{Initialisation} : on a bien $F_2^2=1^2=1$ et $F_1F_3 =2-1=1$. \\
+\textbf{Hérédité} : Soit $n\geq 2$, et supposons que $F_n^2 = F_{n-1}\,F_{n+1} + (-1)^{n+1}$. Montrons que $F_{n+1}^2 = F_{n}\,F_{n+2} + (-1)^{n+2}$.
+
+Comme $F_{n+2} = F_n+F_{n+1}$, on a 
+\begin{align*}
+F_{n}\,F_{n+2} + (-1)^{n+2}
+&= F_{n}(F_n+F_{n+1}) + (-1)^{n+2}\\
+&= F_n^2+F_nF_{n+1}+ (-1)^{n+2}\\
+&= F_{n-1}\,F_{n+1} + (-1)^{n+1} + F_nF_{n+1}+ (-1)^{n+2}\\
+&= F_{n+1}^2.
+\end{align*}
+\end{enumerate}
+\end{sol}
+
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Parité d'un nombre de Fibonacci]
+Montrer que le $n$-ème nombre de Fibonacci $F_n$ est pair ssi $3|n$.
+\begin{sol}
+On prouve le résultat par récurrence forte.\\
+\textbf{Initialisation} : Pour $n=1$, c'est vrai.\\
+\text{Hérédité forte} : Soit $n\geq 1$ et supposons que pour tout $k\leq n$,  $F_k$ est pair ssi $3|k$. Montrons que $F_{n+1}$ est pair ssi $3|(n+1)$.\\
+\fbox{
+\begin{minipage}{.9\linewidth}
+\emph{Étant donné trois entiers $a$ $b$ et $c$ consécutifs, il y en a exactement un qui est divisible par trois. Donc par exemple $a$ est divisible par trois ssi ni $b$ et $c$ ne le sont.}
+\end{minipage}
+}
+
+On a 
+\begin{align*}
+3~|~n+1
+&\Leftrightarrow  (3~\not|~n)\text{ et } (3~\not|~n-1)\\
+&\Leftrightarrow (F_n \text{ est impair}) \text{ et } (F_{n-1} \text{ est impair})\\
+&\Rightarrow \underbrace{F_n+F_{n-1}}_{F_{n+1}} \text{ est pair}
+\end{align*}
+D'autre part, si $3$ ne divise pas $n+1$ alors il divise soit $n$ soit $n-1$ (mais pas les deux), donc l'un des deux nombres $F_n$ et $F_{n-1}$ est pair et l'autre impair, ce qui fait que $F_{n+1}$ est impair.
+
+\end{sol}
+\end{exo}
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Représentation de Zeckendorf]
+% récurrence forte
+Montrer que tout entier $n\geq 0$ est une somme de nombres Fibonacci distincts et non consécutifs. Montrer également que cette décomposition (additive) est unique. On l'appelle la \emph{représentation de Zeckendorf} d'un entier.
+\begin{hint}
+Pour l'existence, procéder par récurrence forte.
+
+Pour l'unicité, démontrer préalablement le lemme suivant : la somme de tout ensemble de nombres de Fibonacci distincts et non consécutifs, dont le plus grand élément est $F_j$, est strictement inférieure à $F_{j + 1}$.
+\end{hint}
+
+\begin{sol}
+On désigne par $\mathcal C$ l'ensemble des parties $I$ de $\N$ tel que : pour tout $i \in \N$, si $i \in I$, alors $i+1 \notin \N$.
+\textbf{$\rightarrow$ Existence : }\\
+Pour tout $n \in \N^*$, on pose $P(n)$ : \og Il existe $I \in \mathcal(C)$ tel que $n = \sum_{i \in I} F_i$ \fg. On va montrer que $P(n)$ est vraie pour tout $n$  par récurrence forte sur $n$.\\
+\textbf{Initialisation.} $1 = F_1$ et $P(1)$ est vraie.\\
+\textbf{Hérédité.} Soit $n \geq 1$. On suppose que $P(k)$ est vraie pour tout $k \leq n$ et on souhaite montrer $P(n+1)$.\\
+La suite $(F_i)_{i \in \N}$ des nombres de Fibonacci est strictement croissante. Soit alors $j \in \N^*$ unique tel que :
+$$ F_j \leq n+1 < F_j.$$
+Si $n+1 = F_j$, c'est fini. Sinon, $1 \leq (n+1) - F_j \leq n$ (car la suite de Fibonacci est minorée par 1). D'après l'hypothèse de récurrence, il existe $I \in \mathcal{C}$ tel que $(n+1) - F_j = \sum_{i \in I} F_i$.\\
+Reste à montrer que $I \cup \{F_j\} \in \mathcal{C}$. Si $F_{j-1} \in \mathcal{C}$, alors $n+1 \geq F_j + F_{j-1} = F_{j+1}$, ce qui est impossible par définition de $j$.\\
+Donc $P(n+1)$ est vraie. La propriété est héréditaire.\\
+\textbf{Conclusion.} D'après le principe de récurrence forte, on a montré que $P(n)$ est vraie pour tout $n \in N^*$ et donc l'existence d'une telle décomposition.\\
+
+
+\textbf{$\rightarrow$ Unicité : }\\
+Démontrons au préalable le lemme suivant : 
+\begin{center}
+Pour tout $I \in \mathcal{C}, \sum_{i \in I} F_i < F_{max(I) + 1}$
+\end{center}
+
+Ce lemme permettra de comparer les termes les plus grands de chacune des décompositions.
+
+\textbf{Démonstration du lemme.}
+On va prouver le lemme par récurrence sur $T$, la taille de $I$.
+\textbf{Initialisation.} Si $T = 1$, alors $I = {i_0}$ et $F_{i_0} < F_{i_0 + 1}$.\\
+\textbf{Hérédité.} Soit $t \in \N^*$. On suppose que la propriété est vraie pour toute partie $I \in \mathcal{C}$ de taille $t$.
+Soit $I \in \mathcal C$ de taille $t + 1$. On pose $J := I\setminus\{\text{max}(I)\}$.
+\begin{align*}
+\sum_{i \in I} F_i &= \sum{j \in J} F_j + F_{\text{max}(I)}\\
+		  & < F_{\text{max}(J) +1} + F_{\text{max}(I)},\text{ (par hypothèse de récurrence appliquée à J)}
+\end{align*}
+Or, $\text{max}(I) -1 \notin I$ par définition de $\mathcal{C}$, donc $\text{max}(I) -1 \notin J$ et $\text{max}(J) \leq \text{max}(I) -2$. Ainsi, 
+\begin{align*}
+F_{\text{max}(J) +1} + F_{\text{max}(I)} & \leq F_{\text{max}(I) -1} + F_{\text{max}(I)} \\
+ & \leq F_{\text{max}(I)+1}.
+\end{align*}
+Finalement, on obtient que $\sum_{i \in I} F_i < F_{\text{max}(I)+1}$.\\
+\textbf{Conclusion.} Ceci prouve le lemme.
+
+\textbf{Démonstration de l'unicité.}
+Supposons par l'absurde qu'il existe deux décompositions pour un même entier $n$ :
+$$ n = \sum_{i \in I} F_i = \sum_{k \in K} F_k $$
+où $I, K \in \mathcal C, I \neq K$.
+On peut supposer que max($I$) < max($K$) (quitte à soustraire de l'égalité ces termes s'ils sont égaux). Ainsi :
+\begin{align*}
+n & = \sum_{i \in I} F_i \\
+  & < F_{\text{max}(I)+1} \leq F_{\text{max}(K)} \\
+  & \leq \sum_{k \in K} F_k = n.
+\end{align*}
+D'où, $n < n$, ce qui est absurde.
+\end{sol}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Sommes cumulées]
+% récurrence forte
+Soit $(u_n)_{n\in \N}$ la suite définie par $u_0=1$ et, pour tout $n\in \N$, $u_{n+1}=u_0+u_1+ ... u_n$. Conjecturer une formule donnant $u_n$ en fonction de $n$ et la démontrer.
+\begin{hint}
+Procéder par récurrence forte.
+\end{hint}
+\begin{sol}
+
+Il semble que pour tout entier $n\geq 1$, on ait $u_n = 2^{n-1}$. Montrons-le par récurrence forte.
+
+\noindent \textbf{Initialisation.} Pour $n=1$ c'est vrai.
+
+\noindent\textbf{Hérédité sous hypothèse de récurrence forte.} Soit $n\geq 1$, et supposons que pour tout $k\leq n$, on ait :
+\[ A(k): \quad u_n = 2^{n-1} \]
+
+Montrons l'assertion $A(n+1)$. On a par définition
+\begin{align*}
+u_{n+1}
+&= u_0+u_1+ ... u_n\\
+&= 1 + 2^0 + 2^1+ ...2^{n-1}\\
+&= 1+ \frac{2^n-1}{2-1} \quad \text{(somme géométrique)}\\
+&= 2^n
+\end{align*}
+Donc $A(n+1)$ est vraie. Par le principe de récurrence forte, on conclut comme désiré.\\
+
+\begin{remarque}
+En fait, on peut résoudre l'exercice sans récurrence forte. Remarquons d'abord que pour $n\geq 1$, on a :
+\[u_{n+1}-u_n = u_0+u_1+ ... u_n - u_n = u_0+u_1+ ... u_{n-1} = u_n,\]
+c'est-à-dire que l'on a:
+\[ u_{n+1} = 2u_n.\]
+Attention, ceci est valable pour $n\geq 1$, pas pour $n\geq 0$. On en déduit que pour $n\geq 1$, la suite  $(u_n)$ est une suite géométrique de raison $2$. On a donc $u_2 = 2$, $u_3 = 4$, $u_4=8$, et de façon générale $u_n = 2^{n-1}u_1$.
+\end{remarque}
+\end{sol}
+\end{exo}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{exo}[Récurrence double]
+% récurrence double
+Soit $x$ un réel non nul tel que $x+\frac1x$ soit entier. Montrer que pour tout entier naturel $n$, le réel $x^n+\frac{1}{x^n}$ est un entier.
+\begin{hint}
+Penser à initialiser sur les deux premiers rangs.
+\end{hint}
+\begin{sol}
+Soit $x$ un réel non nul tel que $x + \frac{1}{x}$ est un entier. Pour tout $n \in \N$, on note $A(n)$ l'assertion \og $x^n + \frac{1}{x^n}$.\fg. On va montrer que $A(n)$ est vraie pour tout $n \in \N$ par récurrence (sur les deux rangs précédents).
+\textbf{Initialisation.} Pour $n = 0$, $x^n + \frac{1}{x^n} = 2$ ; pour $n = 1$, $x + \frac{1}{x}$ est également entier.
+\textbf{Hérédité sous hypothèse de récurrence double.} Soit $n \geq 1$. On suppose $A(n)$ et $A(n-1)$ vraies. Montrons $A(n+1)$. \\
+$(x^n + \frac{1}{x^n})(x+\frac{1}{n}) = x^{n+1} + \frac{1}{x^{n+1}} + x^{n-1} + \frac{1}{x^{n-1}}$\\
+Ainsi $x^{n+1} + \frac{1}{x^{n+1}} = (x^n + \frac{1}{x^n})(x+\frac{1}{n}) - (x^{n-1} + \frac{1}{x^{n-1}}) \in \Z$\\
+Donc $A(n+1)$ est vraie. La propriété est héréditaire.
+\textbf{Conclusion.} D'après le principe de récurrence, on a montré que $A(n)$ est vraie pour tout $n \in N$.\\
+\end{sol}
+
+\end{exo}
+
